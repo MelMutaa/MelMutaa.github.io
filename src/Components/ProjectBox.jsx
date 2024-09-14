@@ -1,6 +1,7 @@
 import React from "react";
 import { FaGithub } from "react-icons/fa";
 import { CgFileDocument } from "react-icons/cg";
+import PropTypes from "prop-types";
 
 const ProjectBox = ({ projectPhoto, projectName }) => {
   const desc = {
@@ -50,4 +51,10 @@ const ProjectBox = ({ projectPhoto, projectName }) => {
     </div>
   );
 };
+
+ProjectBox.propTypes = {
+  projectPhoto: PropTypes.string.isRequired,
+  projectName: PropTypes.string.isRequired,
+  
+}
 export default ProjectBox;

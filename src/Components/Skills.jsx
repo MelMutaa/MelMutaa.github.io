@@ -12,6 +12,7 @@ import {
 } from "react-icons/fa";
 import { DiJavascript1 } from "react-icons/di";
 import { SiTailwindcss } from "react-icons/si";
+import {PropTypes} from "prop-types";
 
 const Skills = ({ skill }) => {
   const icon = {
@@ -34,5 +35,9 @@ const Skills = ({ skill }) => {
     </div>
   );
 };
+
+Skills.propTypes = {
+  skill: PropTypes.object.isRequired
+}
 
 export default Skills;
