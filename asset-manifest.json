@@ -1,0 +1,18 @@
+{
+  "files": {
+    "main.css": "/static/css/main.45a63327.css",
+    "main.js": "/static/js/main.cc4f2643.js",
+    "static/media/Avatar.png": "/static/media/Avatar.9f7a8443ebeede632b6e.png",
+    "static/media/gym.png": "/static/media/gym.2c22183cee437c76e62f.png",
+    "static/media/backpack.png": "/static/media/backpack.40f7a59b7d630a98ad44.png",
+    "static/media/colour.png": "/static/media/colour.679e50857887aa6b6a0b.png",
+    "static/media/Film.png": "/static/media/Film.cee37f7c43c9b03e5124.png",
+    "index.html": "/index.html",
+    "main.45a63327.css.map": "/static/css/main.45a63327.css.map",
+    "main.cc4f2643.js.map": "/static/js/main.cc4f2643.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.45a63327.css",
+    "static/js/main.cc4f2643.js"
+  ]
+}
