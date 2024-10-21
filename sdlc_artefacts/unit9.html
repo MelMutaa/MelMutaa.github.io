@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Artefact Title - MelMutaa E-Portfolio</title>
+  <!-- Meta tags for responsiveness -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Favicon -->
+  <link rel="shortcut icon" href="./favicon-16x16.png">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Roboto:400,300,600,400italic,700" rel="stylesheet">
+
+  <!-- CSS Libraries -->
+  <link rel="stylesheet" href="../css/artefact.css">
+  <link rel="stylesheet" href="../css/style.css">
+ 
+
+  <!-- Include FontAwesome for icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+  
+
+    <!-- Main Content -->
+    <div id="main">  
+      
+      <!-- Breadcrumbs Section -->
+      <section id="breadcrumbs">
+          <p><a href="../sdlc.html">Back to Unit Overview </a> > <span>Unit: 9 - E-portfolio Artefacts</span></p>
+      </section>
+
+      <!-- Introduction Section -->
+      <section id="introduction">
+          <h2>Introduction to Secure Software Development </h2>
+      </section>
+
+<!-- Learning Outcomes Section -->
+<section id="learning-outcomes">
+    <h2 style="text-align: center;">Learning Overview</h2>
+    <div style="display: flex; gap: 20px;">
+        <!-- Column 1: General Learning Outcomes -->
+        <div style="flex: 1;">
+            <strong><p>Learning Outcomes:</p></strong>
+            <ul>
+                <li>Explore how CRUD (Create, Read, Update, Delete) functionalities are implemented in Python.</li>
+                <li>Expand your understanding of additional Python libraries and their capabilities.</li>
+                <li>Reflect on the role of an ontology in supporting distributed system architecture.</li>
+            </ul>
+        </div>
+
+        <!-- Column 2: Additional Learning Outcomes -->
+        <div style="flex: 1;">
+             <strong><p>On completion of this unit, you will be able to:</p></strong>
+            <ul>
+                <li>Build an API and use it to create and retrieve records.</li>
+                <li>Gain familiarity with the Flask library and its capabilities in Python development.</li>
+                <li>Design an ontology to be used in standardised service deployments within distributed systems.</li>
+            </ul>
+        </div>
+    </div>
+</section>
+
+
+
+      <!-- Artefact Tiles Section -->
+      <section id="artefact-tiles">
+          <div class="tile">
+              <a href="#artefact-container">
+                  <div class="tile-content">
+                      <h3>Summary post 2</h3>
+                      <p>Final post</p>
+                      
+                  </div>
+              </a>
+            </div>
+      </section>
+
+
+      <!-- Artefact Tiles Section -->
+      <section id="artefact-tiles">
+        <div class="tile">
+            <a href="#artefact-container">
+                <div class="tile-content">
+                    <h3>Carrying on with previous week actvities API's to be posted later...</h3>
+                    
+                </div>
+            </a>
+          </div>
+    </section>
+
+<!-- Artefact Content Section -->
+<div id="artefact-container" class="blog-post">
+    <!-- Title and Date Container -->
+    <div id="title-meta-container">
+        <div id="artefact-header">
+            <h1>Summary Post: Reflecting on TrueCrypt Vulnerabilities and Alternatives</h1>
+            <p class="artefact-meta">Published on <time datetime="2024-10-19">October 19, 2024</time></p>
+        </div>
+    </div>
+
+
+        <!-- Description Section -->
+        <div class="artefact-description">
+            <h2>Summary Post</h2>
+            <p>
+                Reflecting on the peer feedback, the analysis of TrueCrypt can be improved by discussing its key vulnerabilities and comparing it with modern alternatives like VeraCrypt and BitLocker.
+            </p>
+            <p>
+                One of the most significant vulnerabilities in TrueCrypt is its low iteration count on the volume header key. This weakness makes it computationally easier for attackers to brute-force the derived key using different password combinations (Junestam & Guigo, 2014). Essentially, because fewer iterations are performed when hashing passwords, attackers can perform password-guessing attacks much faster compared to systems with higher iteration counts, making TrueCrypt particularly vulnerable to brute-force attacks.
+            </p>
+            <p>
+                In contrast, modern alternatives like VeraCrypt have addressed this issue by significantly increasing the iteration count, making brute-force attacks much more computationally expensive and, therefore, more secure. VeraCrypt is also actively maintained and regularly patched, unlike TrueCrypt, which was discontinued in 2014. In addition to the higher iteration count, VeraCrypt introduces other enhancements, such as improved security algorithms and the ability to encrypt larger volumes, making it a more secure option for data encryption (VeraCrypt, 2023).
+            </p>
+            <p>
+                Another alternative is BitLocker, which is built into modern versions of Windows. BitLocker uses industry-standard AES encryption and includes features like hardware-based encryption via TPM (Trusted Platform Module) chips. Unlike TrueCrypt, BitLocker is integrated into the operating system, offering seamless encryption with regular updates from Microsoft. However, BitLocker is only available for certain editions of Windows, and its closed-source nature makes it less appealing for users who prefer open-source encryption tools.
+            </p>
+            <p>
+                In summary, the low iteration count on the volume header key is one of the most severe weaknesses of TrueCrypt, leaving it vulnerable to brute-force attacks. Modern alternatives like VeraCrypt and BitLocker patch these issues by offering better encryption standards, regular updates, and stronger resistance to brute-force attacks, making them more secure options for sensitive data storage.
+            </p>
+
+            <h2>References</h2>
+            <ul>
+                <li>Junestam, J., & Guigo, M., 2014. TrueCrypt Cryptanalysis. [online] Available at: <a href="https://example.com">https://example.com</a> [Accessed 20 Oct. 2024].</li>
+                <li>TrueCrypt, 2014. Official Warning Statement. [online] Available at: <a href="https://truecrypt.sourceforge.net">https://truecrypt.sourceforge.net</a> [Accessed 20 Oct. 2024].</li>
+                <li>VeraCrypt, 2023. Documentation and Features. [online] Available at: <a href="https://www.veracrypt.fr/en/Documentation.html">https://www.veracrypt.fr/en/Documentation.html</a> [Accessed 20 Oct. 2024].</li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+
+  <!-- Include JavaScript files -->
+  <script src="js/jquery.min.js"></script>
+  <!-- Include your custom JS files -->
+  <script src="js/artefact.js"></script>
+
+</body>
+</html>

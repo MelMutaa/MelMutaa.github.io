@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Artefact Title - MelMutaa E-Portfolio</title>
+  <!-- Meta tags for responsiveness -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Favicon -->
+  <link rel="shortcut icon" href="./favicon-16x16.png">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Roboto:400,300,600,400italic,700" rel="stylesheet">
+
+  <!-- CSS Libraries -->
+  <link rel="stylesheet" href="../css/artefact.css">
+  <link rel="stylesheet" href="../css/style.css">
+ 
+
+  <!-- Include FontAwesome for icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+  
+
+    <!-- Main Content -->
+    <div id="main">  
+      
+      <!-- Breadcrumbs Section -->
+      <section id="breadcrumbs">
+          <p><a href="../sdlc.html">Back to Unit Overview </a> > <span>Unit: 12 - E-portfolio Artefacts</span></p>
+      </section>
+
+      <!-- Introduction Section -->
+      <section id="introduction">
+          <h2>Introduction to Secure Software Development </h2>
+      </section>
+
+<!-- Learning Outcomes Section -->
+<section id="learning-outcomes">
+    <h2 style="text-align: center;">Learning Overview</h2>
+    <div style="display: flex; gap: 20px;">
+        <!-- Column 1: General Learning Outcomes -->
+        <div style="flex: 1;">
+            <strong><p>Learning Outcomes:</p></strong>
+            <ul>
+                <li>Examine journal articles and literature related to monoliths, microkernels, and microservices.</li>
+                <li>Participate in discussions evaluating these architectural models.</li>
+                <li>Explore recent advancements in secure programming techniques.</li>
+            </ul>
+        </div>
+
+        <!-- Column 2: Additional Learning Outcomes -->
+        <div style="flex: 1;">
+             <strong><p>On completion of this unit, you will be able to:</p></strong>
+            <ul>
+                <li>Recommend an approach—monolithic or microservices—based on your analysis of each model.</li>
+                <li>Provide well-supported evidence to justify your recommendation.</li>
+                <li>Explain the workings and benefits of faceted data approaches.</li>
+            </ul>
+        </div>
+    </div>
+</section>
+
+
+
+      <!-- Artefact Tiles Section -->
+      <section id="artefact-tiles">
+          <div class="tile">
+              <a href="#artefact-container">
+                  <div class="tile-content">
+                      <h3>Microservices and Microkernels Debate </h3>
+                      <p> Team Discussion</p>
+                  </div>
+              </a>
+            </div>
+      </section>
+
+
+	<!-- Artefact Content Section -->
+<div id="artefact-container" class="blog-post">
+    <!-- Title and Date Container -->
+    <div id="title-meta-container">
+        <div id="artefact-header">
+            <h1>Unit 11 - Microservices and Microkernels Debate</h1>
+            <p class="artefact-meta">Published on <time datetime="2024-10-20">October 20, 2024</time></p>
+        </div>
+    </div>
+
+
+        <!-- Description Section -->
+        <div class="artefact-description">
+            <h2>Forum Response: Disagreeing with the Assertion that "Torvalds Has Been Proven Wrong"</h2>
+            <p>
+                While microservices and microkernels have certainly gained traction in modern software development, it would be inaccurate to say that Linus Torvalds has been "proven wrong" in his advocacy for monolithic kernels. Both microkernels and monolithic kernels have their place, depending on the specific needs and constraints of the system being developed.
+            </p>
+            <p>
+                In the Tanenbaum-Torvalds debate, Torvalds defended the use of monolithic kernels in operating system design, citing performance efficiency and simplicity. At the time, microkernels were criticized for being overly complex and slower due to increased inter-process communication (IPC) overhead (DiBona & Ockman, 1999). Today, microservices and microkernels are praised for their modularity and scalability, particularly in cloud environments where distributed systems are crucial (Fritzsch et al., 2019). However, this does not invalidate the advantages of monolithic designs.
+            </p>
+            <p>
+                Monolithic kernels, like Linux, have evolved to handle modern computing needs effectively, especially in performance-critical environments such as supercomputing and data centers. Linux's success across a range of platforms, from desktops to servers, demonstrates the viability and longevity of the monolithic kernel design.
+            </p>
+            <p>
+                Moreover, while microservices are popular in enterprise software development, they are not a direct replacement for monolithic operating system kernels, which still hold performance advantages in certain contexts (Hassan & Bahsoon, 2016).
+            </p>
+            <p>
+                In conclusion, both architectures have their strengths, and the success of microservices and microkernels does not mean that monolithic designs are obsolete. The choice of architecture depends on the specific use case, and for many scenarios, monolithic kernels remain a highly effective solution.
+            </p>
+
+            <h2>References</h2>
+            <ul>
+                <li>DiBona, C. and Ockman, S., 1999. Open Sources: Voices from the Open Source Revolution. O'Reilly Media.</li>
+                <li>Fritzsch, J., Bogner, J., Zimmermann, A. and Wagner, S., 2019. From Monolithic Systems to Microservices: A Classification of Refactoring Approaches. In: 2019 IEEE International Conference on Software Maintenance and Evolution (ICSME), pp. 481-485.</li>
+                <li>Hassan, Z. and Bahsoon, R., 2016. Microservices and their Design Trade-offs: A Model-Driven Analysis. In: IEEE 9th International Conference on Cloud Computing (CLOUD), pp. 497-504.</li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+
+  <!-- Include JavaScript files -->
+  <script src="js/jquery.min.js"></script>
+  <!-- Include your custom JS files -->
+  <script src="js/artefact.js"></script>
+
+</body>
+</html>

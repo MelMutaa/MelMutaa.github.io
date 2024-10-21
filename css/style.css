@@ -1,0 +1,1005 @@
+html {
+  scroll-behavior: smooth;
+}
+
+/*-----------------------------------------------------------------
+  1. Font Definitions
+----------------------------------------------------------------*/
+@font-face {
+  font-family: 'icomoon';
+  src: url("../fonts/icomoon/icomoon.eot?srf3rx");
+  src: url("../fonts/icomoon/icomoon.eot?srf3rx#iefix") format("embedded-opentype"),
+       url("../fonts/icomoon/icomoon.ttf?srf3rx") format("truetype"),
+       url("../fonts/icomoon/icomoon.woff?srf3rx") format("woff"),
+       url("../fonts/icomoon/icomoon.svg?srf3rx#icomoon") format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+
+/*-----------------------------------------------------------------
+  2. General Styles
+----------------------------------------------------------------*/
+body {
+  font-family: "Roboto", Arial, sans-serif;
+  font-weight: 300;
+  font-size: 20px;
+  line-height: 1.6;
+  color: rgba(0, 0, 0, 0.5);
+}
+
+@media screen and (max-width: 992px) {
+  body {
+    font-size: 16px;
+  }
+}
+
+a {
+  color: #e30788;
+  transition: 0.5s;
+}
+
+a:hover,
+a:active,
+a:focus {
+  color: #da1212;
+  outline: none;
+}
+
+p {
+  margin-bottom: 1.5em;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color: #000;
+  font-family: "Montserrat", Arial, sans-serif;
+  font-weight: 700;
+  margin: 0 0 30px 0;
+}
+
+figure {
+  margin-bottom: 2.5em;
+  float: left;
+  width: 100%;
+}
+
+/*-----------------------------------------------------------------
+  3. Selection Styling
+----------------------------------------------------------------*/
+::-webkit-selection {
+  color: #fff;
+  background: #da1212;
+}
+
+::-moz-selection {
+  color: #fff;
+  background: #da1212;
+}
+
+::selection {
+  color: #fff;
+  background: #da1212;
+}
+
+/*-----------------------------------------------------------------
+  4. Page Layout
+----------------------------------------------------------------*/
+#fh5co-page {
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+}
+#fh5co-main {
+    width: 85%;
+    float: right;
+    -webkit-transition: 0.5s;
+    -o-transition: 0.5s;
+    transition: 0.5s;
+  }
+  @media screen and (max-width: 1200px) {
+    #fh5co-main {
+      width: 70%;
+    }
+  }
+  @media screen and (max-width: 768px) {
+    #fh5co-main {
+      width: 100%;
+    }
+  }
+  #fh5co-main .fh5co-narrow-content {
+    position: relative;
+    width: 80%;
+    margin: 0 auto;
+    padding: 4em 0;
+  }
+  @media screen and (max-width: 768px) {
+    #fh5co-main .fh5co-narrow-content {
+      width: 100%;
+      padding: 3.5em 1em;
+    }
+  }
+  
+  body.offcanvas {
+    overflow-x: hidden;
+  }
+  body.offcanvas #fh5co-aside {
+    -moz-transform: translateX(0);
+    -webkit-transform: translateX(0);
+    -ms-transform: translateX(0);
+    -o-transform: translateX(0);
+    transform: translateX(0);
+    width: 270px;
+    background: #fff;
+    z-index: 999;
+    position: fixed;
+  }
+  body.offcanvas #fh5co-main, body.offcanvas .fh5co-nav-toggle {
+    top: 0;
+    -moz-transform: translateX(270px);
+    -webkit-transform: translateX(270px);
+    -ms-transform: translateX(270px);
+    -o-transform: translateX(270px);
+    transform: translateX(270px);
+  }
+  /*-----------------------------------------------------------------
+  Module Cards
+----------------------------------------------------------------*/
+
+/* Flip Card Container */
+.flip-card {
+  background-color: transparent;
+  width: 100%;
+  height: 300px; /* Adjust as needed */
+  perspective: 1000px;
+  margin-bottom: 30px;
+  box-sizing: border-box;
+  transition: border 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Add border highlight and shadow on hover */
+.flip-card:hover {
+  border: 2px solid #f26464; /* Highlight border color */
+  box-shadow: 0 0 15px rgba(242, 100, 100, 0.5); /* Optional shadow */
+}
+
+/* Flip Card Inner */
+.flip-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.6s;
+  transform-style: preserve-3d;
+}
+
+/* Flip Card on Hover */
+.flip-card:hover .flip-card-inner {
+  transform: rotateY(180deg);
+}
+
+/* Front and Back Faces */
+.flip-card-front, .flip-card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+}
+
+/* Front Side */
+.flip-card-front {
+  background-color: #fff;
+}
+
+/* Front Image and Title */
+.flip-card-front a img {
+  width: 100%;
+  height: 70%;
+  object-fit: cover;
+}
+
+.flip-card-front a h4 {
+  margin-top: 10px;
+  color: #333;
+}
+
+/* Back Side */
+.flip-card-back {
+  background-color: #f26464;
+  color: white;
+  transform: rotateY(180deg);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+.flip-card-back h4 {
+  margin-bottom: 10px;
+  font-size: 20px;
+}
+
+.flip-card-back p {
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.flip-card-back a.btn {
+  margin-top: 15px;
+  color: #fff;
+  border: 1px solid #fff;
+  padding: 8px 16px;
+  text-decoration: none;
+  border-radius: 4px;
+}
+
+.flip-card-back a.btn:hover {
+  background-color: #fff;
+  color: #f26464;
+}
+
+/* Ensure Consistent Height */
+.work-item {
+  height: 300px; /* Same as flip-card */
+  margin-bottom: 30px;
+  padding: 2px 16px;
+  box-sizing: border-box;
+}
+
+/* Responsive Adjustments */
+@media screen and (max-width: 768px) {
+  .work-item {
+      width: 48%; /* Two items per row */
+  }
+}
+
+@media screen and (max-width: 576px) {
+  .work-item {
+      width: 100%; /* One item per row */
+  }
+}
+
+  
+/*-----------------------------------------------------------------
+  4. Nav Toogle
+----------------------------------------------------------------*/
+
+.fh5co-nav-toggle {
+    cursor: pointer;
+    text-decoration: none;
+  }
+  .fh5co-nav-toggle.active i::before, .fh5co-nav-toggle.active i::after {
+    background: #000;
+  }
+  .fh5co-nav-toggle.dark.active i::before, .fh5co-nav-toggle.dark.active i::after {
+    background: #000;
+  }
+  .fh5co-nav-toggle:hover, .fh5co-nav-toggle:focus, .fh5co-nav-toggle:active {
+    outline: none;
+    border-bottom: none !important;
+  }
+  .fh5co-nav-toggle i {
+    position: relative;
+    display: -moz-inline-stack;
+    display: inline-block;
+    zoom: 1;
+    display: inline;
+    width: 30px;
+    height: 2px;
+    color: #000;
+    font: bold 14px/.4 Helvetica;
+    text-transform: uppercase;
+    text-indent: -55px;
+    background: #000;
+    transition: all .2s ease-out;
+  }
+  .fh5co-nav-toggle i::before, .fh5co-nav-toggle i::after {
+    content: '';
+    width: 30px;
+    height: 2px;
+    background: #000;
+    position: absolute;
+    left: 0;
+    -webkit-transition: 0.2s;
+    -o-transition: 0.2s;
+    transition: 0.2s;
+  }
+  .fh5co-nav-toggle.dark i {
+    position: relative;
+    color: #000;
+    background: #000;
+    transition: all .2s ease-out;
+  }
+  .fh5co-nav-toggle.dark i::before, .fh5co-nav-toggle.dark i::after {
+    background: #000;
+    -webkit-transition: 0.2s;
+    -o-transition: 0.2s;
+    transition: 0.2s;
+  }
+  
+  .fh5co-nav-toggle i::before {
+    top: -7px;
+  }
+  
+  .fh5co-nav-toggle i::after {
+    bottom: -7px;
+  }
+  
+  .fh5co-nav-toggle:hover i::before {
+    top: -10px;
+  }
+  
+  .fh5co-nav-toggle:hover i::after {
+    bottom: -10px;
+  }
+  
+  .fh5co-nav-toggle.active i {
+    background: transparent;
+  }
+  
+  .fh5co-nav-toggle.active i::before {
+    top: 0;
+    -webkit-transform: rotateZ(45deg);
+    -moz-transform: rotateZ(45deg);
+    -ms-transform: rotateZ(45deg);
+    -o-transform: rotateZ(45deg);
+    transform: rotateZ(45deg);
+  }
+  
+  .fh5co-nav-toggle.active i::after {
+    bottom: 0;
+    -webkit-transform: rotateZ(-45deg);
+    -moz-transform: rotateZ(-45deg);
+    -ms-transform: rotateZ(-45deg);
+    -o-transform: rotateZ(-45deg);
+    transform: rotateZ(-45deg);
+  }
+  
+  .fh5co-nav-toggle {
+    position: fixed;
+    left: 0;
+    top: 0px;
+    z-index: 9999;
+    cursor: pointer;
+    opacity: 1;
+    visibility: hidden;
+    padding: 20px;
+    -webkit-transition: 0.5s;
+    -o-transition: 0.5s;
+    transition: 0.5s;
+  }
+  @media screen and (max-width: 768px) {
+    .fh5co-nav-toggle {
+      opacity: 1;
+      visibility: visible;
+    }
+  }
+  
+  @media screen and (max-width: 480px) {
+    .col-xxs-12 {
+      float: none;
+      width: 100%;
+    }
+  }
+
+/*-----------------------------------------------------------------
+  5. Side Navbar Styles
+----------------------------------------------------------------*/
+#fh5co-aside {
+  padding-top: 20px; /* Reduced from 40px to remove whitespace */
+  padding-bottom: 40px;
+  width: 15%;
+  position: fixed;
+  bottom: 0;
+  top: 0;
+  left: 0;
+  overflow-y: auto; /* Changed to auto for better scrollbar behavior */
+  transition: transform 0.5s;
+  background-color: #fff; /* Ensures the sidebar has a background */
+}
+
+#fh5co-aside.border {
+  border-right: 1px solid #e6e6e6;
+}
+
+@media screen and (max-width: 1200px) {
+  #fh5co-aside {
+    width: 30%;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  #fh5co-aside {
+    width: 270px;
+    transform: translateX(-270px);
+  }
+}
+
+#fh5co-aside.hidden {
+  transform: translateX(-100%);
+}
+
+/*-----------------------------------------------------------------
+  6. Logo Styling
+----------------------------------------------------------------*/
+#fh5co-aside #fh5co-logo {
+  text-align: center;
+  margin-top: 0; /* Removes any top margin */
+  margin-bottom: 30px; /* Space below the logo */
+  padding-top: 0; /* Removes any top padding */
+}
+
+#fh5co-aside #fh5co-logo img {
+  display: block;
+  margin: 0 auto;
+  max-width: 80%; /* Ensures the logo fits within the sidebar */
+  height: auto; /* Maintains aspect ratio */
+}
+
+/*-----------------------------------------------------------------
+  7. Main Menu Styles
+----------------------------------------------------------------*/
+#fh5co-aside #fh5co-main-menu ul {
+  text-align: center;
+  margin: 0;
+  padding: 0;
+}
+
+@media screen and (max-width: 768px) {
+  #fh5co-aside #fh5co-main-menu ul {
+    margin: 0 0 2em 0;
+  }
+}
+
+#fh5co-aside #fh5co-main-menu ul li {
+  margin: 0 0 10px 0;
+  padding: 0;
+  list-style: none;
+}
+
+#fh5co-aside #fh5co-main-menu ul li a {
+  color: rgba(0, 0, 0, 0.5);
+  text-decoration: none;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  font-size: 15px;
+  font-weight: 300;
+  position: relative;
+  transition: color 0.3s;
+  padding: 10px 10px;
+  font-family: "Montserrat", Arial, sans-serif;
+}
+
+#fh5co-aside #fh5co-main-menu ul li a:after {
+  content: "";
+  position: absolute;
+  height: 2px;
+  bottom: 7px;
+  left: 10px;
+  right: 10px;
+  background-color: #e30788;
+  visibility: hidden;
+  transform: scaleX(0);
+  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+#fh5co-aside #fh5co-main-menu ul li a:hover {
+  color: black;
+}
+
+#fh5co-aside #fh5co-main-menu ul li a:hover:after,
+#fh5co-aside #fh5co-main-menu ul li.fh5co-active a:after {
+  visibility: visible;
+  transform: scaleX(1);
+}
+
+#fh5co-aside #fh5co-main-menu ul li.fh5co-active a {
+  color: black;
+}
+/* Adjust main content to account for the fixed side navbar */
+#fh5co-main {
+    margin-left: 15%;
+    padding: 20px;
+}
+
+@media screen and (max-width: 1200px) {
+    #fh5co-main {
+        margin-left: 30%;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    #fh5co-main {
+        margin-left: 0;
+        padding: 20px 10px;
+    }
+}
+
+/*-----------------------------------------------------------------
+  8. Footer Styles
+----------------------------------------------------------------*/
+#fh5co-aside .fh5co-footer {
+  position: absolute;
+  bottom: 40px;
+  font-size: 14px;
+  text-align: center;
+  width: 100%;
+  font-weight: 400;
+  color: rgba(0, 0, 0, 0.6);
+}
+
+@media screen and (max-width: 768px) {
+  #fh5co-aside .fh5co-footer {
+    position: relative;
+    bottom: 0;
+  }
+}
+
+#fh5co-aside .fh5co-footer span {
+  display: block;
+}
+
+#fh5co-aside .fh5co-footer ul {
+  padding: 0;
+  margin: 0;
+  text-align: center;
+}
+
+#fh5co-aside .fh5co-footer ul li {
+  padding: 0;
+  margin: 0;
+  display: inline;
+  list-style: none;
+}
+
+#fh5co-aside .fh5co-footer ul li a {
+  color: rgba(0, 0, 0, 0.7);
+  padding: 4px;
+}
+
+#fh5co-aside .fh5co-footer ul li a:hover,
+#fh5co-aside .fh5co-footer ul li a:active,
+#fh5co-aside .fh5co-footer ul li a:focus {
+  text-decoration: none;
+  outline: none;
+  color: #e30788;
+}
+
+/*-----------------------------------------------------------------
+  9. Footer Social Icons Styling
+----------------------------------------------------------------*/
+
+/* Target all <i> elements within the footer's social links */
+.fh5co-footer ul li a i {
+  color: #e30788; /* Sets the icon color to match LinkedIn */
+  font-size: 24px; /* Increases the icon size */
+  transition: color 0.3s, font-size 0.3s; /* Smooth transition for hover effects */
+}
+
+/* Optional: Slightly increase size on hover */
+.fh5co-footer ul li a:hover i,
+.fh5co-footer ul li a:active i,
+.fh5co-footer ul li a:focus i {
+  color: #130a0a; /* Ensures color remains consistent on hover */
+  font-size: 26px; /* Slightly larger on hover */
+}
+
+/*-----------------------------------------------------------------
+  10. Banner Style
+----------------------------------------------------------------*/
+/* General Layout and Responsive Typography */
+.fh5co-narrow-content {
+  /* Ensures it doesn't exceed screen width */
+  max-width: 100%; 
+  margin: 0 auto;
+  text-align: center;
+  /* Add padding for better spacing */
+  padding: 60px 20px; 
+  /* Ensures padding doesn't affect total width */
+  box-sizing: border-box; 
+}
+
+/* Typing Effect */
+#typed-text {
+  display: inline-block;
+  overflow: hidden; /* Ensures the text is hidden until typed */
+  border-right: .15em solid orange; /* Cursor */
+  white-space: normal; /* Allows text to wrap */
+  word-wrap: break-word; /* Handles long words properly */
+  margin: 0 auto;
+  letter-spacing: .15em;
+  animation:
+      typing 4s steps(40, end),
+      blink-caret .75s step-end infinite;
+}
+
+/* Typing Animation */
+@keyframes typing {
+  from { width: 0 }
+  to { width: 100% }
+}
+
+/* Blinking Cursor Animation */
+@keyframes blink-caret {
+  from, to { border-color: transparent }
+  50% { border-color: #F26464 }
+}
+
+/* Subheading Style */
+.banner-subheading {
+  margin-top: 20px;
+  font-size: 24px;
+  color: #F26464;
+  font-weight: 600;
+}
+
+/* Responsive Adjustments */
+
+/* Larger screens (1200px and up) */
+@media screen and (min-width: 1200px) {
+  #typed-text {
+      font-size: 40px;
+      line-height: 50px;
+      /* Prevents text from overflowing */
+      max-width: 100%; 
+  }
+
+  .banner-subheading {
+      font-size: 28px;
+  }
+}
+
+/* Medium screens (992px to 1199px) */
+@media screen and (max-width: 1199px) {
+  #typed-text {
+      font-size: 36px;
+      line-height: 45px;
+      max-width: 90%;
+  }
+
+  .banner-subheading {
+      font-size: 24px;
+  }
+}
+
+/* Tablets and small screens (768px to 991px) */
+@media screen and (max-width: 991px) {
+  #typed-text {
+      font-size: 28px;
+      line-height: 35px;
+      max-width: 90%;
+  }
+
+  .banner-subheading {
+      font-size: 22px;
+  }
+}
+
+/* Phones (576px to 767px) */
+@media screen and (max-width: 767px) {
+  #typed-text {
+      font-size: 24px;
+      line-height: 30px;
+      max-width: 100%;
+  }
+
+  .banner-subheading {
+      font-size: 18px;
+  }
+}
+
+/* Extra small phones (below 576px) */
+@media screen and (max-width: 575px) {
+  #typed-text {
+      font-size: 20px;
+      line-height: 25px;
+      max-width: 100%;
+  }
+
+  .banner-subheading {
+      font-size: 16px;
+  }
+}
+
+
+  /*-----------------------------------------------------------------
+    11. About Section Style
+  ----------------------------------------------------------------*/
+  .ds-about-section {
+    padding-top: 60px;
+    padding-bottom: 60px;
+  }
+  
+  .ds-heading {
+    display: inline-block;
+    font-weight: 700;
+    color: #000;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: 16px;
+    border-bottom: 3px solid #F26464;
+    padding-bottom: 7px;
+    margin-bottom: 23px;
+  }
+  
+  .ds-about-section p {
+    color: #373737;
+    font-size: 24px;
+    line-height: 40px;
+    font-weight: 300;
+    margin-bottom: 60px;
+  }
+  
+  .ds-button {
+    display: inline-block;
+    text-transform: uppercase;
+    font-size: 14px;
+    line-height: 13px;
+    font-weight: 600;
+    letter-spacing: 3px;
+    color: #F26464;
+    padding: 17px 30px;
+    border: 2px solid #F26464;
+    border-radius: 60px;
+    transition: background-color 0.3s, color 0.3s;
+  }
+  
+  .ds-button:hover {
+    background-color: #F26464;
+    color: #FFF;
+  }
+  
+  .ds-arrow-button i {
+    display: inline-block;
+    vertical-align: middle;
+  }
+  
+  /*-----------------------------------------------------------------
+    12. Modules Section Style
+  ----------------------------------------------------------------*/
+  .fh5co-narrow-content {
+    position: relative;
+    width: 80%;
+    margin: 0 auto;
+    padding: 4em 0;
+  }
+  
+  @media screen and (max-width: 768px) {
+    .fh5co-narrow-content {
+      width: 100%;
+      padding: 3.5em 1em;
+    }
+  }
+  
+  /*-----------------------------------------------------------------
+    13. Work Section Style
+  ----------------------------------------------------------------*/
+  .ds-work-section {
+    padding-bottom: 80px;
+  }
+  
+  .ds-work-list-section {
+    /* Add any specific styles if needed */
+  }
+  
+  .ds-work-list {
+    padding-left: 70px;
+    padding-top: 40px;
+    padding-right: 70px;
+    background-color: #F6F8FA;
+    margin-bottom: 40px;
+  }
+  
+  .ds-work-list section {
+    padding-top: 20px;
+    padding-right: 120px;
+  }
+  
+  .ds-work-tilte {
+    color: #000;
+    font-size: 30px;
+    line-height: 36px;
+    font-weight: 600;
+    margin-bottom: 30px;
+  }
+  
+  .ds-work-list p {
+    font-weight: 300;
+    font-size: 18px;
+    line-height: 30px;
+  }
+  
+  .ds-work-list .ds-button {
+    margin-top: 20px;
+  }
+  
+  .ds-work-det-hed {
+    padding-top: 42px;
+    padding-bottom: 80px;
+  }
+  
+  .ds-work-det-title {
+    font-weight: 600;
+    color: #000;
+    font-size: 48px;
+    margin-bottom: 20px;
+  }
+  
+  .ds-work-det-dep {
+    display: block;
+    font-weight: 600;
+    color: #000;
+    font-size: 18px;
+  }
+  
+  .ds-work-content-sec {
+    padding: 100px 0;
+  }
+  
+  .ds-work-content-sec p {
+    font-size: 18px;
+    line-height: 36px;
+    margin-bottom: 30px;
+  }
+  
+  .ds-work-content-sec h2 {
+    font-size: 30px;
+    font-weight: 700;
+    margin-bottom: 30px;
+  }
+  
+  .ds-work-content-sec ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .ds-work-content-sec li {
+    font-size: 18px;
+    line-height: 36px;
+    padding-left: 28px;
+    position: relative;
+    margin-bottom: 20px;
+  }
+  
+  .ds-work-content-sec li:before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 13px;
+    border-radius: 100%;
+    width: 8px;
+    height: 8px;
+    background-color: #373737;
+  }
+  
+  /*-----------------------------------------------------------------
+    14. Blog Section Style
+  ----------------------------------------------------------------*/
+  .site-section {
+    padding: 60px 0;
+  }
+  
+  .section-title {
+    font-size: 36px;
+    font-weight: 700;
+    text-transform: uppercase;
+    position: relative;
+    display: inline-block;
+  }
+  
+  .section-title::after {
+    content: "";
+    width: 50px;
+    height: 3px;
+    background: #F26464;
+    position: absolute;
+    left: 0;
+    bottom: -10px;
+  }
+  
+  .h-entry {
+    background: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  }
+  
+  .h-entry img {
+    border-radius: 5px;
+    transition: opacity 0.3s;
+  }
+  
+  .h-entry img:hover {
+    opacity: 0.8;
+  }
+  
+  .font-size-regular {
+    font-size: 18px;
+    font-weight: 600;
+  }
+  
+  .meta {
+    color: #777;
+    font-size: 14px;
+  }
+  
+  .meta a {
+    color: #da1212;
+    text-decoration: none;
+  }
+  
+  .meta a:hover {
+    text-decoration: underline;
+  }
+  
+  /*-----------------------------------------------------------------
+    15. Contact Section Style
+  ----------------------------------------------------------------*/
+  .ds-contact-section {
+    padding-top: 60px;
+    padding-bottom: 60px;
+    background-color: #f9f9f9;
+  }
+  
+  .ds-contact-section .ds-heading {
+    text-align: center;
+    margin-bottom: 40px;
+  }
+  
+  .ds-contact-form {
+    max-width: 600px;
+    margin: 0 auto;
+  }
+  
+  .ds-contact-form .form-control {
+    border: 1px solid #ddd;
+    padding: 15px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+  }
+  
+  .ds-contact-form textarea.form-control {
+    resize: vertical;
+  }
+  
+  .ds-contact-form .ds-button {
+    display: block;
+    width: 100%;
+    text-align: center;
+    background-color: #da1212;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .ds-contact-form .ds-button:hover {
+    background-color: #b00e0e;
+  }
+  
+  /*-----------------------------------------------------------------
+    16. Responsive Adjustments
+  ----------------------------------------------------------------*/
+  /* Adjust banner padding on smaller screens */
+  @media screen and (max-width: 992px) {
+    .ds-banner section {
+      padding-left: 20px;
+      padding-right: 20px;
+    }
+  }
+  
+  /* Adjust about section text on smaller screens */
+  @media screen and (max-width: 768px) {
+    .ds-about-section p {
+      font-size: 20px;
+      line-height: 32px;
+    }
+  }
+  
+  /* Adjust work section padding on smaller screens */
+  @media screen and (max-width: 768px) {
+    .ds-work-list {
+      padding-left: 20px;
+      padding-right: 20px;
+    }
+  }

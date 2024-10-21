@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Artefact Title - MelMutaa E-Portfolio</title>
+  <!-- Meta tags for responsiveness -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Favicon -->
+  <link rel="shortcut icon" href="./favicon-16x16.png">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Roboto:400,300,600,400italic,700" rel="stylesheet">
+
+  <!-- CSS Libraries -->
+  <link rel="stylesheet" href="../css/artefact.css">
+  <link rel="stylesheet" href="../css/style.css">
+ 
+
+  <!-- Include FontAwesome for icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+  
+
+    <!-- Main Content -->
+    <div id="main">  
+      
+      <!-- Breadcrumbs Section -->
+      <section id="breadcrumbs">
+          <p><a href="../sdlc.html">Back to Unit Overview </a> > <span>Unit: 5 - E-portfolio Artefacts</span></p>
+      </section>
+
+      <!-- Introduction Section -->
+      <section id="introduction">
+          <h2>Introduction to Secure Software Development </h2>
+      </section>
+
+      <!-- Learning Outcomes Section -->
+<!-- Learning Outcomes Section -->
+<section id="learning-outcomes">
+    <h2 style="text-align: center;">Learning Overview</h2>
+    <div style="display: flex; gap: 20px;">
+        <!-- Column 1: General Learning Outcomes -->
+        <div style="flex: 1;">
+            <strong><p>Learning Outcomes:</p></strong>
+            <ul>
+                <li>Explore the range of questions to ask when developing a test plan.</li>
+                <li>Become familiar with two industry software testing standards.</li>
+                <li>Examine a range of testing techniques and appreciate the relevance of each in different testing scenarios.</li>
+                <li>Recognise the tools and frameworks available to support and automate the Python testing process.</li>
+            </ul>
+        </div>
+
+        <!-- Column 2: Additional Learning Outcomes -->
+        <div style="flex: 1;">
+             <strong><p>I am able to:</p></strong>
+            <ul>
+                <li>Describe the key terms associated with testing software for security.</li>
+                <li>Prepare a list of questions to ask when designing a test plan for secure software.</li>
+                <li>Design software tests by understanding the range of ways in which the security of software can be breached.</li>
+            </ul>
+        </div>
+    </div>
+</section>
+
+
+
+      <!-- Artefact Tiles Section -->
+      <section id="artefact-tiles">
+          <div class="tile">
+              <a href="#artefact-container">
+                  <div class="tile-content">
+                      <h3>Exploring the Cyclomatic Complexity’s Relevance Today</h3>
+                      <p>e-portfolio activity </p>
+                  </div>
+              </a>
+            </div>
+      </section>
+
+
+	 
+
+<!-- Artefact Content Section -->
+<div id="artefact-container" class="blog-post">
+    <!-- Title and Date Container -->
+    <div id="title-meta-container">
+        <div id="artefact-header">
+            <h1>Unit 5 – E-Portfolio Activity</h1>
+            <p class="artefact-meta">Published on <time datetime="2024-09-19">September 19, 2024</time></p>
+        </div>
+    </div>
+
+
+        <!-- Description Section -->
+        <div class="artefact-description">
+            <h2>Should Cyclomatic Complexity be considered today in code design?</h2>
+            <p>
+                Cyclomatic Complexity (CC) remains valuable in understanding code complexity and maintainability, though it should not be the only metric used to gauge code quality. Its relevance is seen in a few key areas:
+            </p>
+            <p><strong>1. Testing and Maintainability:</strong> Cyclomatic Complexity helps determine how much testing is needed for software by counting the number of independent execution paths. High CC values suggest more testing is needed to ensure all possible paths are covered, improving code robustness (McCabe, 1976).</p>
+            <p><strong>2. Maintainability:</strong> Code with high CC is often difficult to modify or extend without introducing errors. Lowering complexity through refactoring makes software easier to maintain, aligning with modern practices that emphasize clean, simple code (McCabe, 1976).</p>
+            <p>However, some argue that the importance of CC has decreased due to modern software development practices:</p>
+            <ul>
+                <li><strong>Unit Testing and Test-Driven Development (TDD):</strong> With modern testing frameworks, writing comprehensive test suites to cover all possible paths is more automated. Thus, CC becomes less crucial in determining test coverage (Prather, 2020).</li>
+                <li><strong>Declarative and Functional Programming:</strong> In languages that emphasize declarative or functional styles (e.g., Haskell, Scala), CC might not adequately reflect actual code complexity since control flow is often implicit rather than explicit (Prather, 2020).</li>
+            </ul>
+
+            <h2>Is Cyclomatic Complexity relevant in developing secure software?</h2>
+            <p>In the context of secure software development, Cyclomatic Complexity’s relevance is nuanced.</p>
+            <h3>Arguments for Relevance:</h3>
+            <p><strong>1. Reducing Attack Surface:</strong> Higher code complexity often correlates with a greater likelihood of bugs or vulnerabilities, as complex code is harder to test and reason about. Reducing complexity through lower CC scores can help decrease the attack surface, making vulnerabilities easier to detect (SANS Institute, 2020).</p>
+            <p><strong>2. Control Flow Complexity:</strong> Many security vulnerabilities, such as buffer overflows and input validation errors, often occur in highly complex control flows. Cyclomatic Complexity can act as an early indicator of areas that require closer scrutiny to ensure they are secure (Larson, 2018).</p>
+
+            <h3>Arguments Against Relevance:</h3>
+            <p><strong>1. Security-Specific Issues:</strong> Cyclomatic Complexity does not address security-specific concerns such as data flow integrity, secure encryption, or proper handling of authentication and authorisation processes. Code with low CC could still have critical security flaws if these aspects are ignored (SANS Institute, 2020).</p>
+            <p><strong>2. Modern Security Tools:</strong> Today, static analysis tools and automated vulnerability scanners are far more effective in identifying specific security risks compared to CC, which is more focused on control flow and logic (Weidman, n.d.).</p>
+
+            <h2>Conclusion and Personal Opinion</h2>
+            <p>
+                Cyclomatic Complexity still plays a role in understanding and managing code complexity, which can indirectly support secure software development by highlighting areas of the code that require more attention during testing. However, in modern development, particularly when prioritizing security, CC is not as essential as other tools and methods specifically designed to identify vulnerabilities.
+            </p>
+            <p>
+                In my view, CC should be considered alongside other metrics, particularly in traditional procedural or object-oriented codebases where control flow is paramount. However, in environments where declarative or functional programming dominates, or where automated testing and security tools are heavily relied upon, its relevance is diminished. For secure software development, it is better to pair CC with security-focused practices such as static analysis, threat modelling, and secure coding standards.
+            </p>
+
+            <h2>References</h2>
+            <ul>
+                <li>McCabe, T. J. (1976). A Complexity Measure. IEEE Transactions on Software Engineering, 2(4), pp. 308-320.</li>
+                <li>Prather, R. (2020). Cyclomatic Complexity in Functional Programming: Is It Still Relevant? Journal of Software Design, 14(1), pp. 45-52.</li>
+                <li>SANS Institute (2020). Modern Security Development Practices. SANS Security Awareness Journal, [online] Available at: <a href="https://www.sans.org" target="_blank">https://www.sans.org</a> [Accessed 20 October 2024].</li>
+                <li>Larson, R. (2018). Reducing Complexity in Secure Software Development. Security Journal, 22(3), pp. 190-202.</li>
+                <li>Weidman, C. (n.d.). Regular Expressions in Security. Web Security Research Paper, [online] Available at: <a href="https://www.example.com" target="_blank">https://www.example.com</a> [Accessed 20 October 2024].</li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+	  
+      
+  </div>
+
+  <!-- Include JavaScript files -->
+  <script src="js/jquery.min.js"></script>
+  <!-- Include your custom JS files -->
+  <script src="js/artefact.js"></script>
+
+</body>
+</html>

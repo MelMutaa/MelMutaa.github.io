@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Artefact Title - MelMutaa E-Portfolio</title>
+  <!-- Meta tags for responsiveness -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Favicon -->
+  <link rel="shortcut icon" href="./favicon-16x16.png">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Roboto:400,300,600,400italic,700" rel="stylesheet">
+
+  <!-- CSS Libraries -->
+  <link rel="stylesheet" href="../css/artefact.css">
+  <link rel="stylesheet" href="../css/style.css">
+ 
+
+  <!-- Include FontAwesome for icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+  
+
+    <!-- Main Content -->
+    <div id="main">  
+      
+      <!-- Breadcrumbs Section -->
+      <section id="breadcrumbs">
+          <p><a href="../sdlc.html">Back to Unit Overview </a> > <span>Unit:1 - E-portfolio Artefacts</span></p>
+      </section>
+
+      <!-- Introduction Section -->
+      <section id="introduction">
+          <h2>Introduction to Secure Software Development </h2>
+      </section>
+
+      <!-- Learning Outcomes Section -->
+<!-- Learning Outcomes Section -->
+<section id="learning-outcomes">
+    <h2 style="text-align: center;">Learning Overview</h2>
+    <div style="display: flex; gap: 20px;">
+        <!-- Column 1: General Learning Outcomes -->
+        <div style="flex: 1;">
+            <strong><p>Learning Outcomes:</p></strong>
+            <ul>
+                <li>Explore Waterfall and Agile approaches for secure software development.</li>
+                <li>Understand the role of Unified Modeling Language (UML) in supporting software development.</li>
+                <li>Familiarise with industry standards for secure software development.</li>
+                <li>Appreciate the importance of a risk-aware culture within organisations.</li>
+            </ul>
+        </div>
+
+        <!-- Column 2: Additional Learning Outcomes -->
+        <div style="flex: 1;">
+             <strong><p>On completion of this unit, I am now able to:</p></strong>
+            <ul>
+                <li>Identify academic literature on secure software development using Agile processes.</li>
+                <li>Break down activities into tasks represented using UML flowcharts.</li>
+                <li>Explain the significance of fostering a risk-aware culture in addition to creating secure software.</li>
+            </ul>
+        </div>
+    </div>
+</section>
+
+
+      <!-- Artefact Tiles Section -->
+      <section id="artefact-tiles">
+          <div class="tile">
+              <a href="#artefact-container">
+                  <div class="tile-content">
+                      <h3>Collaborative Discussion 1</h3>
+                      <p>Click here to view </p>
+                  </div>
+              </a>
+            </div>
+      </section>
+
+
+	 
+
+		<!-- Artefact Content Section -->
+<!-- Artefact Content Section -->
+<div id="artefact-container">
+    <!-- Title and Date Container -->
+    <div id="title-meta-container">
+        <div id="artefact-header">
+            <h1>Discussion on Cryptographic Failures and UML Representation</h1>
+            <p class="artefact-meta">By Melissa Mutabazi - Published on <time datetime="2024-08-28">August 28, 2024, 11:49 PM</time></p>
+        </div>
+    </div>
+                <!-- Flexbox for image and description -->
+                <div id="artefact-content">
+                    <!-- Artefact Image Section -->
+                    <div id="artefact-image">
+                        <figure>
+                            <img src="../images/sdlc/Initial-post1.png" alt="Artefact Image">
+                        </figure>
+                    </div>
+
+    <!-- Description Section -->
+    <div class="artefact-description">
+        <p>
+            OWASP's Top 10 provides a reference standard for identifying security risks in web applications and is an effective step toward producing secure code (OWASP, 2021). The OWASP Top 10 are released every four years and draw on data collected from projects to provide valuable insight about common vulnerabilities.
+        </p>
+        <p>
+            This discussion will focus on cryptographic failures. These failures are listed as the second most common vulnerability facing projects due to their vulnerability to exposing sensitive data or compromising systems (OWASP, 2021). Cryptographic failures can lead to the exposure of sensitive data (Kelly, 2023), such as personally identifiable information (PII) including financial information, health records, and other sensitive details.
+        </p>
+        <p>
+            OWASP classifies cryptographic failures as a symptom rather than a cause (OWASP, 2021). Any failure that exposes sensitive and critical data to an unauthorised party is considered a cryptographic failure (Hiremath, 2021). Examples of cryptographic failures include downgraded connections—where an attacker intercepts network traffic, weak network security such as Man-in-the-Middle attacks, or PII database breaches.
+        </p>
+        <p>
+            Provided above is an example of how an attacker can breach a database, represented by a UML Sequence diagram.
+        </p>
+        <p>
+            It is possible to present the design using a variety of UML models. For instance, a class diagram shows the structure of the system by displaying its classes, attributes, operations, and relationships. In this way, we can outline how data is handled by the application and how it interacts with the database. We can identify where user inputs are processed, and where SQL queries might be vulnerable.
+        </p>
+        <p>
+            Another UML model that can be used to present the design is a use case diagram to model the functional requirements of the system and the interactions between external users (actors) and the system. Use case diagrams help to identify the various scenarios where user inputs are accepted and processed. This makes it easier to pinpoint which use cases might be vulnerable to SQL Injection.
+        </p>
+
+        <!-- References Section -->
+        <h4>References</h4>
+        <ul>
+            <li>Hiremath, O. (2021) Introduction to cryptographic failures, Software Secured. Available at: <a href="https://www.softwaresecured.com/post/introduction-to-cryptographic-failures" target="_blank">https://www.softwaresecured.com/post/introduction-to-cryptographic-failures</a> (Accessed: 17 August 2024).</li>
+            <li>Kelly, P. (2023) Understanding OWASP Top 10 V2021: A02 cryptographic failures. Available at: <a href="https://www.gratitech.com/blog/overview-of-owasp-top-10-v2021-a02-cryptographic-failures" target="_blank">https://www.gratitech.com/blog/overview-of-owasp-top-10-v2021-a02-cryptographic-failures</a> (Accessed: 17 August 2024).</li>
+            <li>OWASP (2021) OWASP Top Ten. Available at: <a href="https://owasp.org/www-project-top-ten/" target="_blank">https://owasp.org/www-project-top-ten/</a> (Accessed: 17 August 2024).</li>
+        </ul>
+    </div>
+</div>
+
+        
+        
+	  <!-- End of Main Content -->
+
+	  
+      
+  </div>
+
+  <!-- Include JavaScript files -->
+  <script src="js/jquery.min.js"></script>
+  <!-- Include your custom JS files -->
+  <script src="js/artefact.js"></script>
+
+</body>
+</html>

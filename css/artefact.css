@@ -1,0 +1,351 @@
+/* artefact.css */
+
+/* Reset some default styles */
+* {
+    box-sizing: border-box; /* Ensures padding and borders are included in the total width and height */
+}
+
+body, h1, h2, h3, h4, h5, h6, p, ul, ol, figure, blockquote, dl, dd {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    line-height: 1.6;
+    color: #333;
+    background-color: #f9f9f9;
+    padding: 20px; /* Prevent content from touching the edges */
+}
+
+/* Sticky Breadcrumbs */
+#breadcrumbs {
+    position: sticky;
+    top: 0; /* Distance from the top of the viewport */
+    background-color: #f9f9f9; /* Ensure background is set to prevent overlap transparency */
+    padding: 10px 20px; /* Adjust padding as needed */
+    z-index: 1000; /* Ensure it stays above other elements */
+    border-bottom: 1px solid #ddd; /* Optional: Add a subtle border for separation */
+}
+
+#breadcrumbs a {
+    color: #e30788;
+    text-decoration: none;
+}
+
+#breadcrumbs a:hover {
+    text-decoration: underline;
+}
+
+/* Introduction Section */
+#introduction {
+    margin-bottom: 40px;
+}
+
+#introduction h2 {
+    font-size: 24px;
+    color: #333;
+    text-align: center;
+}
+
+/* Learning Outcomes Section */
+#learning-outcomes {
+    margin-bottom: 40px;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+#learning-outcomes h2 {
+    font-size: 28px;
+    margin-bottom: 15px;
+    color: #e30788;
+}
+
+#learning-outcomes p {
+    font-size: 16px;
+    margin-bottom: 10px;
+}
+
+#learning-outcomes ul {
+    list-style-type: disc;
+    padding-left: 20px;
+}
+
+#learning-outcomes ul li {
+    margin-bottom: 10px;
+    font-size: 16px;
+}
+
+/* Artefact Tiles Section */
+#artefact-tiles {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    margin-bottom: 40px;
+}
+
+.tile {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    flex: 1 1 calc(25% - 20px); /* Four tiles per row */
+    box-sizing: border-box;
+    transition: transform 0.3s ease;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.tile:hover {
+    transform: translateY(-5px);
+}
+
+.tile a {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+    padding: 20px;
+}
+
+.tile-content h3 {
+    font-size: 20px;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.tile-content p {
+    font-size: 14px;
+    color: #666;
+}
+
+/* Container for the entire article content */
+#artefact-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    max-width: 1200px;
+    margin: 20px auto;
+    background-color: #fff; /* White background for the entire container */
+    border-radius: 8px;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* Title and Meta Container */
+#title-meta-container {
+    width: 100%;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    border-bottom:  1px solid #da3636;
+    margin-bottom: 20px; /* Space between title and the rest of the content */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
+}
+
+/* Artefact Header Section */
+#artefact-header {
+    text-align:center;
+    margin-bottom: 10px;
+}
+
+#artefact-header h1 {
+    font-size: 32px;
+    color: #333;
+}
+
+.artefact-meta {
+    font-size: 14px;
+    color: #950a0a;
+    margin-top: 10px;
+}
+
+/* Flexbox for image and description */
+#artefact-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    max-width: 1000px;
+}
+
+/* Artefact Image Section */
+#artefact-image {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+#artefact-image img {
+    max-width: 100%;
+    height: auto;
+    max-height: 500px; /* Prevents the image from being too large */
+    object-fit: contain;
+    border-radius: 5px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+    margin: 0 auto;
+}
+
+/* Artefact Description Styling */
+.artefact-description {
+    width: 100%; /* Ensure full width */
+    background-color: #fff;
+    padding: 20px;
+    text-align: justify;
+    line-height: 1.8;
+    font-size: 16px;
+    color: #333;
+}
+
+.artefact-description p {
+    margin-bottom: 15px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    #artefact-container {
+        padding: 10px;
+    }
+
+    #artefact-content {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    #artefact-image img {
+        max-width: 100%;
+    }
+}
+
+
+/* Artefact Navigation Section */
+#artefact-navigation {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 40px;
+}
+
+.nav-link {
+    text-decoration: none;
+    color: #e30788;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+}
+
+.nav-link i {
+    margin-right: 5px;
+    margin-left: 5px;
+}
+
+.nav-link:hover {
+    color: #c30670;
+}
+
+/* Back to Overview Button */
+.back-to-overview {
+    display: inline-block;
+    margin-top: 20px;
+    text-decoration: none;
+    background-color: #e30788;
+    color: #fff;
+    padding: 10px 15px;
+    border-radius: 5px;
+    font-size: 14px;
+    transition: background-color 0.3s ease;
+}
+
+.back-to-overview:hover {
+    background-color: #c30670;
+}
+
+.back-to-overview i {
+    margin-right: 5px;
+}
+
+/* Button Styling */
+.btn {
+    display: inline-block;
+    text-decoration: none;
+    background-color: #e30788;
+    color: #fff;
+    padding: 10px 15px;
+    border-radius: 5px;
+    font-size: 14px;
+    transition: background-color 0.3s ease;
+}
+
+.btn:hover {
+    background-color: #c30670;
+}
+
+.btn i {
+    margin-right: 5px;
+}
+
+/* Responsive Design */
+@media screen and (max-width: 1024px) {
+    .tile {
+        flex: 1 1 calc(50% - 20px); /* Two tiles per row */
+    }
+
+    .content-header {
+        flex-direction: column;
+    }
+
+    #artefact-header, 
+    #artefact-image {
+        flex: 1 1 100%;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    #artefact-tiles {
+        flex-direction: column;
+    }
+
+    .tile {
+        flex: 1 1 100%;
+    }
+
+    #artefact-navigation {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .nav-link {
+        justify-content: center;
+    }
+
+    #breadcrumbs {
+        text-align: center;
+    }
+
+    #breadcrumbs p {
+        margin-bottom: 10px;
+    }
+
+    #introduction h2 {
+        text-align: center;
+    }
+
+    #learning-outcomes, 
+    #artefact-header,
+    #artefact-content {
+        padding: 15px;
+    }
+
+    .btn.back-to-overview {
+        display: block;
+        margin: 20px auto 0;
+        text-align: center;
+    }
+
+    .content-header {
+        flex-direction: column;
+    }
+
+    #artefact-header, 
+    #artefact-image {
+        flex: 1 1 100%;
+    }
+}

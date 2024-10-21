@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Artefact Title - MelMutaa E-Portfolio</title>
+  <!-- Meta tags for responsiveness -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Favicon -->
+  <link rel="shortcut icon" href="./favicon-16x16.png">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Roboto:400,300,600,400italic,700" rel="stylesheet">
+
+  <!-- CSS Libraries -->
+  <link rel="stylesheet" href="../css/artefact.css">
+  <link rel="stylesheet" href="../css/style.css">
+ 
+
+  <!-- Include FontAwesome for icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+  
+
+    <!-- Main Content -->
+    <div id="main">  
+      
+      <!-- Breadcrumbs Section -->
+      <section id="breadcrumbs">
+          <p><a href="../sdlc.html">Back to Unit Overview </a> > <span>Unit: 4 - E-portfolio Artefacts</span></p>
+      </section>
+
+      <!-- Introduction Section -->
+      <section id="introduction">
+          <h2>Introduction to Secure Software Development </h2>
+      </section>
+
+      <!-- Learning Outcomes Section -->
+<!-- Learning Outcomes Section -->
+<section id="learning-outcomes">
+    <h2 style="text-align: center;">Learning Overview</h2>
+    <div style="display: flex; gap: 20px;">
+        <!-- Column 1: General Learning Outcomes -->
+        <div style="flex: 1;">
+            <strong><p>Learning Outcomes:</p></strong>
+            <ul>
+                <li>Explore the use of regular expressions and recursion in creating software solutions.</li>
+                <li>Investigate the effects of using regular expressions and recursion on system security.</li>
+                <li>Recommend the most suitable approaches for given security requirements and risk appetites.</li>
+            </ul>
+        </div>
+
+        <!-- Column 2: Additional Learning Outcomes -->
+        <div style="flex: 1;">
+             <strong><p>I am able to:</p></strong>
+            <ul>
+                <li>Explain how and when to use regular expressions in solutions.</li>
+                <li>Describe how and when to use recursion in solutions.</li>
+                <li>Discuss the security implications of both approaches.</li>
+            </ul>
+        </div>
+    </div>
+</section>
+
+
+
+      <!-- Artefact Tiles Section -->
+      <section id="artefact-tiles">
+          <div class="tile">
+              <a href="#artefact-container">
+                  <div class="tile-content">
+                      <h3>Programming Langage Concepts</h3>
+                      <p>e-portfolio question</p>
+                  </div>
+              </a>
+            </div>
+      </section>
+
+         <!-- Artefact Tiles Section -->
+         <section id="artefact-tiles">
+            <div class="tile">
+                <a href="#artefact-container">
+                    <div class="tile-content">
+                        <h3>Recursion</h3>
+                        <p>Activity </p>
+                    </div>
+                </a>
+              </div>
+        </section>
+
+         <!-- Artefact Tiles Section -->
+         <section id="artefact-tiles">
+            <div class="tile">
+                <a href="#artefact-container">
+                    <div class="tile-content">
+                        <h3>Regex</h3>
+                        <p>Activity </p>
+                    </div>
+                </a>
+              </div>
+        </section>
+
+
+	 
+<!-- Artefact Content Section -->
+<div id="artefact-container" class="blog-post">
+    <!-- Title and Date Container -->
+    <div id="title-meta-container">
+        <div id="artefact-header">
+            <h1>Unit 4 – E-Portfolio Activity</h1>
+            <p class="artefact-meta">Published on <time datetime="2024-01-01">September 11, 2024</time></p>
+        </div>
+    </div>
+
+
+        <!-- Description Section -->
+        <div class="artefact-description">
+            <h2>What is ReDOS and what part do ‘Evil Regex’ play?</h2>
+            <p>
+                ReDOS (Regular Expression Denial of Service) is a type of Denial of Service (DoS) attack where an attacker exploits the inefficiencies of regular expressions (regex) to overwhelm the target system. The core issue in ReDOS attacks is that poorly designed regular expressions—often referred to as "Evil Regex"—can lead to excessive backtracking. This occurs when a regular expression engine tries multiple permutations to match a pattern, consuming significant CPU time and resources.
+            </p>
+            <p>
+                According to Larson (2018), an "Evil Regex" is a regular expression with certain characteristics that make it vulnerable to excessive backtracking. These characteristics include:
+            </p>
+            <ul>
+                <li>Nested quantifiers (e.g., a+ inside another quantifier, such as (a+)+)</li>
+                <li>Alternation with overlapping patterns (e.g., (a|aa) where both alternatives start with the same characters)</li>
+                <li>Greedy quantifiers that consume as much input as possible before backtracking to find matches</li>
+            </ul>
+            <p>
+                In a ReDOS attack, attackers send specially crafted input that triggers this excessive backtracking, potentially crashing the system or significantly slowing down performance.
+            </p>
+
+            <h2>What are the common problems associated with the use of regex? How can these be mitigated?</h2>
+            <p>
+                While regex is a powerful tool for pattern matching, it presents several common problems:
+            </p>
+            <ul>
+                <li><strong>Complexity and Readability:</strong> Regex can become complex and difficult to understand, especially for more intricate patterns. This complexity increases the likelihood of bugs or inefficiencies in the expression.</li>
+                <li><strong>Performance:</strong> Poorly written regex can cause performance bottlenecks. Certain regex patterns, particularly those with overlapping or ambiguous rules, can lead to excessive backtracking, consuming more CPU resources than expected (Larson, 2018).</li>
+                <li><strong>Security Vulnerabilities:</strong> Improper use of regex may open up vulnerabilities like ReDOS, where attackers can intentionally exploit inefficiencies in regex evaluation.</li>
+            </ul>
+            <p>
+                Mitigation strategies include:
+            </p>
+            <ul>
+                <li><strong>Limit the Input Size:</strong> Avoid applying regex to large, untrusted input unless strictly necessary. Input validation and length limits can help prevent ReDOS attacks.</li>
+                <li><strong>Precompile Regular Expressions:</strong> Precompiling regex patterns allows them to be optimized by the engine and avoids recomputing the same pattern repeatedly, which can improve performance.</li>
+                <li><strong>Use Safe Libraries:</strong> Some regex libraries are designed to be more resistant to ReDOS vulnerabilities by imposing limits on backtracking or using more efficient algorithms for pattern matching (Weidman, n.d.).</li>
+                <li><strong>Testing and Profiling:</strong> Thoroughly test regular expressions, especially those used in production systems, to identify potential performance issues. Profiling tools can help detect problematic expressions.</li>
+            </ul>
+
+            <h2>How and why could regex be used as part of a security solution?</h2>
+            <p>
+                Regular expressions can play a vital role in security by enabling pattern-based input validation, which helps prevent common web vulnerabilities such as SQL injection, cross-site scripting (XSS), and command injection. When used effectively, regex can:
+            </p>
+            <ul>
+                <li><strong>Sanitize Input:</strong> Regex is commonly used to validate and sanitize user input by ensuring that the input conforms to expected patterns (e.g., validating email addresses, URLs, or phone numbers). This can help prevent malicious data from being processed by the application (Weidman, n.d.).</li>
+                <li><strong>Detect Malicious Patterns:</strong> Regex can be employed in intrusion detection systems (IDS) or security filters to detect patterns of malicious behaviour, such as signature-based detection of malware or filtering of known attack vectors.</li>
+            </ul>
+            <p>
+                However, it’s crucial to ensure that the regex patterns used in security solutions are efficient and resistant to exploitation, as the risks of ReDOS attacks could otherwise neutralise the benefits.
+            </p>
+
+            <h2>References</h2>
+            <ul>
+                <li>Larson, R., 2018. Regular Expression Denial of Service (ReDoS). Security Journal.</li>
+                <li>Weidman, C., n.d. Regular Expressions in Security.</li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+	  
+      
+  </div>
+
+  <!-- Include JavaScript files -->
+  <script src="js/jquery.min.js"></script>
+  <!-- Include your custom JS files -->
+  <script src="js/artefact.js"></script>
+
+</body>
+</html>

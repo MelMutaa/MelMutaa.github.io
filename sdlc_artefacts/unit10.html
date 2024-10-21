@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Artefact Title - MelMutaa E-Portfolio</title>
+  <!-- Meta tags for responsiveness -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Favicon -->
+  <link rel="shortcut icon" href="./favicon-16x16.png">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Roboto:400,300,600,400italic,700" rel="stylesheet">
+
+  <!-- CSS Libraries -->
+  <link rel="stylesheet" href="../css/artefact.css">
+  <link rel="stylesheet" href="../css/style.css">
+ 
+
+  <!-- Include FontAwesome for icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+  
+
+    <!-- Main Content -->
+    <div id="main">  
+      
+      <!-- Breadcrumbs Section -->
+      <section id="breadcrumbs">
+          <p><a href="../sdlc.html">Back to Unit Overview </a> > <span>Unit: 10 - E-portfolio Artefacts</span></p>
+      </section>
+
+      <!-- Introduction Section -->
+      <section id="introduction">
+          <h2>Introduction to Secure Software Development </h2>
+      </section>
+<!-- Learning Outcomes Section -->
+<section id="learning-outcomes">
+    <h2 style="text-align: center;">Learning Overview</h2>
+    <div style="display: flex; gap: 20px;">
+        <!-- Column 1: General Learning Outcomes -->
+        <div style="flex: 1;">
+            <strong><p>Learning Outcomes:</p></strong>
+            <ul>
+                <li>Examine the evolution of system architectures, from distributed systems to microservices.</li>
+                <li>Analyse the strengths and limitations of various approaches to distributed systems.</li>
+                <li>Identify security threats that are specific to virtual environments.</li>
+            </ul>
+        </div>
+
+        <!-- Column 2: Additional Learning Outcomes -->
+        <div style="flex: 1;">
+             <strong><p>I will be able to:</p></strong>
+            <ul>
+                <li>Explain the evolution of different types of distributed systems and how they developed over time.</li>
+                <li>Discuss the security vulnerabilities that distributed systems are particularly exposed to.</li>
+                <li>Understand how to secure virtual systems, addressing the unique attacks they face.</li>
+            </ul>
+        </div>
+    </div>
+</section>
+
+</section>
+
+
+      <!-- Artefact Tiles Section -->
+      <section id="artefact-tiles">
+          <div class="tile">
+              <a href="#artefact-container">
+                  <div class="tile-content">
+                      <h3>Faceted Data</h3>
+                      <p>e portfolio question </p>
+                  </div>
+              </a>
+            </div>
+      </section>
+
+
+      <!-- Artefact Tiles Section -->
+      <section id="artefact-tiles">
+        <div class="tile">
+            <a href="#artefact-container">
+                <div class="tile-content">
+                    <h3>API Demonstrations</h3>
+                    <p>Activity</p>
+                </div>
+            </a>
+          </div>
+    </section>
+
+<!-- Artefact Content Section -->
+<div id="artefact-container" class="blog-post">
+    <!-- Title and Date Container -->
+    <div id="title-meta-container">
+        <div id="artefact-header">
+            <h1>Unit 10 – Faceted Data</h1>
+            <p class="artefact-meta">Published on <time datetime="2024-10-18">October 18, 2024</time></p>
+        </div>
+    </div>
+
+    <!-- Flexbox for image and description -->
+    <div id="artefact-content">
+        <!-- Artefact Image Section -->
+        <div id="artefact-image">
+            <figure>
+                <img src="../images/sdlc/uml.jpg" alt="Artefact Image">
+            </figure>
+        </div>
+
+        <!-- Description Section -->
+        <div class="artefact-description">
+            <h2>Is Faceted Data a Good Approach to Protect Systems from Data Leakage?</h2>
+            <p>
+                Faceted data, as described by Schmitz et al. (2016), is a method of organizing and managing data by dividing it into multiple dimensions, or "facets," each representing a different aspect of the data. The goal of faceted data is to enable more granular control over data access and to help mitigate the risks of data leakage.
+            </p>
+            <h3>Pros of Faceted Data Approach</h3>
+            <ul>
+                <li><strong>Granular Access Control:</strong> Faceted data allows organizations to enforce fine-grained access control by restricting access to specific facets based on user roles or privileges, reducing accidental data leakage (Schmitz et al., 2016).</li>
+                <li><strong>Data Isolation:</strong> Breaking down data into facets makes it easier to isolate sensitive information from less sensitive data, complicating attackers' access to the entire dataset in the event of a breach.</li>
+                <li><strong>Scalability:</strong> Faceted systems can scale well, with facets being independently managed and protected, enhancing flexibility in securing large datasets across distributed systems.</li>
+                <li><strong>Compliance with Privacy Regulations:</strong> Faceted data supports compliance with regulations like GDPR by restricting access to personal or sensitive data facets.</li>
+            </ul>
+
+            <h3>Cons of Faceted Data Approach</h3>
+            <ul>
+                <li><strong>Complex Implementation:</strong> Faceted data systems introduce complexity in managing access controls and ensuring consistent protection, raising development and maintenance costs.</li>
+                <li><strong>Performance Overhead:</strong> Querying multiple facets and enforcing access controls can create performance issues, especially for real-time systems.</li>
+                <li><strong>Increased Attack Surface:</strong> The complexity introduced by multiple facets could expand the attack surface, with vulnerabilities potentially arising in the access control mechanisms.</li>
+            </ul>
+
+            <h2>Outline Design for a Faceted Data System in Python</h2>
+            <p>Below is a basic outline of how a faceted data protection system could be designed in Python.</p>
+
+            <h3>1. Data Structure:</h3>
+            <p>We can represent the faceted data in a dictionary, where each facet contains key-value pairs representing different types of information.</p>
+
+            <p>
+            # Faceted Data Structure Example <br>
+            faceted_data = {<br>
+                "public_info": {"name": "John Doe", "email": "john@example.com"},<br>
+                "financial_info": {"credit_card": "**** **** **** 1234", "balance": 1000},<br>
+                "personal_info": {"address": "123 Main St", "phone": "123-456-7890"},<br>
+                "sensitive_info": {"social_security_number": "123-45-6789"},<br>
+            }<br>
+            </p>
+
+            <h3>2. Access Control:</h3>
+            <p>Roles will be defined to control which facets are accessible to which users.</p>
+
+            <p>
+            # Role-based access control <br>
+            roles_permissions = {<br>
+                "admin": ["public_info", "financial_info", "personal_info", "sensitive_info"],<br>
+                "user": ["public_info", "financial_info"],<br>
+                "guest": ["public_info"]<br>
+            }<br>
+            <br>
+            def check_access(role, facet):<br>
+                """Check if a role has access to a given data facet"""<br>
+                return facet in roles_permissions.get(role, [])<br>
+            </p>
+
+            <h3>3. Faceted Data Retrieval:</h3>
+            <p>The system checks the user’s role before granting access to a facet of the data.</p>
+
+            <p>
+            def get_facet_data(user_role, facet):<br>
+                """Retrieve facet data if user role has access to the facet"""<br>
+                if check_access(user_role, facet):<br>
+                    return faceted_data.get(facet, "Facet not found")<br>
+                else:<br>
+                    return "Access Denied"<br>
+            <br>
+            # Example usage <br>
+            user_role = "user"<br>
+            requested_facet = "sensitive_info"<br>
+            print(get_facet_data(user_role, requested_facet))  # Output: Access Denied<br>
+            </p>
+
+            <h3>4. Logging and Auditing:</h3>
+            <p>Logs can be maintained to track access attempts, aiding in identifying potential data leaks.</p>
+
+            <p>
+            def log_access(user_role, facet, result):<br>
+                """Log access attempts"""<br>
+                with open("access_log.txt", "a") as log_file:<br>
+                    log_file.write(f"Role: {user_role}, Facet: {facet}, Result: {result}\n")<br>
+            <br>
+            # Log the access attempt <br>
+            result = get_facet_data(user_role, requested_facet)<br>
+            log_access(user_role, requested_facet, result)<br>
+            </p>
+
+            <h3>5. Encryption of Facets:</h3>
+            <p>Each facet can be encrypted separately using a key management system, providing an additional layer of security.</p>
+
+            <p>
+            from cryptography.fernet import Fernet<br>
+            <br>
+            # Generate a key for encryption<br>
+            key = Fernet.generate_key()<br>
+            cipher_suite = Fernet(key)<br>
+            <br>
+            # Example of encrypting sensitive data facet<br>
+            encrypted_data = cipher_suite.encrypt(b"123-45-6789")<br>
+            faceted_data["sensitive_info"]["social_security_number"] = encrypted_data<br>
+            </p>
+
+            <h2>Conclusion</h2>
+            <p>
+                While faceted data offers an effective approach to controlling access and isolating sensitive data, it introduces complexity and potential performance overheads. By implementing access control, encryption, and logging in a Python-based system, security can be enhanced, but careful consideration must be given to the system's scalability and potential vulnerabilities.
+            </p>
+
+            <h2>References</h2>
+            <ul>
+                <li>Schmitz, D., Ladner, S., & Luthiger, B., 2016. Faceted Data: Secure Handling of Data Aggregates. Information Systems Journal, 28(4), pp. 355-371.</li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+
+
+	 
+
+        
+	  <!-- End of Main Content -->
+
+	  
+      
+  
+  <!-- Include JavaScript files -->
+  <script src="js/jquery.min.js"></script>
+  <!-- Include your custom JS files -->
+  <script src="js/artefact.js"></script>
+
+</body>
+</html>

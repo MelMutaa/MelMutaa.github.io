@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Artefact Title - MelMutaa E-Portfolio</title>
+  <!-- Meta tags for responsiveness -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Favicon -->
+  <link rel="shortcut icon" href="./favicon-16x16.png">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Roboto:400,300,600,400italic,700" rel="stylesheet">
+
+  <!-- CSS Libraries -->
+  <link rel="stylesheet" href="../css/artefact.css">
+  <link rel="stylesheet" href="../css/style.css">
+ 
+
+  <!-- Include FontAwesome for icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+  
+
+    <!-- Main Content -->
+    <div id="main">  
+      
+      <!-- Breadcrumbs Section -->
+      <section id="breadcrumbs">
+          <p><a href="../sdlc.html">Back to Unit Overview </a> > <span>Unit: 8 - E-portfolio Artefacts</span></p>
+      </section>
+
+      <!-- Introduction Section -->
+      <section id="introduction">
+          <h2>Introduction to Secure Software Development </h2>
+      </section>
+
+<!-- Learning Outcomes Section -->
+<section id="learning-outcomes">
+    <h2 style="text-align: center;">Learning Overview</h2>
+    <div style="display: flex; gap: 20px;">
+        <!-- Column 1: General Learning Outcomes -->
+        <div style="flex: 1;">
+            <strong><p>Learning Outcomes:</p></strong>
+            <ul>
+                <li>Understand the principles of cryptography and explore a case study demonstrating its application in operating systems.</li>
+                <li>Investigate common cryptographic libraries used in software development.</li>
+                <li>Develop a basic application that utilises cryptographic libraries to encode sample data.</li>
+            </ul>
+        </div>
+
+        <!-- Column 2: Additional Learning Outcomes -->
+        <div style="flex: 1;">
+             <strong><p>I am now able to:</p></strong>
+            <ul>
+                <li>Identify and describe common challenges associated with cryptographic libraries.</li>
+                <li>Evaluate the advantages and disadvantages of using widely-used cryptographic libraries.</li>
+                <li>Apply cryptographic libraries to encode data within a simple application.</li>
+            </ul>
+        </div>
+    </div>
+</section>
+
+
+
+      <!-- Artefact Tiles Section -->
+      <section id="artefact-tiles">
+          <div class="tile">
+              <a href="#artefact-container">
+                  <div class="tile-content">
+                      <h3>Collaborative Discussion 2</h3>
+                      <p>Intial post</p>
+                  </div>
+              </a>
+            </div>
+      </section>
+
+            <!-- Artefact Tiles Section -->
+            <section id="artefact-tiles">
+                <div class="tile">
+                    <a href="#artefact-container">
+                        <div class="tile-content">
+                            <h3>Cryptography Programming Exercise</h3>
+                            <p>Activity: Why did you select the algorithm you chose?
+                             | Would it meet the GDPR regulations? Justify your answer</p>
+                        </div>
+                    </a>
+                  </div>
+            </section>
+
+
+	 
+
+	<!-- Artefact Content Section -->
+<div id="artefact-container" class="blog-post">
+    <!-- Title and Date Container -->
+    <div id="title-meta-container">
+        <div id="artefact-header">
+            <h1>Collaborative Discussion 2</h1>
+            <p class="artefact-meta">Published on <time datetime="2024-01-01">30 September, 2024</time></p>
+        </div>
+    </div>
+
+        <!-- Description Section -->
+        <div class="artefact-description">
+            <h2>Analysis of TrueCrypt's Security</h2>
+            <p>
+                The cryptanalysis by Junestam and Guigo (2014) does not definitively prove or disprove TrueCrypt’s warning that “using TrueCrypt is not secure as it may contain unfixed security issues” (TrueCrypt, 2014). Although no immediate vulnerabilities were found, the analysis was not exhaustive, leaving open the possibility of undiscovered flaws. Therefore, the developers’ caution remains valid.
+            </p>
+            <p>
+                I would not recommend TrueCrypt as a secure storage solution because it is no longer maintained, meaning any new vulnerabilities remain unpatched. For those seeking encryption today, an alternative like VeraCrypt, which continues to be updated, would be a better option. If using TrueCrypt, users should be cautious and avoid relying on it for highly sensitive data, such as banking or corporate information, due to its discontinued status.
+            </p>
+
+            <h2>Ontology Design of TrueCrypt Weaknesses</h2>
+            <ul>
+                <li><strong>Unmaintained Codebase:</strong> No updates or patches, risking future vulnerabilities.</li>
+                <li><strong>Undiscovered Vulnerabilities:</strong> Cryptanalysis was incomplete, potentially leaving hidden weaknesses.</li>
+                <li><strong>Usability Concerns:</strong> Limited compatibility with modern systems.</li>
+                <li><strong>Limited Documentation:</strong> Discontinued project with no ongoing support, increasing the risk of misconfiguration.</li>
+            </ul>
+
+            <h2>Initial Post: Expanded Ontology - Impact on Specific Use Cases</h2>
+            <p>Let’s take the example of a user wishing to encrypt a disk storing bank details:</p>
+            <ul>
+                <li><strong>Critical Vulnerabilities (Unmaintained Codebase):</strong></li>
+                <ul>
+                    <li><strong>Risk:</strong> A vulnerability could be exploited by attackers in the future, potentially exposing sensitive banking information.</li>
+                    <li><strong>Impact:</strong> High, because bank details are highly sensitive and require robust, up-to-date encryption mechanisms.</li>
+                </ul>
+                <li><strong>Potential Security Gaps (Undiscovered Vulnerabilities):</strong></li>
+                <ul>
+                    <li><strong>Risk:</strong> Hidden flaws might be uncovered over time, leaving the encryption prone to attack.</li>
+                    <li><strong>Impact:</strong> Medium to high, depending on the criticality of the undiscovered vulnerabilities and the level of encryption required.</li>
+                </ul>
+                <li><strong>Usability Concerns (Limited Compatibility with Modern Systems):</strong></li>
+                <ul>
+                    <li><strong>Risk:</strong> TrueCrypt’s full-disk encryption might not function properly on modern systems, potentially leaving parts of the disk unencrypted or unusable.</li>
+                    <li><strong>Impact:</strong> Medium, as the encryption may not fully protect newer operating systems or storage formats.</li>
+                </ul>
+                <li><strong>Limited Documentation (Misconfiguration Risk):</strong></li>
+                <ul>
+                    <li><strong>Risk:</strong> Without updated guidance, the user may configure encryption incorrectly, leaving sensitive areas unprotected.</li>
+                    <li><strong>Impact:</strong> Medium, as incorrect configuration can result in weak encryption.</li>
+                </ul>
+            </ul>
+
+            <h2>Conclusion</h2>
+            <p>
+                The cryptanalysis of TrueCrypt by Junestam & Guigo (2014) suggests that while there were no immediate critical vulnerabilities, the risk of unfixed issues remains. For this reason, I would not recommend TrueCrypt as a secure storage solution, particularly for sensitive data, without significant caveats regarding its discontinued status and potential vulnerabilities. Instead, I would recommend switching to actively maintained alternatives such as VeraCrypt, which builds on TrueCrypt’s foundation while addressing many of its security gaps.
+            </p>
+
+            <h2>References</h2>
+            <ul>
+                <li>Junestam, J., & Guigo, M., 2014. TrueCrypt Cryptanalysis. [online] Available at: <a href="https://example.com">https://example.com</a> [Accessed 20 Oct. 2024].</li>
+                <li>TrueCrypt, 2014. Official Warning Statement. [online] Available at: <a href="https://truecrypt.sourceforge.net">https://truecrypt.sourceforge.net</a> [Accessed 20 Oct. 2024].</li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+
+	  
+      
+
+
+  <!-- Include JavaScript files -->
+  <script src="js/jquery.min.js"></script>
+  <!-- Include your custom JS files -->
+  <script src="js/artefact.js"></script>
+
+</body>
+</html>

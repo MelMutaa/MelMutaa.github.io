@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Artefact Title - MelMutaa E-Portfolio</title>
+  <!-- Meta tags for responsiveness -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Favicon -->
+  <link rel="shortcut icon" href="./favicon-16x16.png">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Roboto:400,300,600,400italic,700" rel="stylesheet">
+
+  <!-- CSS Libraries -->
+  <link rel="stylesheet" href="../css/artefact.css">
+  <link rel="stylesheet" href="../css/style.css">
+ 
+
+  <!-- Include FontAwesome for icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+  
+
+    <!-- Main Content -->
+    <div id="main">  
+      
+      <!-- Breadcrumbs Section -->
+      <section id="breadcrumbs">
+          <p><a href="../sdlc.html">Back to Unit Overview </a> > <span>Unit:3 - E-portfolio Artefacts</span></p>
+      </section>
+
+      <!-- Introduction Section -->
+      <section id="introduction">
+          <h2>Introduction to Secure Software Development </h2>
+      </section>
+
+      <!-- Learning Outcomes Section -->
+<!-- Learning Outcomes Section -->
+<section id="learning-outcomes">
+    <h2 style="text-align: center;">Learning Overview</h2>
+    <div style="display: flex; gap: 20px;">
+        <!-- Column 1: General Learning Outcomes -->
+        <div style="flex: 1;">
+            <strong><p>Learning Outcomes:</p></strong>
+            <ul>
+                <li>Review the history and concepts of programming languages.</li>
+                <li>Investigate language concepts using Python as an example.</li>
+                <li>Describe best practices and methods to overcome common security issues.</li>
+            </ul>
+        </div>
+
+        <!-- Column 2: Additional Learning Outcomes -->
+        <div style="flex: 1;">
+             <strong><p>On completion of this unit, I am now able to:</p></strong>
+            <ul>
+                <li>Describe some key milestones in the development of programming languages.</li>
+                <li>Outline some of the key paradigms that define the different types of languages.</li>
+                <li>Explain the key concepts that determine the operation of programming languages.</li>
+                <li>Discuss key programming challenges and recommended best practices.</li>
+                <li>Explain what design patterns are and when to use them.</li>
+            </ul>
+        </div>
+    </div>
+</section>
+
+
+
+      <!-- Artefact Tiles Section -->
+      <section id="artefact-tiles">
+          <div class="tile">
+              <a href="#artefact-container">
+                  <div class="tile-content">
+                      <h3>What is a secure coding language?</h3>
+                      <p> Team discussion </p>
+                  </div>
+              </a>
+            </div>
+      </section>
+
+            <!-- Artefact Tiles Section -->
+            <section id="artefact-tiles">
+                <div class="tile">
+                    <a href="#summary-post-1">
+                        <div class="tile-content">
+                            <h3>Summary Post 1 </h3>
+                            <p> Collabrative discussion </p>
+                        </div>
+                    </a>
+                  </div>
+            </section>
+
+
+	 <!-- Artefact Content Section -->
+<div id="artefact-container" class="blog-post">
+    <!-- Title and Date Container -->
+    <div id="title-meta-container">
+        <div id="artefact-header">
+            <h1>Factors That Determine Whether a Programming Language is Secure</h1>
+            <p class="artefact-meta">Published on <time datetime="2024-01-01">September 4, 2024</time></p>
+        </div>
+    </div>
+
+    <!-- Flexbox for image and description -->
+    <div id="artefact-content">
+
+        <!-- Description Section -->
+        <div class="artefact-description">
+            <p>
+                Several key factors determine whether a programming language can be considered secure:
+            </p>
+            <p>
+                <strong>1. Memory Management:</strong> Secure languages handle memory management automatically, reducing vulnerabilities like buffer overflows or memory leaks, common in languages like C and C++. Languages like Java and Python have built-in garbage collection, making them more secure in this regard.
+            </p>
+            <p>
+                <strong>2. Type Safety:</strong> A secure language enforces strict type checking to prevent type errors. Type-safe languages prevent operations on incompatible data types, reducing the chances of unexpected behaviours or vulnerabilities. Strongly typed languages like Java and Python limit these issues.
+            </p>
+            <p>
+                <strong>3. Error Handling:</strong> Secure languages offer robust error-handling mechanisms, preventing the system from exposing sensitive data through error messages. Proper exception handling, as found in Python and Java, allows programs to handle errors securely without crashing.
+            </p>
+            <p>
+                <strong>4. Access Control:</strong> A language should support fine-grained access control mechanisms. Secure languages provide built-in security features such as sandboxing or role-based access to resources, reducing unauthorised access risks.
+            </p>
+            <p>
+                <strong>5. Cryptography Libraries:</strong> A secure language must support strong cryptographic functions to ensure data integrity, confidentiality, and authentication. Libraries like Python’s `cryptography` module or Java’s `javax.crypto` package make these languages more secure for encryption and decryption purposes.
+            </p>
+            <p>
+                <strong>6. Community and Support:</strong> Secure languages are often backed by strong communities and well-maintained libraries, where known vulnerabilities are quickly patched. Python, for instance, has an active community that regularly updates libraries and fixes security flaws.
+            </p>
+            <p>
+                <strong>Could Python Be Classed as a Secure Language?</strong><br>
+                Python can be considered a secure language, but this comes with caveats. Python excels in memory management and error handling, which reduce the risk of common vulnerabilities such as buffer overflows and memory leaks. It also provides extensive libraries for cryptography, allowing developers to integrate encryption and decryption operations securely.
+            </p>
+            <p>
+                However, Python's dynamic typing can be seen as a potential risk, as it could lead to runtime errors if types are used improperly, which may introduce vulnerabilities. Additionally, while Python itself is relatively secure, the security of the applications written in Python depends on the developer's coding practices. For example, the improper use of third-party libraries or failure to validate inputs can introduce security flaws, such as SQL injection attacks.
+            </p>
+            <p>
+                In conclusion, Python is not inherently insecure, but like any language, its security largely depends on the developer’s practices. When used correctly, Python can be a secure choice for a wide range of applications.
+            </p>
+            <p>
+                <strong>Python vs. C for Operating Systems</strong><br>
+                The debate on whether Python would be a better language than C for creating operating systems hinges on several key factors:
+            </p>
+            <p>
+                <strong>1. Performance:</strong> C is known for its low-level capabilities and direct access to memory, which makes it ideal for performance-critical tasks like operating system development. Operating systems require fine-tuned control over hardware, which C offers with its minimal abstraction. Python, being an interpreted language, is slower and has more overhead, making it less suitable for performance-critical parts of an OS.
+            </p>
+            <p>
+                <strong>2. Memory Management:</strong> C allows developers direct control over memory, which is crucial for operating system development. However, this comes with risks such as memory leaks and buffer overflows. Python’s automatic memory management makes it less prone to such vulnerabilities but also limits the level of control necessary for OS development.
+            </p>
+            <p>
+                <strong>3. Low-Level Access:</strong> Operating systems require direct access to hardware components (e.g., CPU, memory, and I/O devices). C excels in this regard due to its low-level capabilities, allowing for system calls and direct manipulation of memory. Python, on the other hand, operates at a higher level of abstraction, making it unsuitable for tasks that require low-level access.
+            </p>
+            <p>
+                <strong>4. Development Speed and Safety:</strong> Python offers faster development cycles due to its simpler syntax and high-level abstractions. From a safety perspective, Python’s built-in security features, such as memory management and exception handling, reduce the risk of common programming errors. However, operating systems need the level of control and efficiency that languages like C provide.
+            </p>
+            <p>
+                <strong>Conclusion:</strong> Python is a powerful, secure language for application development but falls short in areas where C excels, particularly in operating system development. While Python may be better for rapid prototyping or higher-level features of an OS, C remains the language of choice for core operating system development due to its performance, low-level control, and ability to interact directly with hardware.
+            </p>
+            <p><strong>References</strong></p>
+            <ul>
+                <li>Pillai, S. (2017). Introduction to Secure Coding Practices.</li>
+                <li>Cifuentes, C., & Bierman, E. (2019). What is a Secure Programming Language?</li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+
+<div id="artefact-container" class="blog-post">
+    <!-- Title and Date Container -->
+    <div id="title-meta-container">
+        <div id="artefact-header">
+            <h1>Unit 3 - Summary Post</h1>
+            <p class="artefact-meta">Published on <time datetime="2024-01-01">January 1, 2024</time></p>
+        </div>
+    </div>
+
+    <!-- Flexbox for image and description -->
+    <div id="artefact-content">
+        <!-- Artefact Image Section -->
+        <div id="artefact-image">
+            <figure>
+                <img src="../images/sdlc/uml.jpg" alt="Artefact Image">
+            </figure>
+        </div>
+
+        <!-- Description Section -->
+        <div class="artefact-description">
+            <p>
+                Cryptographic failures, as outlined in the OWASP Top 10 (OWASP, 2021), are the second most common vulnerability affecting web applications. These failures occur when sensitive data is exposed due to inadequate or flawed cryptographic mechanisms. Examples include weak encryption, poor key management, and downgraded connections. Cryptographic failures are classified as a symptom of larger security issues rather than the root cause. This vulnerability often results in unauthorised access to critical data, such as personally identifiable information (PII), financial details, and health records (Kelly, 2023).
+            </p>
+            <p>
+                From a peer feedback perspective, I realised the importance of highlighting downgraded connections and Man-in-the-Middle (MitM) attacks as key examples of cryptographic failures that often go overlooked. One of the most crucial insights was understanding that cryptographic failures are not just about encryption algorithms but involve the entire cryptographic process. This includes the handling of keys, secure communication protocols, and system integration. Hiremath (2021) explains that any failure exposing critical data is considered a cryptographic failure, making it essential to consider the holistic security of systems.
+            </p>
+            <p>
+                Reflecting on this topic in the context of UML models helped me further visualise how cryptographic vulnerabilities can be addressed during the system design phase. UML Sequence Diagrams can model how attackers might breach systems, while Class Diagrams show the structure of data handling, pinpointing where sensitive information could be compromised. Use Case Diagrams provide a high-level view of interactions, helping identify scenarios where SQL injection or other input vulnerabilities might arise.
+            </p>
+            <p>
+                To prevent cryptographic failures, strong cryptography should be applied consistently, using best practices for secure connections and key management. Cryptographic failures remind us that robust security begins with secure design and extends through continuous monitoring of systems.
+            </p>
+            <p><strong>References</strong></p>
+            <ul>
+                <li>Hiremath, O. (2021) Introduction to cryptographic failures, Software Secured. Available at: <a href="https://www.softwaresecured.com/post/introduction-to-cryptographic-failures" target="_blank">https://www.softwaresecured.com/post/introduction-to-cryptographic-failures</a> (Accessed: 17 August 2024).</li>
+                <li>Kelly, P. (2023) Understanding OWASP Top 10 V2021: A02 cryptographic failures. Available at: <a href="https://www.gratitech.com/blog/overview-of-owasp-top-10-v2021-a02-cryptographic-failures" target="_blank">https://www.gratitech.com/blog/overview-of-owasp-top-10-v2021-a02-cryptographic-failures</a> (Accessed: 17 August 2024).</li>
+                <li>OWASP (2021) OWASP Top Ten. Available at: <a href="https://owasp.org/www-project-top-ten/" target="_blank">https://owasp.org/www-project-top-ten/</a> (Accessed: 17 August 2024).</li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+        
+	  <!-- End of Main Content -->
+
+	  
+      
+  </div>
+
+  <!-- Include JavaScript files -->
+  <script src="js/jquery.min.js"></script>
+  <!-- Include your custom JS files -->
+  <script src="js/artefact.js"></script>
+
+</body>
+</html>
