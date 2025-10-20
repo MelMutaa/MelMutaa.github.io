@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Unit 3: UML Foundations — e-Portfolio Activities - MelMutaa E-Portfolio</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="shortcut icon" href="../favicon-16x16.png" />
+  <link href="https://fonts.googleapis.com/css?family=Roboto:400,300,600,400italic,700" rel="stylesheet" />
+  <link rel="stylesheet" href="../css/artefact.css" />
+  <link rel="stylesheet" href="../css/style.css" />
+  
+  <style>
+    html{scroll-behavior:smooth;}
+    .blog-post{max-width:1100px;margin:40px auto;background:#fff;border:1px solid #eee;border-radius:14px;padding:36px 40px;box-shadow:0 6px 24px rgba(0,0,0,.06);scroll-margin-top:80px;}
+    #title-meta-container{margin:-12px 0 18px 0;}
+    #artefact-header h1{text-align:center;margin:0 0 6px 0;}
+    #artefact-header .artefact-meta{text-align:center;margin:0 0 14px 0;color:#b35555;}
+    pre{background:#0f172a;color:#e5e7eb;padding:16px;border-radius:10px;overflow:auto;}
+    code{font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,"Liberation Mono","Courier New",monospace;}
+    .back-top{display:inline-block;border:1px solid #e87f7f;padding:8px 14px;border-radius:10px;text-decoration:none}
+    .back-top:hover{background:#fff5f5}
+    .tile{background:#fff;border:1px solid #eee;border-radius:10px;padding:20px;margin:10px;box-shadow:0 4px 12px rgba(0,0,0,.08);transition:transform 0.2s;}
+    .tile:hover{transform:translateY(-2px);box-shadow:0 6px 16px rgba(0,0,0,.12);}
+    .sdlc-table{width:100%;border-collapse:collapse;margin:20px 0;}
+    .sdlc-table th,.sdlc-table td{border:1px solid #ddd;padding:12px;text-align:left;}
+    .sdlc-table th{background-color:#f5f5f5;font-weight:bold;}
+    .state-machine-example{background:#f8f9fa;padding:20px;border-radius:8px;margin:20px 0;}
+  </style>
+</head>
+<body>
+  <!-- Anchor for back-to-top -->
+  <div id="top"></div>
+
+  <div id="main">
+    <!-- Breadcrumbs -->
+    <section id="breadcrumbs">
+      <p><a href="../oop.html">Module Two — OOP</a> > <span>Unit 3: UML Foundations — e-Portfolio Activities</span></p>
+    </section>
+
+    <!-- Intro -->
+    <section id="introduction">
+      <h2>Unit 3: UML Foundations — e-Portfolio Activities</h2>
+      <p style="text-align:center;max-width:900px;margin:0 auto;">
+        Apply UML effectively across the SDLC and model behaviour with a state machine diagram.
+      </p>
+    </section>
+
+    <!-- Learning Outcomes -->
+    <section id="learning-outcomes" style="max-width:1100px;margin:30px auto;">
+      <h2>Learning Overview</h2>
+      <div style="display:flex;gap:20px;flex-wrap:wrap">
+        <div style="flex:1;min-width:280px">
+          <strong><p>In this unit we shall:</p></strong>
+          <ul>
+            <li>Analyze UML model applicability across SDLC stages</li>
+            <li>Study state machine diagram principles from UML Reference Manual</li>
+            <li>Design complex state behavior for real-world systems</li>
+          </ul>
+        </div>
+        <div style="flex:1;min-width:280px">
+          <strong><p>On completion you will be able to:</p></strong>
+          <ul>
+            <li>Select appropriate UML models for each development phase</li>
+            <li>Create detailed state machine diagrams</li>
+            <li>Apply UML modeling to practical engineering problems</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- Tiles -->
+    <section id="artefact-tiles" style="max-width:1100px;margin:30px auto;display:flex;flex-wrap:wrap;justify-content:center;">
+      <div class="tile" style="flex:1;min-width:300px;">
+        <a href="#uml-by-sdlc" style="text-decoration:none;color:inherit;">
+          <div class="tile-content">
+            <h3>UML by SDLC Stage</h3>
+            <p>Which models fit where?</p>
+          </div>
+        </a>
+      </div>
+      <div class="tile" style="flex:1;min-width:300px;">
+        <a href="#washing-machine" style="text-decoration:none;color:inherit;">
+          <div class="tile-content">
+            <h3>State Machine — Washing Machine</h3>
+            <p>Design exercise (Fig. 3–7, Ch. 21)</p>
+          </div>
+        </a>
+      </div>
+    </section>
+
+    <!-- Activity 1 -->
+    <div id="uml-by-sdlc" class="blog-post">
+      <div id="title-meta-container">
+        <div id="artefact-header">
+          <h1>Discuss: UML Models by SDLC Stage</h1>
+          <p class="artefact-meta">e-Portfolio Activity</p>
+        </div>
+      </div>
+
+      <div class="artefact-description">
+        <h2>Prompt</h2>
+        <p>Discuss which UML models are most applicable at different stages of the Software Development Life Cycle.</p>
+
+        <h2>Comprehensive Analysis</h2>
+        
+        <table class="sdlc-table">
+          <thead>
+            <tr>
+              <th>SDLC Phase</th>
+              <th>Primary UML Models</th>
+              <th>Purpose & Focus</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Requirements Gathering</strong></td>
+              <td>Use Case Diagrams<br>Activity Diagrams (high-level)<br>Domain Class Diagrams</td>
+              <td>Capture functional requirements, user interactions, and domain concepts without implementation details</td>
+            </tr>
+            <tr>
+              <td><strong>Analysis</strong></td>
+              <td>Detailed Use Cases<br>Robustness Diagrams<br>State Machine Diagrams<br>Class Diagrams (analysis level)</td>
+              <td>Refine requirements, identify objects and their lifecycles, model system behavior</td>
+            </tr>
+            <tr>
+              <td><strong>Design</strong></td>
+              <td>Class Diagrams (detailed)<br>Sequence Diagrams<br>Communication Diagrams<br>Component Diagrams</td>
+              <td>Define software architecture, object interactions, interfaces, and implementation structure</td>
+            </tr>
+            <tr>
+              <td><strong>Implementation</strong></td>
+              <td>Component Diagrams<br>Package Diagrams<br>Deployment Diagrams</td>
+              <td>Guide code organization, module dependencies, and physical deployment</td>
+            </tr>
+            <tr>
+              <td><strong>Testing</strong></td>
+              <td>Sequence Diagrams<br>Activity Diagrams<br>State Machine Diagrams</td>
+              <td>Create test cases, validate object interactions, and verify state transitions</td>
+            </tr>
+            <tr>
+              <td><strong>Maintenance</strong></td>
+              <td>All updated diagrams<br>Package Diagrams<br>Deployment Diagrams</td>
+              <td>Document as-built system, support changes, and impact analysis</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <h3>Key Insights</h3>
+        <ul>
+          <li><strong>Progressive Refinement:</strong> Models evolve from conceptual to implementation-specific</li>
+          <li><strong>Multiple Views:</strong> Different stakeholders need different diagram types</li>
+          <li><strong>Traceability:</strong> Maintain links between requirements, design, and implementation</li>
+          <li><strong>Iterative Nature:</strong> In agile development, UML models are updated incrementally</li>
+        </ul>
+
+        <h2>Your Notes / Uploads</h2>
+        <p>Add screenshots or exports of your UML here.</p>
+        <ul>
+          <li>📎 <em>upload</em> <code>../images/oop/unit3/uml-by-sdlc-1.png</code></li>
+          <li>📎 <em>upload</em> <code>../images/oop/unit3/uml-by-sdlc-2.png</code></li>
+        </ul>
+
+        <p style="margin-top: 12px;"><a href="#top" class="back-top">Back to top ↑</a></p>
+      </div>
+    </div>
+
+    <!-- Activity 2 -->
+    <div id="washing-machine" class="blog-post">
+      <div id="title-meta-container">
+        <div id="artefact-header">
+          <h1>State Machine Diagram — Washing Machine</h1>
+          <p class="artefact-meta">Referencing "The Unified Modeling Language Reference Manual, 2nd Ed." — Fig. 3-7, Ch. 21</p>
+        </div>
+      </div>
+
+      <div class="artefact-description">
+        <h2>Brief</h2>
+        <p>
+          Using the State Machine Diagram in Figures 3-7 (Chapter 21), design a similar model for a <strong>washing machine</strong>.
+          Identify <em>states</em> (e.g., Idle, Filling, Washing, Rinsing, Spinning, Completed), <em>events</em> (Start, DoorClosed, WaterLevelReached, TimerElapsed),
+          <em>guards</em> (e.g., <code>doorLocked</code>), and <em>actions</em> (e.g., <code>pumpOn()</code>, <code>motorStart()</code>).
+        </p>
+
+        <div class="state-machine-example">
+          <h3>Example State Machine Structure (Based on UML Reference Manual)</h3>
+          <pre>
+[Initial] → [Idle] → [DoorClosed] → [Filling]
+    ↓
+[WaterLevelReached] → [Washing] → [TimerElapsed] → [Rinsing]
+    ↓
+[TimerElapsed] → [Spinning] → [TimerElapsed] → [Completed]
+    ↓
+[DoorOpened] → [Idle]
+
+Composite State: WashingCycle
+   ├── [PreWash] → [MainWash] → [Rinse]
+   └── [Drain] (entry/exit actions)
+          </pre>
+        </div>
+
+        <h2>Detailed Design Specifications</h2>
+        
+        <h3>States Definition</h3>
+        <ul>
+          <li><strong>Idle:</strong> Initial state, door unlocked, ready for input</li>
+          <li><strong>Filling:</strong> Water inlet valve open, monitoring water level</li>
+          <li><strong>Washing:</strong> Agitation motor active, detergent dispensed</li>
+          <li><strong>Rinsing:</strong> Clean water cycles, removal of detergent</li>
+          <li><strong>Spinning:</strong> High-speed rotation to remove water</li>
+          <li><strong>Completed:</strong> Cycle finished, audible signal, door unlocked</li>
+          <li><strong>Paused:</strong> User-interrupted state</li>
+          <li><strong>Error:</strong> Fault detection state</li>
+        </ul>
+
+        <h3>Key Transitions & Guards</h3>
+        <table class="sdlc-table">
+          <thead>
+            <tr>
+              <th>Transition</th>
+              <th>Event</th>
+              <th>Guard Condition</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Idle → Filling</td>
+              <td>startButtonPressed</td>
+              <td>doorClosed == true</td>
+              <td>lockDoor(), openWaterValve()</td>
+            </tr>
+            <tr>
+              <td>Filling → Washing</td>
+              <td>waterLevelReached</td>
+              <td>waterLevel >= requiredLevel</td>
+              <td>closeWaterValve(), startAgitation()</td>
+            </tr>
+            <tr>
+              <td>Washing → Rinsing</td>
+              <td>washTimerElapsed</td>
+              <td>timer == 0</td>
+              <td>stopAgitation(), drainWater()</td>
+            </tr>
+            <tr>
+              <td>Any State → Paused</td>
+              <td>pauseButtonPressed</td>
+              <td>—</td>
+              <td>storeCurrentState()</td>
+            </tr>
+            <tr>
+              <td>Any State → Error</td>
+              <td>sensorFault</td>
+              <td>—</td>
+              <td>activateAlarm(), shutdownSystem()</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <h2>Hints</h2>
+        <ul>
+          <li>Include an initial pseudostate → <code>Idle</code>.</li>
+          <li>Model composite states if you separate <em>Wash</em> into sub-states (Agitate/Soak).</li>
+          <li>Use internal transitions for timer ticks; use exit/entry actions for pumps/valves.</li>
+          <li>Model error/interrupt flows (e.g., <em>DoorOpen</em> triggers pause/abort).</li>
+          <li>Consider different washing programs (Quick, Delicate, Heavy Duty) as orthogonal regions</li>
+        </ul>
+
+        <h2>Your Diagram</h2>
+        <p>Insert your exported diagram below and annotate key transitions/guards:</p>
+        <ul>
+          <li>📎 <em>upload</em> <code>../images/oop/unit3/wm-statemachine.png</code></li>
+        </ul>
+
+        <h3>Diagram Annotations</h3>
+        <p>Describe your design decisions:</p>
+        <ul>
+          <li>How did you handle error conditions?</li>
+          <li>What composite states did you include?</li>
+          <li>How does your design reference Figure 3-7 from the UML manual?</li>
+        </ul>
+
+        <h2>Formative Feedback</h2>
+        <p>You can share your work with your tutor via email for feedback. Add any comments or reflections here after you receive notes.</p>
+
+        <div style="background:#f0f8ff;padding:15px;border-radius:8px;margin:15px 0;">
+          <h4>Tutor Feedback Area</h4>
+          <p><em>Add feedback received from your tutor here...</em></p>
+        </div>
+
+        <p style="margin-top: 12px;"><a href="#top" class="back-top">Back to top ↑</a></p>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

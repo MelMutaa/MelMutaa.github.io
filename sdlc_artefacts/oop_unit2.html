@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Unit 2: OO Analysis — Initial Steps towards Programming in Python - MelMutaa E-Portfolio</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="shortcut icon" href="../favicon-16x16.png" />
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Roboto:400,300,600,400italic,700" rel="stylesheet" />
+
+  <!-- Site CSS -->
+  <link rel="stylesheet" href="../css/artefact.css" />
+  <link rel="stylesheet" href="../css/style.css" />
+
+  <!-- Page-scoped helpers (safe to move to CSS later) -->
+  <style>
+    html{scroll-behavior:smooth;}
+    .blog-post{max-width:1100px;margin:40px auto;background:#fff;border:1px solid #eee;border-radius:14px;padding:36px 40px;box-shadow:0 6px 24px rgba(0,0,0,.06);scroll-margin-top:80px;}
+    #title-meta-container{margin:-12px 0 18px 0;}
+    #artefact-header h1{text-align:center;margin:0 0 6px 0;}
+    #artefact-header .artefact-meta{text-align:center;margin:0 0 14px 0;color:#b35555;}
+    pre{background:#0f172a;color:#e5e7eb;padding:16px;border-radius:10px;overflow:auto;}
+    code{font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,"Liberation Mono","Courier New",monospace;}
+    .back-top{display:inline-block;border:1px solid #e87f7f;padding:8px 14px;border-radius:10px;text-decoration:none}
+    .back-top:hover{background:#fff5f5}
+    .exercise-brief {max-width:1100px;margin:40px auto;background:#fff;border:1px solid #eee;border-radius:14px;padding:36px 40px;box-shadow:0 6px 24px rgba(0,0,0,.06);}
+    .exercise-item {margin-bottom: 20px; padding-bottom: 20px; border-bottom: 1px solid #eee;}
+    .exercise-item:last-child {border-bottom: none; margin-bottom: 0; padding-bottom: 0;}
+    .exercise-title {font-weight: bold; color: #b35555; margin-bottom: 8px;}
+  </style>
+</head>
+<body>
+  <div id="top"></div>
+
+  <div id="main">
+    <!-- Breadcrumbs -->
+    <section id="breadcrumbs">
+      <p><a href="../oop.html">Module Two — OOP</a> >
+        <span>Unit 2: Object Oriented Analysis — Initial Steps towards Programming in Python</span>
+      </p>
+    </section>
+
+    <!-- Intro -->
+    <section id="introduction">
+      <h2>Unit 2: Object Oriented Analysis — Initial Steps towards Programming in Python</h2>
+      <p style="text-align:center;max-width:900px;margin:0 auto">
+        We extend our first Python programs by analysing domains with UML
+        (use case and state machine models), then turn models into simple classes and methods.
+      </p>
+    </section>
+
+    <!-- Outcomes (kept short) -->
+    <section id="learning-outcomes">
+      <h2>Learning Overview</h2>
+      <div style="display:flex;gap:20px;flex-wrap:wrap">
+        <div style="flex:1;min-width:280px">
+          <strong><p>In this unit we shall:</p></strong>
+          <ul>
+            <li>Explore actor–system interactions via use cases.</li>
+            <li>Model system behaviours with a state machine.</li>
+            <li>Translate models into Python classes and methods.</li>
+          </ul>
+        </div>
+        <div style="flex:1;min-width:280px">
+          <strong><p>On completion you will be able to:</p></strong>
+          <ul>
+            <li>Design a use case diagram for a scenario.</li>
+            <li>Create a state machine for key behaviours.</li>
+            <li>Implement classes that reflect these models.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- Exercise Brief Section -->
+    <div class="exercise-brief" id="exercise-brief">
+      <div id="title-meta-container">
+        <div id="artefact-header">
+          <h1>Exercise Brief</h1>
+          <p class="artefact-meta">Overview of all exercises in this unit</p>
+        </div>
+      </div>
+      <div class="artefact-description">
+        <div class="exercise-item">
+          <div class="exercise-title">Exercise 1: Line Equality Method</div>
+          <p>Write an <code>__eq__</code> method for the Line class that returns True if the Line objects refer to Point objects that are equivalent, in either order.</p>
+        </div>
+        
+        <div class="exercise-item">
+          <div class="exercise-title">Exercise 2: Line Midpoint Method</div>
+          <p>Write a Line method called <code>midpoint</code> that computes the midpoint of a line segment and returns the result as a Point object.</p>
+        </div>
+        
+        <div class="exercise-item">
+          <div class="exercise-title">Exercise 3: Rectangle Midpoint Method</div>
+          <p>Write a Rectangle method called <code>midpoint</code> that finds the point in the center of a rectangle and returns the result as a Point object.</p>
+        </div>
+        
+        <div class="exercise-item">
+          <div class="exercise-title">Exercise 4: Rectangle Cross Method</div>
+          <p>Write a Rectangle method called <code>make_cross</code> that:</p>
+          <ol>
+            <li>Uses <code>make_lines</code> to get a list of Line objects that represent the four sides of the rectangle</li>
+            <li>Computes the midpoints of the four lines</li>
+            <li>Makes and returns a list of two Line objects that represent lines connecting opposite midpoints, forming a cross through the middle of the rectangle</li>
+          </ol>
+        </div>
+        
+        <div class="exercise-item">
+          <div class="exercise-title">Exercise 5: Circle Class</div>
+          <p>Write a definition for a class named Circle with attributes <code>center</code> and <code>radius</code>, where center is a Point object and radius is a number. Include special methods <code>__init__</code> and <code>__str__</code>, and a method called <code>draw</code> that uses jupyturtle functions to draw the circle.</p>
+        </div>
+        
+        <p style="margin-top:20px;"><a href="#top" class="back-top">Back to top ↑</a></p>
+      </div>
+    </div>
+
+
+
+    <!-- Exercise 1: Line.__eq__ -->
+    <div class="blog-post" id="ex-line-eq">
+      <div id="title-meta-container">
+        <div id="artefact-header">
+          <h1>Exercise 1 — <code>Line.__eq__</code> (order-insensitive)</h1>
+          <p class="artefact-meta">Return True if two lines have equivalent endpoints in either order</p>
+        </div>
+      </div>
+      <div class="artefact-description">
+        <p>This method compares two Line objects and returns True if they have the same endpoints, regardless of order.</p>
+<pre><code class="language-python">def __eq__(self, other) -> bool:
+    if not isinstance(other, Line):
+        return NotImplemented
+    # Check if endpoints match in either order
+    return (self.p1 == other.p1 and self.p2 == other.p2) or \
+           (self.p1 == other.p2 and self.p2 == other.p1)</code></pre>
+        <p style="margin-top:12px;"><a href="#top" class="back-top">Back to top ↑</a></p>
+      </div>
+    </div>
+
+    <!-- Exercise 2: Line.midpoint -->
+    <div class="blog-post" id="ex-line-midpoint">
+      <div id="title-meta-container">
+        <div id="artefact-header">
+          <h1>Exercise 2 — <code>Line.midpoint</code></h1>
+          <p class="artefact-meta">Compute the midpoint of a line segment</p>
+        </div>
+      </div>
+      <div class="artefact-description">
+        <p>This method calculates the midpoint between two points by averaging their x and y coordinates.</p>
+<pre><code class="language-python">def midpoint(self) -> Point:
+    """Return the midpoint of the line segment."""
+    mid_x = (self.p1.x + self.p2.x) / 2
+    mid_y = (self.p1.y + self.p2.y) / 2
+    return Point(mid_x, mid_y)</code></pre>
+        <p style="margin-top:12px;"><a href="#top" class="back-top">Back to top ↑</a></p>
+      </div>
+    </div>
+
+    <!-- Exercise 3: Rectangle.midpoint -->
+    <div class="blog-post" id="ex-rectangle-midpoint">
+      <div id="title-meta-container">
+        <div id="artefact-header">
+          <h1>Exercise 3 — <code>Rectangle.midpoint</code></h1>
+          <p class="artefact-meta">Find the center point of a rectangle</p>
+        </div>
+      </div>
+      <div class="artefact-description">
+        <p>This method finds the center of a rectangle by averaging the x-coordinates and y-coordinates of the lower-left and upper-right points.</p>
+<pre><code class="language-python">def midpoint(self) -> Point:
+    """Return the center point of the rectangle."""
+    center_x = (self.ll.x + self.ur.x) / 2
+    center_y = (self.ll.y + self.ur.y) / 2
+    return Point(center_x, center_y)</code></pre>
+        <p style="margin-top:12px;"><a href="#top" class="back-top">Back to top ↑</a></p>
+      </div>
+    </div>
+
+    <!-- Exercise 4: Rectangle.make_cross -->
+    <div class="blog-post" id="ex-make-cross">
+      <div id="title-meta-container">
+        <div id="artefact-header">
+          <h1>Exercise 4 — <code>Rectangle.make_cross</code></h1>
+          <p class="artefact-meta">Create cross lines through rectangle midpoints</p>
+        </div>
+      </div>
+      <div class="artefact-description">
+        <p>This method creates a cross pattern inside the rectangle by connecting the midpoints of opposite sides.</p>
+<pre><code class="language-python">def make_cross(self):
+    """Return two lines connecting opposite midpoints forming a cross."""
+    lines = self.make_lines()
+    midpoints = [line.midpoint() for line in lines]
+    # Connect opposite midpoints: bottom-top and left-right
+    cross_line1 = Line(midpoints[0], midpoints[2])  # bottom to top
+    cross_line2 = Line(midpoints[3], midpoints[1])  # left to right
+    return [cross_line1, cross_line2]</code></pre>
+        <p style="margin-top:12px;"><a href="#top" class="back-top">Back to top ↑</a></p>
+      </div>
+    </div>
+
+    <!-- Exercise 5: Circle class -->
+    <div class="blog-post" id="ex-circle">
+      <div id="title-meta-container">
+        <div id="artefact-header">
+          <h1>Exercise 5 — <code>Circle</code> Class</h1>
+          <p class="artefact-meta">Circle with center, radius, and drawing capability</p>
+        </div>
+      </div>
+      <div class="artefact-description">
+        <p>This class represents a circle with a center point and radius, including string representation and drawing functionality.</p>
+<pre><code class="language-python">class Circle:
+    """Circle with center point and radius."""
+    
+    def __init__(self, center: Point, radius: float):
+        self.center = center
+        self.radius = radius
+        
+    def __str__(self) -> str:
+        return f"Circle(center={self.center}, radius={self.radius})"
+        
+    def draw(self):
+        """Draw the circle using jupyturtle functions."""
+        import jupyturtle as jt
+        jt.penup()
+        jt.goto(self.center.x, self.center.y - self.radius)
+        jt.pendown()
+        jt.circle(self.radius)</code></pre>
+        <p style="margin-top:12px;"><a href="#top" class="back-top">Back to top ↑</a></p>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>
+      Unit 1: An Introduction to Python Programming and the OO Programming Paradigm - MelMutaa E-Portfolio
+    </title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" href="../favicon-16x16.png" />
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,300,600,400italic,700" rel="stylesheet" />
+
+    <!-- Site CSS -->
+    <link rel="stylesheet" href="../css/artefact.css" />
+    <link rel="stylesheet" href="../css/style.css" />
+
+    <!-- Page-scoped fixes/styles -->
+    <style>
+      /* Smooth in-page scrolling */
+      html { scroll-behavior: smooth; }
+
+      /* Card-like post container (match SDLC look) */
+      .blog-post{
+        max-width: 1100px;
+        margin: 40px auto;
+        background: #fff;
+        border: 1px solid #eee;
+        border-radius: 14px;
+        padding: 36px 40px;
+        box-shadow: 0 6px 24px rgba(0,0,0,.06);
+        scroll-margin-top: 80px; /* prevents header overlap on anchor jump */
+      }
+
+      /* Post header strip */
+      #title-meta-container{ margin: -12px 0 18px 0; }
+      #artefact-header h1{ text-align: center; margin: 0 0 6px 0; }
+      #artefact-header .artefact-meta{ text-align: center; margin: 0 0 14px 0; color: #b35555; }
+
+      /* Back to top button */
+      .back-top{
+        display:inline-block; text-decoration:none; border:1px solid #e87f7f;
+        padding:8px 14px; border-radius:10px;
+      }
+      .back-top:hover{ background:#fff5f5; }
+
+      /* Practical activity gallery (solution/output images) */
+      #practical-activity .gallery{
+        display:grid; gap:22px; grid-template-columns:1fr; max-width:980px; margin:0 auto;
+      }
+      @media (min-width: 900px){
+        #practical-activity .gallery{ grid-template-columns:1fr 1fr; }
+      }
+      #practical-activity figure{
+        background:#fff; border:1px solid #eee; border-radius:10px; padding:14px;
+        box-shadow:0 1px 6px rgba(0,0,0,.06);
+      }
+      #practical-activity img{ width:100%; height:auto; border-radius:6px; display:block; }
+      #practical-activity figcaption{ font-size:.95rem; color:#555; margin-top:8px; text-align:center; }
+      #practical-activity .callout{
+        background:#fff; border:1px solid #e87f7f; border-radius:14px; padding:28px; text-align:center;
+        max-width:980px; margin:0 auto 24px; box-shadow:0 2px 8px rgba(0,0,0,.04);
+      }
+    </style>
+  </head>
+
+  <body>
+    <!-- Anchor for "Back to top" -->
+    <div id="top"></div>
+
+    <div id="main">
+      <!-- Breadcrumbs -->
+      <section id="breadcrumbs">
+        <p>
+          <a href="../oop.html">Module Two — OOP</a> >
+          <span>Unit 1: An Introduction to Python Programming and the OO Programming Paradigm</span>
+        </p>
+      </section>
+
+      <!-- Intro -->
+      <section id="introduction">
+        <h2>Unit 1: An Introduction to Python Programming and the OO Programming Paradigm</h2>
+        <p style="text-align: center; max-width: 900px; margin: 0 auto">
+          Welcome to Week 1. In this introduction to Python programming, we will gain an understanding of the evolution of
+          programming languages towards object orientation, and beyond it in response to the challenges of programming in an
+          object-oriented way.
+        </p>
+      </section>
+
+      <!-- Outcomes -->
+      <section id="learning-outcomes">
+        <h2>Learning Overview</h2>
+        <div style="display: flex; gap: 20px; flex-wrap: wrap">
+          <div style="flex: 1; min-width: 280px">
+            <strong><p>In this unit we shall:</p></strong>
+            <ul>
+              <li>Examine what it means for a program to be object-oriented.</li>
+              <li>Explore the syntax used to define a Python class.</li>
+              <li>Investigate how to define different data types in Python.</li>
+            </ul>
+          </div>
+          <div style="flex: 1; min-width: 280px">
+            <strong><p>On completion of this unit you will be able to:</p></strong>
+            <ul>
+              <li>
+                Describe the major features of an object-oriented program, including abstraction, inheritance, encapsulation,
+                and polymorphism.
+              </li>
+              <li>Define a Python class.</li>
+              <li>Define a variety of data types in a Python program and adapt the access modifier applied to each.</li>
+            </ul>
+          </div>
+        </div>
+        <p style="margin-top: 20px; color: #407088">
+          <em>This unit gives exposure to the fundamental building blocks of a Python program, upon which advanced features will be built later.</em>
+        </p>
+      </section>
+
+      <!-- Tiles -->
+      <section id="artefact-tiles">
+        <div class="tile">
+          <a href="#discussion-1">
+            <div class="tile-content">
+              <h3>Collaborative Discussion 1</h3>
+              <p>Click to view details</p>
+            </div>
+          </a>
+        </div>
+      </section>
+
+      <section id="activity-tiles">
+        <div class="tile">
+          <a href="#practical-activity">
+            <div class="tile-content">
+              <h3>Practical Activity — Classes &amp; Objects</h3>
+              <p>Think Python Activity</p>
+            </div>
+          </a>
+        </div>
+      </section>
+
+      <!-- Collaborative Discussion (card) -->
+      <div id="discussion-1" class="blog-post">
+        <div id="title-meta-container">
+          <div id="artefact-header">
+            <h1>Collaborative Discussion 1</h1>
+            <p class="artefact-meta">Published on <time datetime="2025-09-30">2025-09-30</time></p>
+          </div>
+        </div>
+
+        <div class="artefact-description">
+          <h2>Prioritising Key Factors that Influence Reusability in Object-Oriented Software</h2>
+          <p>
+            Reusability is a cornerstone of object-oriented (OO) software development, aiming to reduce development time, cost,
+            and effort while improving maintainability. Padhy et al. (2018) identify several factors that influence software
+            reusability, such as modularity, coupling, cohesion, documentation, and generality. After reviewing these factors, I
+            believe that modularity, low coupling, and high-quality documentation are the most crucial priorities for creating
+            truly reusable software components.
+          </p>
+          <p>
+            <strong>Firstly, modularity</strong> refers to the extent to which software components are divided into distinct and
+            self-contained units such as modules or classes with single, clear responsibilities. As (Sommerville, 2016)
+            emphasises, modular design simplifies maintenance, testing, and, most importantly, reuse. A module adhering to the
+            Single Responsibility Principle (Martin, 2017) is inherently more portable and adaptable to new contexts than a
+            monolithic, multi-purpose component. When classes follow the Single Responsibility Principle (SRP), they become more
+            focused and easier to reuse.
+          </p>
+          <p>
+            <strong>Secondly, low coupling</strong> is a non-negotiable companion to modularity. It defines the degree of
+            interdependence between modules. Padhy et al. (2018) highlight that metrics like Coupling Between Objects (CBO) are
+            directly linked to reusability, as tightly intertwined code cannot be easily extracted. (Pressman and Maxim, 2020)
+            confirm that low coupling enhances module independence, making code more flexible, portable and resilient to change,
+            vital for reuse across different projects and evolving systems.
+          </p>
+          <p>
+            <strong>Finally, documentation quality</strong> becomes paramount. It includes clear API descriptions and usage
+            examples. Clear documentation including class descriptions, usage examples, and design rationale supports
+            comprehension, enables the practical implementation of reusable components and accelerates integration into new
+            contexts (Padhy et al., 2018).
+          </p>
+          <p>
+            While factors like cohesion are important, they are often natural outcomes of prioritising modularity and low
+            coupling. Therefore, by focusing on these three pillars, we create software that is not only technically sound but
+            also practically and widely reusable.
+          </p>
+
+          <p style="margin-top: 12px;"><a href="#top" class="back-top">Back to top ↑</a></p>
+        </div>
+      </div>
+
+      <!-- Think Python Practical Activity (card) -->
+      <section id="practical-activity">
+        <div class="blog-post">
+          <div id="title-meta-container">
+            <div id="artefact-header">
+              <h1>Think Python Activity — <code>Date</code> Class &amp; Methods</h1>
+              <p class="artefact-meta">Hands-on practice converting date functions into class methods.</p>
+            </div>
+          </div>
+
+          <div class="artefact-description">
+            <div class="callout">
+              <h2 style="margin:0;">Exercise Brief</h2>
+              <ol style="text-align:left; max-width:900px; margin:10px auto 0;">
+                <li>Write a definition for a <code>Date</code> class that represents a date (year, month, and day).</li>
+                <li>Write an <code>__init__</code> method that takes year, month, and day and assigns them to attributes. Create an object for June 22, 1933.</li>
+                <li>Write <code>__str__</code> to format the attributes as <code>YYYY-MM-DD</code>.</li>
+                <li>Write a method <code>is_after(self, other)</code> that returns <code>True</code> if one date comes after another.</li>
+                <li>(Hint) Add a <code>to_tuple()</code> method returning <code>(year, month, day)</code> to simplify comparisons.</li>
+              </ol>
+            </div>
+
+            <!-- Image gallery — update paths to your actual files -->
+            <div class="gallery" style="margin-top:22px;">
+              <figure>
+                <img src="../images/oop/unit1_code.png" alt="My Date class code solution" />
+                <figcaption>My Python class implementation</figcaption>
+              </figure>
+              <figure>
+                <img src="../images/oop/unit1_output.png" alt="Program output comparison results" />
+                <figcaption>Output showing the date comparisons</figcaption>
+              </figure>
+            </div>
+
+            <h2 style="margin-top: 28px;">Reflection</h2>
+            <ul>
+              <li><strong>Encapsulation:</strong> behaviour (<code>__str__</code>, comparisons) lives with the data.</li>
+              <li><strong>Design choice:</strong> <code>to_tuple()</code> makes <code>is_after</code> concise and testable.</li>
+              <li><strong>Pythonic:</strong> tuple comparisons are lexicographic, matching year → month → day ordering.</li>
+            </ul>
+
+            <p style="margin-top: 12px;"><a href="#top" class="back-top">Back to top ↑</a></p>
+          </div>
+        </div>
+      </section>
+    </div>
+  </body>
+</html>

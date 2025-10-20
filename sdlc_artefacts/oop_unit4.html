@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Unit 4: UML Design - MelMutaa E-Portfolio</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="shortcut icon" href="../favicon-16x16.png" />
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Roboto:400,300,600,400italic,700" rel="stylesheet" />
+
+  <!-- Site CSS -->
+  <link rel="stylesheet" href="../css/artefact.css" />
+  <link rel="stylesheet" href="../css/style.css" />
+
+  <!-- Page-scoped helpers -->
+  <style>
+    html{scroll-behavior:smooth;}
+    .blog-post{max-width:1100px;margin:40px auto;background:#fff;border:1px solid #eee;border-radius:14px;padding:36px 40px;box-shadow:0 6px 24px rgba(0,0,0,.06);scroll-margin-top:80px;}
+    #title-meta-container{margin:-12px 0 18px 0;}
+    #artefact-header h1{text-align:center;margin:0 0 6px 0;}
+    #artefact-header .artefact-meta{text-align:center;margin:0 0 14px 0;color:#b35555;}
+    pre{background:#0f172a;color:#e5e7eb;padding:16px;border-radius:10px;overflow:auto;}
+    code{font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,"Liberation Mono","Courier New",monospace;}
+    .back-top{display:inline-block;border:1px solid #e87f7f;padding:8px 14px;border-radius:10px;text-decoration:none}
+    .back-top:hover{background:#fff5f5}
+    .exercise-brief {max-width:1100px;margin:40px auto;background:#fff;border:1px solid #eee;border-radius:14px;padding:36px 40px;box-shadow:0 6px 24px rgba(0,0,0,.06);}
+    .exercise-item {margin-bottom: 20px; padding-bottom: 20px; border-bottom: 1px solid #eee;}
+    .exercise-item:last-child {border-bottom: none; margin-bottom: 0; padding-bottom: 0;}
+    .exercise-title {font-weight: bold; color: #b35555; margin-bottom: 8px;}
+    .diagram-container {background: #f8f9fa; padding: 20px; border-radius: 10px; margin: 20px 0; text-align: center;}
+    .diagram {max-width: 100%; height: auto; border: 1px solid #ddd; border-radius: 8px;}
+    .uml-table {width: 100%; border-collapse: collapse; margin: 20px 0;}
+    .uml-table th, .uml-table td {border: 1px solid #ddd; padding: 12px; text-align: left;}
+    .uml-table th {background-color: #f5f5f5; font-weight: bold;}
+    .class-section {margin: 25px 0;}
+    .method-list {padding-left: 20px;}
+  </style>
+</head>
+<body>
+  <div id="top"></div>
+
+  <div id="main">
+    <!-- Breadcrumbs -->
+    <section id="breadcrumbs">
+      <p><a href="../oop.html">Module Two — OOP</a> >
+        <span>Unit 4: UML Design</span>
+      </p>
+    </section>
+
+    <!-- Intro -->
+    <section id="introduction">
+      <h2>Unit 4: UML Design Seminar</h2>
+      <p style="text-align:center;max-width:900px;margin:0 auto">
+        This unit focuses on UML modeling through activity diagrams and class diagrams, 
+        followed by implementation of the designed systems in Python.
+      </p>
+    </section>
+
+    <!-- Learning Outcomes -->
+    <section id="learning-outcomes">
+      <h2>Learning Overview</h2>
+      <div style="display:flex;gap:20px;flex-wrap:wrap">
+        <div style="flex:1;min-width:280px">
+          <strong><p>In this unit we shall:</p></strong>
+          <ul>
+            <li>Design activity diagrams for complex processes</li>
+            <li>Create UML class diagrams for system design</li>
+            <li>Implement UML models in Python code</li>
+            <li>Manage employee data and leave booking systems</li>
+          </ul>
+        </div>
+        <div style="flex:1;min-width:280px">
+          <strong><p>On completion you will be able to:</p></strong>
+          <ul>
+            <li>Model workflows using activity diagrams</li>
+            <li>Design object-oriented systems with class diagrams</li>
+            <li>Translate UML designs into functional Python code</li>
+            <li>Implement data management and business logic</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- Exercise Brief Section -->
+    <div class="exercise-brief" id="exercise-brief">
+      <div id="title-meta-container">
+        <div id="artefact-header">
+          <h1>Seminar Exercise Brief</h1>
+          <p class="artefact-meta">UML Design and Implementation Tasks</p>
+        </div>
+      </div>
+      <div class="artefact-description">
+        <div class="exercise-item">
+          <div class="exercise-title">Task 1: Humanoid Robot Activity Diagram</div>
+          <p>Design an activity diagram which shows the relationships and interactivity between the tasks executed by a humanoid robot performing a task of your choice.</p>
+        </div>
+        
+        <div class="exercise-item">
+          <div class="exercise-title">Task 2: Employee Management Class Diagram</div>
+          <p>Expand the activity diagram with the development of a class diagram using UML to support a system with basic employee-related functionality. This should include the retention of employee details and allow an employee to book a day of annual leave.</p>
+        </div>
+        
+        <div class="exercise-item">
+          <div class="exercise-title">Task 3: Python Implementation</div>
+          <p>Develop the Python program to implement the class model designed in Task 2.</p>
+        </div>
+        
+        <p style="margin-top:20px;"><a href="#top" class="back-top">Back to top ↑</a></p>
+      </div>
+    </div>
+
+    <!-- Task 1: Humanoid Robot Activity Diagram -->
+    <div class="blog-post" id="task-1">
+      <div id="title-meta-container">
+        <div id="artefact-header">
+          <h1>Task 1 — Humanoid Robot Activity Diagram</h1>
+          <p class="artefact-meta">Coffee Serving Robot Workflow</p>
+        </div>
+      </div>
+      <div class="artefact-description">
+        <h3>Scenario: Coffee Serving Robot</h3>
+        <p>This activity diagram models a humanoid robot designed to serve coffee in an office environment. The robot handles the entire process from receiving orders to serving coffee and cleaning up.</p>
+        
+        <div class="diagram-container">
+          <h4>Activity Diagram: Coffee Serving Process</h4>
+          <div style="background:white; padding:20px; border-radius:8px; display:inline-block; text-align:left;">
+            <!-- Simplified text-based representation of activity diagram -->
+            <pre style="background:white; color:black; border:1px solid #ddd;">
+[Start] → [Receive Coffee Order]
+          ↓
+[Check Resources Available] → [Resources Low?] → [Send Alert to Staff]
+          ↓
+[Resources Available]
+          ↓
+[Navigate to Coffee Station] → [Obstacle Detected] → [Recalculate Path]
+          ↓
+[Arrive at Station]
+          ↓
+[Prepare Coffee] → [Select Cup] → [Brew Coffee] → [Add Requested Extras]
+          ↓
+[Quality Check] → [Quality Fail] → [Discard & Remake]
+          ↓
+[Quality Pass]
+          ↓
+[Navigate to Customer] → [Customer Not Found?] → [Wait 30s & Retry]
+          ↓
+[Serve Coffee to Customer]
+          ↓
+[Confirm Delivery]
+          ↓
+[Return to Charging Station]
+          ↓
+[Clean Equipment]
+          ↓
+[Enter Standby Mode] → [New Order?] → [Back to Start]
+            </pre>
+          </div>
+          <p><em>Note: This is a textual representation. A visual UML activity diagram would be created using tools like Visual Paradigm.</em></p>
+        </div>
+
+        <h3>Key Activities Explained:</h3>
+        <ul>
+          <li><strong>Receive Coffee Order:</strong> Robot receives order via tablet interface or voice command</li>
+          <li><strong>Resource Management:</strong> Checks coffee beans, water, milk, and cups availability</li>
+          <li><strong>Navigation System:</strong> Uses sensors and pathfinding to move through environment</li>
+          <li><strong>Coffee Preparation:</strong> Executes precise brewing based on order specifications</li>
+          <li><strong>Quality Assurance:</strong> Ensures coffee meets standards before serving</li>
+          <li><strong>Customer Interaction:</strong> Locates and serves the correct customer</li>
+          <li><strong>Maintenance Cycle:</strong> Automated cleaning and return to charging station</li>
+        </ul>
+
+        <p style="margin-top:12px;"><a href="#top" class="back-top">Back to top ↑</a></p>
+      </div>
+    </div>
+
+    <!-- Task 2: Employee Management Class Diagram -->
+    <div class="blog-post" id="task-2">
+      <div id="title-meta-container">
+        <div id="artefact-header">
+          <h1>Task 2 — Employee Management Class Diagram</h1>
+          <p class="artefact-meta">UML Class Diagram for Leave Management System</p>
+        </div>
+      </div>
+      <div class="artefact-description">
+        <h3>System Overview</h3>
+        <p>This class diagram models an employee management system with annual leave booking functionality. The system manages employee data, tracks leave balances, and processes leave requests.</p>
+        
+        <div class="diagram-container">
+          <h4>UML Class Diagram Structure</h4>
+          <div style="background:white; padding:20px; border-radius:8px; display:inline-block; text-align:left;">
+            <pre style="background:white; color:black; border:1px solid #ddd;">
+┌───────────────────┐    ┌───────────────────┐    ┌───────────────────┐
+│     Employee      │    │   LeaveRequest    │    │    Department     │
+├───────────────────┤    ├───────────────────┤    ├───────────────────┤
+│ - employee_id: str│    │ - request_id: str │    │ - dept_id: str    │
+│ - name: str       │1   *│ - employee_id: str│    │ - name: str       │
+│ - email: str      │─────│ - start_date: date│    │ - manager: str    │
+│ - phone: str      │    │ - end_date: date  │    │ - budget: float   │
+│ - position: str   │    │ - status: str     │    │                   │
+│ - salary: float   │    │ - type: str       │    │                   │
+│ - hire_date: date │    │ - reason: str     │    │                   │
+│ - leave_balance: int│   │                   │    │                   │
+├───────────────────┤    ├───────────────────┤    ├───────────────────┤
+│ + apply_leave()   │    │ + approve()       │    │ + add_employee()  │
+│ + update_info()   │    │ + reject()        │    │ + remove_employee()│
+│ + get_leave_bal() │    │ + cancel()        │    │ + get_budget()    │
+│ + calculate_service()│  │ + get_duration() │    │                   │
+└───────────────────┘    └───────────────────┘    └───────────────────┘
+         │                         │
+         │ *                       │ *
+         │                         │
+         ▼                         ▼
+┌───────────────────┐    ┌───────────────────┐
+│   LeaveBalance    │    │  LeaveHistory     │
+├───────────────────┤    ├───────────────────┤
+│ - balance_id: str │    │ - history_id: str │
+│ - employee_id: str│    │ - employee_id: str│
+│ - annual: int     │    │ - request_id: str │
+│ - sick: int       │    │ - action: str     │
+│ - personal: int   │    │ - date: datetime  │
+│ - year: int       │    │ - notes: str      │
+├───────────────────┤    ├───────────────────┤
+│ + update_balance()│    │ + add_record()    │
+│ + get_available() │    │ + get_history()   │
+│ + reset_yearly()  │    │                   │
+└───────────────────┘    └───────────────────┘
+            </pre>
+          </div>
+        </div>
+
+        <h3>Class Descriptions:</h3>
+        
+        <div class="class-section">
+          <h4>Employee Class</h4>
+          <p><strong>Purpose:</strong> Core entity representing an employee in the system</p>
+          <table class="uml-table">
+            <tr><th>Attribute</th><th>Type</th><th>Description</th></tr>
+            <tr><td>employee_id</td><td>String</td><td>Unique identifier for each employee</td></tr>
+            <tr><td>name</td><td>String</td><td>Full name of the employee</td></tr>
+            <tr><td>email</td><td>String</td><td>Contact email address</td></tr>
+            <tr><td>phone</td><td>String</td><td>Contact phone number</td></tr>
+            <tr><td>position</td><td>String</td><td>Job title/position</td></tr>
+            <tr><td>salary</td><td>Float</td><td>Annual salary</td></tr>
+            <tr><td>hire_date</td><td>Date</td><td>Date when employee was hired</td></tr>
+            <tr><td>leave_balance</td><td>Integer</td><td>Current available leave days</td></tr>
+          </table>
+          <p><strong>Key Methods:</strong></p>
+          <ul class="method-list">
+            <li><code>apply_leave()</code> - Submit a new leave request</li>
+            <li><code>update_info()</code> - Modify employee details</li>
+            <li><code>get_leave_bal()</code> - Check current leave balance</li>
+            <li><code>calculate_service()</code> - Calculate years of service</li>
+          </ul>
+        </div>
+
+        <div class="class-section">
+          <h4>LeaveRequest Class</h4>
+          <p><strong>Purpose:</strong> Manages the lifecycle of leave applications</p>
+          <table class="uml-table">
+            <tr><th>Attribute</th><th>Type</th><th>Description</th></tr>
+            <tr><td>request_id</td><td>String</td><td>Unique identifier for each request</td></tr>
+            <tr><td>employee_id</td><td>String</td><td>Reference to applying employee</td></tr>
+            <tr><td>start_date</td><td>Date</td><td>First day of leave</td></tr>
+            <tr><td>end_date</td><td>Date</td><td>Last day of leave</td></tr>
+            <tr><td>status</td><td>String</td><td>Pending/Approved/Rejected/Cancelled</td></tr>
+            <tr><td>type</td><td>String</td><td>Annual/Sick/Personal leave</td></tr>
+            <tr><td>reason</td><td>String</td><td>Purpose of leave request</td></tr>
+          </table>
+          <p><strong>Key Methods:</strong></p>
+          <ul class="method-list">
+            <li><code>approve()</code> - Approve the leave request</li>
+            <li><code>reject()</code> - Reject the leave request</li>
+            <li><code>cancel()</code> - Cancel a pending request</li>
+            <li><code>get_duration()</code> - Calculate number of leave days</li>
+          </ul>
+        </div>
+
+        <p style="margin-top:12px;"><a href="#top" class="back-top">Back to top ↑</a></p>
+      </div>
+    </div>
+
+    <!-- Task 3: Python Implementation -->
+    <div class="blog-post" id="task-3">
+      <div id="title-meta-container">
+        <div id="artefact-header">
+          <h1>Task 3 — Python Implementation</h1>
+          <p class="artefact-meta">Employee Management System Code</p>
+        </div>
+      </div>
+      <div class="artefact-description">
+        <h3>Complete Python Implementation</h3>
+        <p>This Python program implements the UML class diagram from Task 2, providing full employee management and leave booking functionality.</p>
+
+        <pre><code class="language-python">from datetime import date, datetime
+from typing import List, Optional
+import uuid
+
+class Employee:
+    """Represents an employee in the organization."""
+    
+    def __init__(self, employee_id: str, name: str, email: str, phone: str, 
+                 position: str, salary: float, hire_date: date, department: str = "General"):
+        self.employee_id = employee_id
+        self.name = name
+        self.email = email
+        self.phone = phone
+        self.position = position
+        self.salary = salary
+        self.hire_date = hire_date
+        self.department = department
+        self.leave_balance = 25  # Default annual leave days
+        self.leave_requests = []
+    
+    def apply_leave(self, start_date: date, end_date: date, leave_type: str = "Annual", reason: str = "") -> str:
+        """Apply for leave and return request ID."""
+        if self.leave_balance <= 0 and leave_type == "Annual":
+            raise ValueError("Insufficient leave balance")
+        
+        duration = (end_date - start_date).days + 1
+        if leave_type == "Annual" and duration > self.leave_balance:
+            raise ValueError(f"Requested {duration} days but only {self.leave_balance} available")
+        
+        request_id = str(uuid.uuid4())[:8]
+        leave_request = LeaveRequest(request_id, self.employee_id, start_date, end_date, leave_type, reason)
+        self.leave_requests.append(leave_request)
+        
+        return request_id
+    
+    def update_info(self, email: Optional[str] = None, phone: Optional[str] = None, 
+                   position: Optional[str] = None) -> None:
+        """Update employee contact information or position."""
+        if email:
+            self.email = email
+        if phone:
+            self.phone = phone
+        if position:
+            self.position = position
+    
+    def get_leave_balance(self) -> int:
+        """Get current annual leave balance."""
+        return self.leave_balance
+    
+    def calculate_service_years(self) -> float:
+        """Calculate years of service."""
+        today = date.today()
+        service_days = (today - self.hire_date).days
+        return service_days / 365.25
+    
+    def __str__(self) -> str:
+        return f"Employee {self.employee_id}: {self.name} ({self.position})"
+
+class LeaveRequest:
+    """Represents a leave request made by an employee."""
+    
+    def __init__(self, request_id: str, employee_id: str, start_date: date, 
+                 end_date: date, leave_type: str, reason: str = ""):
+        self.request_id = request_id
+        self.employee_id = employee_id
+        self.start_date = start_date
+        self.end_date = end_date
+        self.leave_type = leave_type
+        self.reason = reason
+        self.status = "Pending"  # Pending, Approved, Rejected, Cancelled
+        self.approved_date = None
+        self.approved_by = None
+    
+    def approve(self, approved_by: str) -> None:
+        """Approve the leave request."""
+        self.status = "Approved"
+        self.approved_date = datetime.now()
+        self.approved_by = approved_by
+    
+    def reject(self, rejected_by: str) -> None:
+        """Reject the leave request."""
+        self.status = "Rejected"
+        self.approved_date = datetime.now()
+        self.approved_by = rejected_by
+    
+    def cancel(self) -> None:
+        """Cancel the leave request."""
+        if self.status == "Pending":
+            self.status = "Cancelled"
+        else:
+            raise ValueError("Only pending requests can be cancelled")
+    
+    def get_duration(self) -> int:
+        """Calculate the duration of leave in days."""
+        return (self.end_date - self.start_date).days + 1
+    
+    def __str__(self) -> str:
+        return f"LeaveRequest {self.request_id}: {self.employee_id} ({self.status})"
+
+class Department:
+    """Represents a department in the organization."""
+    
+    def __init__(self, dept_id: str, name: str, manager: str, budget: float = 0.0):
+        self.dept_id = dept_id
+        self.name = name
+        self.manager = manager
+        self.budget = budget
+        self.employees = []
+    
+    def add_employee(self, employee: Employee) -> None:
+        """Add an employee to the department."""
+        employee.department = self.name
+        self.employees.append(employee)
+    
+    def remove_employee(self, employee_id: str) -> bool:
+        """Remove an employee from the department."""
+        for i, emp in enumerate(self.employees):
+            if emp.employee_id == employee_id:
+                self.employees.pop(i)
+                emp.department = "General"
+                return True
+        return False
+    
+    def get_employee_count(self) -> int:
+        """Get the number of employees in the department."""
+        return len(self.employees)
+    
+    def get_total_salary_budget(self) -> float:
+        """Calculate total salary budget for the department."""
+        return sum(emp.salary for emp in self.employees)
+    
+    def __str__(self) -> str:
+        return f"Department {self.dept_id}: {self.name}"
+
+class LeaveManagementSystem:
+    """Main system for managing employees and leave requests."""
+    
+    def __init__(self):
+        self.employees = {}
+        self.departments = {}
+        self.leave_requests = {}
+    
+    def add_employee(self, employee: Employee) -> None:
+        """Add an employee to the system."""
+        self.employees[employee.employee_id] = employee
+    
+    def get_employee(self, employee_id: str) -> Optional[Employee]:
+        """Retrieve an employee by ID."""
+        return self.employees.get(employee_id)
+    
+    def process_leave_request(self, request_id: str, action: str, processed_by: str) -> bool:
+        """Process a leave request (approve or reject)."""
+        # Find the request in all employees' leave requests
+        for employee in self.employees.values():
+            for request in employee.leave_requests:
+                if request.request_id == request_id:
+                    if action.lower() == "approve":
+                        request.approve(processed_by)
+                        if request.leave_type == "Annual":
+                            employee.leave_balance -= request.get_duration()
+                        return True
+                    elif action.lower() == "reject":
+                        request.reject(processed_by)
+                        return True
+        return False
+    
+    def get_pending_requests(self) -> List[LeaveRequest]:
+        """Get all pending leave requests."""
+        pending = []
+        for employee in self.employees.values():
+            for request in employee.leave_requests:
+                if request.status == "Pending":
+                    pending.append(request)
+        return pending
+
+# Example usage and demonstration
+def demonstrate_system():
+    """Demonstrate the employee management system functionality."""
+    print("=== Employee Management System Demonstration ===\n")
+    
+    # Create system instance
+    lms = LeaveManagementSystem()
+    
+    # Create departments
+    hr_dept = Department("D001", "Human Resources", "Alice Johnson", 500000)
+    it_dept = Department("D002", "IT Department", "Bob Smith", 750000)
+    
+    # Create employees
+    emp1 = Employee("E001", "John Doe", "john.doe@company.com", "555-0101", 
+                   "HR Specialist", 50000, date(2020, 3, 15))
+    emp2 = Employee("E002", "Jane Smith", "jane.smith@company.com", "555-0102",
+                   "Software Developer", 70000, date(2019, 7, 22))
+    
+    # Add employees to system and departments
+    lms.add_employee(emp1)
+    lms.add_employee(emp2)
+    hr_dept.add_employee(emp1)
+    it_dept.add_employee(emp2)
+    
+    print("Employees created:")
+    print(f"1. {emp1}")
+    print(f"2. {emp2}")
+    print(f"   Department: {emp1.department}")
+    print(f"   Leave Balance: {emp1.get_leave_balance()} days\n")
+    
+    # Demonstrate leave application
+    try:
+        request_id = emp1.apply_leave(
+            start_date=date(2024, 6, 10),
+            end_date=date(2024, 6, 14),
+            leave_type="Annual",
+            reason="Summer vacation"
+        )
+        print(f"Leave request submitted: {request_id}")
+        
+        # Process the leave request
+        lms.process_leave_request(request_id, "approve", "HR Manager")
+        print("Leave request approved by HR Manager")
+        
+        # Check updated balance
+        print(f"Updated leave balance: {emp1.get_leave_balance()} days\n")
+        
+    except ValueError as e:
+        print(f"Error: {e}")
+    
+    # Show pending requests
+    pending = lms.get_pending_requests()
+    print(f"Pending leave requests: {len(pending)}")
+    
+    # Department information
+    print(f"\nDepartment Information:")
+    print(f"HR Department: {hr_dept.get_employee_count()} employees")
+    print(f"IT Department: {it_dept.get_employee_count()} employees")
+
+if __name__ == "__main__":
+    demonstrate_system()</code></pre>
+
+        <h3>Key Features Implemented:</h3>
+        <ul>
+          <li><strong>Employee Management:</strong> Complete CRUD operations for employee data</li>
+          <li><strong>Leave Booking System:</strong> Apply, approve, reject, and cancel leave requests</li>
+          <li><strong>Balance Tracking:</strong> Automatic deduction of leave days from balance</li>
+          <li><strong>Department Management:</strong> Organize employees into departments</li>
+          <li><strong>Validation:</strong> Prevents over-booking and ensures data integrity</li>
+          <li><strong>Reporting:</strong> View pending requests and department statistics</li>
+        </ul>
+
+        <p style="margin-top:12px;"><a href="#top" class="back-top">Back to top ↑</a></p>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

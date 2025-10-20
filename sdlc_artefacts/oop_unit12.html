@@ -1,0 +1,907 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Unit 12: Design Patterns in Python Programs - MelMutaa E-Portfolio</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="shortcut icon" href="../favicon-16x16.png" />
+  <link href="https://fonts.googleapis.com/css?family=Roboto:400,300,600,400italic,700" rel="stylesheet" />
+  <link rel="stylesheet" href="../css/artefact.css" />
+  <link rel="stylesheet" href="../css/style.css" />
+  
+  <style>
+    html{scroll-behavior:smooth;}
+    .blog-post{max-width:1100px;margin:40px auto;background:#fff;border:1px solid #eee;border-radius:14px;padding:36px 40px;box-shadow:0 6px 24px rgba(0,0,0,.06);scroll-margin-top:80px;}
+    #title-meta-container{margin:-12px 0 18px 0;}
+    #artefact-header h1{text-align:center;margin:0 0 6px 0;}
+    #artefact-header .artefact-meta{text-align:center;margin:0 0 14px 0;color:#b35555;}
+    pre{background:#0f172a;color:#e5e7eb;padding:16px;border-radius:10px;overflow-x:auto;max-width:100%;}
+    code{font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,"Liberation Mono","Courier New",monospace;font-size:0.9em;line-height:1.4;}
+    .back-top{display:inline-block;border:1px solid #e87f7f;padding:8px 14px;border-radius:10px;text-decoration:none}
+    .back-top:hover{background:#fff5f5}
+    .tile{background:#fff;border:1px solid #eee;border-radius:10px;padding:20px;margin:10px;box-shadow:0 4px 12px rgba(0,0,0,.08);transition:transform 0.2s;}
+    .tile:hover{transform:translateY(-2px);box-shadow:0 6px 16px rgba(0,0,0,.12);}
+    .learning-outcomes{display:flex;gap:20px;flex-wrap:wrap;margin:30px 0;}
+    .learning-outcomes>div{flex:1;min-width:280px;}
+    .feature-highlight{background:linear-gradient(135deg,#667eea 0%,#764ba2 100%);color:white;padding:25px;border-radius:10px;margin:25px 0;}
+    .code-block{max-height:400px;overflow-y:auto;}
+    .method-demo{background:#e7f3ff;padding:15px;border-radius:8px;margin:15px 0;}
+    .research-section{background:#f8f9fa;padding:25px;border-radius:10px;margin:25px 0;border-left:4px solid #28a745;}
+    .comparison-table{width:100%;border-collapse:collapse;margin:20px 0;font-size:0.9em;}
+    .comparison-table th,.comparison-table td{border:1px solid #ddd;padding:10px;text-align:left;}
+    .comparison-table th{background-color:#f5f5f5;font-weight:bold;}
+    .pattern-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:20px;margin:20px 0;}
+    .pattern-card{background:#f8f9fa;padding:20px;border-radius:8px;border-left:4px solid #667eea;}
+  </style>
+</head>
+
+<body>
+  <div id="top"></div>
+  <div id="main">
+
+    <!-- Breadcrumbs -->
+    <section id="breadcrumbs">
+      <p><a href="../oop.html">Module Two — OOP</a> > <span>Unit 12: Design Patterns in Python Programs</span></p>
+    </section>
+
+    <!-- Intro -->
+    <section id="introduction">
+      <h2>Unit 12: Design Patterns in Python Programs</h2>
+      <p style="text-align:center;max-width:900px;margin:0 auto;">
+        This unit explores design pattern applications in complex system development, 
+        focusing on cruise ship management systems and pattern compatibility analysis.
+      </p>
+    </section>
+
+    <!-- Learning Outcomes -->
+    <section id="learning-outcomes" style="max-width:1100px;margin:30px auto;">
+      <h2>Learning Overview</h2>
+      <div class="learning-outcomes">
+        <div>
+          <strong><p>In this unit we shall:</p></strong>
+          <ul>
+            <li>Define comprehensive test cases for cruise ship management systems</li>
+            <li>Analyze design pattern compatibility and integration</li>
+            <li>Apply design patterns to real-world system development</li>
+            <li>Evaluate pattern combinations for complex domains</li>
+            <li>Design robust testing strategies for enterprise systems</li>
+          </ul>
+        </div>
+        <div>
+          <strong><p>On completion you will be able to:</p></strong>
+          <ul>
+            <li>Design test cases for complex enterprise systems</li>
+            <li>Select compatible design patterns for specific domains</li>
+            <li>Implement pattern combinations in Python</li>
+            <li>Evaluate pattern effectiveness in real scenarios</li>
+            <li>Create comprehensive testing strategies</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- Tiles -->
+    <section id="artefact-tiles" style="max-width:1100px;margin:30px auto;display:flex;flex-wrap:wrap;justify-content:center;">
+      <div class="tile" style="flex:1;min-width:300px;">
+        <a href="#test-cases" style="text-decoration:none;color:inherit;">
+          <div class="tile-content">
+            <h3>Cruise Ship Test Cases</h3>
+            <p>Comprehensive Testing Strategy</p>
+          </div>
+        </a>
+      </div>
+      <div class="tile" style="flex:1;min-width:300px;">
+        <a href="#pattern-compatibility" style="text-decoration:none;color:inherit;">
+          <div class="tile-content">
+            <h3>Pattern Compatibility</h3>
+            <p>Design Pattern Integration Analysis</p>
+          </div>
+        </a>
+      </div>
+      <div class="tile" style="flex:1;min-width:300px;">
+        <a href="#implementation" style="text-decoration:none;color:inherit;">
+          <div class="tile-content">
+            <h3>Python Implementation</h3>
+            <p>Pattern Combinations in Practice</p>
+          </div>
+        </a>
+      </div>
+    </section>
+
+    <!-- Test Cases Section -->
+    <section id="test-cases" class="blog-post">
+      <div id="title-meta-container">
+        <div id="artefact-header">
+          <h1>Cruise Ship Management System Test Cases</h1>
+          <p class="artefact-meta">Comprehensive Testing Strategy Based on Oracle Cruise Software</p>
+        </div>
+      </div>
+
+      <div class="artefact-description">
+        <h2>Test Case Definition for Cruise Ship Management</h2>
+        
+        <p><strong>Define the test cases for the following system development: Oracle. (n.d.) Cruise Ship Management and Cruise Software.</strong></p>
+
+        <div class="research-section">
+          <h3>System Overview Analysis</h3>
+          <p>Based on Oracle's cruise management software requirements, the system typically includes:</p>
+          <ul>
+            <li><strong>Passenger Management:</strong> Booking, check-in, onboard services</li>
+            <li><strong>Crew Management:</strong> Staff scheduling, payroll, certifications</li>
+            <li><strong>Inventory Management:</strong> Food, beverages, supplies tracking</li>
+            <li><strong>Navigation & Safety:</strong> Route planning, emergency procedures</li>
+            <li><strong>Financial Management:</strong> Billing, accounting, revenue management</li>
+            <li><strong>Maintenance Scheduling:</strong> Equipment maintenance, dry dock planning</li>
+          </ul>
+        </div>
+
+        <h3>Comprehensive Test Case Categories</h3>
+
+        <div class="pattern-grid">
+          <div class="pattern-card">
+            <h4>1. Passenger Management Tests</h4>
+            <ul>
+              <li><strong>Booking System:</strong> Test reservation creation, modification, cancellation</li>
+              <li><strong>Check-in Process:</strong> Validate passenger documentation and cabin assignment</li>
+              <li><strong>Onboard Accounts:</strong> Test charge tracking and billing accuracy</li>
+              <li><strong>Emergency Procedures:</strong> Verify muster station assignments and drills</li>
+            </ul>
+          </div>
+
+          <div class="pattern-card">
+            <h4>2. Crew Management Tests</h4>
+            <ul>
+              <li><strong>Staff Scheduling:</strong> Validate shift assignments and rotation logic</li>
+              <li><strong>Certification Tracking:</strong> Test expiry alerts and compliance</li>
+              <li><strong>Payroll Processing:</strong> Verify salary calculations and deductions</li>
+              <li><strong>Performance Management:</strong> Test evaluation workflows</li>
+            </ul>
+          </div>
+
+          <div class="pattern-card">
+            <h4>3. Inventory Management Tests</h4>
+            <ul>
+              <li><strong>Supply Chain:</strong> Test ordering and receiving processes</li>
+              <li><strong>Stock Levels:</strong> Validate reorder triggers and minimum stock</li>
+              <li><strong>Waste Tracking:</strong> Test food and material waste recording</li>
+              <li><strong>Cost Analysis:</strong> Verify inventory valuation methods</li>
+            </ul>
+          </div>
+        </div>
+
+        <h3>Detailed Test Case Specifications</h3>
+
+        <table class="comparison-table">
+          <thead>
+            <tr>
+              <th>Test Category</th>
+              <th>Test Case ID</th>
+              <th>Description</th>
+              <th>Expected Result</th>
+              <th>Priority</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Passenger Booking</strong></td>
+              <td>TC-PB-001</td>
+              <td>Create new passenger booking with valid data</td>
+              <td>Booking confirmed with unique reference number</td>
+              <td style="color:red;">High</td>
+            </tr>
+            <tr>
+              <td><strong>Passenger Booking</strong></td>
+              <td>TC-PB-002</td>
+              <td>Attempt booking with invalid passport number</td>
+              <td>System rejects booking with appropriate error message</td>
+              <td style="color:red;">High</td>
+            </tr>
+            <tr>
+              <td><strong>Crew Scheduling</strong></td>
+              <td>TC-CS-001</td>
+              <td>Assign crew member to multiple overlapping shifts</td>
+              <td>System prevents double-booking with conflict warning</td>
+              <td style="color:red;">High</td>
+            </tr>
+            <tr>
+              <td><strong>Inventory Management</strong></td>
+              <td>TC-IM-001</td>
+              <td>Stock level falls below minimum threshold</td>
+              <td>Automatic reorder request generated</td>
+              <td style="color:orange;">Medium</td>
+            </tr>
+            <tr>
+              <td><strong>Navigation Safety</strong></td>
+              <td>TC-NS-001</td>
+              <td>Route planning with weather constraints</td>
+              <td>Alternative safe routes suggested</td>
+              <td style="color:red;">High</td>
+            </tr>
+            <tr>
+              <td><strong>Financial Processing</strong></td>
+              <td>TC-FP-001</td>
+              <td>Process end-of-cruise passenger billing</td>
+              <td>Accurate invoice with all charges generated</td>
+              <td style="color:red;">High</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <h3>Integration Test Scenarios</h3>
+        <div class="code-block">
+<pre><code class="language-python">class CruiseShipIntegrationTests:
+    """Integration test scenarios for cruise ship management system."""
+    
+    def test_end_to_end_booking_flow(self):
+        """
+        Test complete passenger journey from booking to disembarkation.
+        Covers: Booking → Check-in → Onboard charges → Billing → Feedback
+        """
+        # 1. Create booking
+        booking = self.create_booking(passenger_data, cabin_preferences)
+        assert booking.status == "CONFIRMED"
+        
+        # 2. Check-in process
+        checkin = self.perform_checkin(booking.reference)
+        assert checkin.muster_station is not None
+        
+        # 3. Simulate onboard charges
+        charges = self.record_onboard_charges(booking.passenger_id, services_used)
+        assert charges.total > 0
+        
+        # 4. Generate final bill
+        invoice = self.generate_final_bill(booking.passenger_id)
+        assert invoice.amount_due == charges.total
+        
+        # 5. Collect feedback
+        feedback = self.submit_feedback(booking.passenger_id, rating=5)
+        assert feedback.recorded
+        
+    def test_emergency_scenario_integration(self):
+        """
+        Test emergency response system integration.
+        Covers: Alert → Passenger accounting → Crew mobilization → Reporting
+        """
+        # Trigger emergency alert
+        emergency = self.trigger_emergency_alert("FIRE", "DECK_5")
+        assert emergency.active
+        
+        # Verify passenger accounting at muster stations
+        muster_report = self.generate_muster_report()
+        assert muster_report.all_passengers_accounted_for
+        
+        # Test crew emergency response
+        response_team = self.mobilize_emergency_team()
+        assert response_team.fully_staffed
+        
+        # Generate incident report
+        incident_report = self.create_incident_report(emergency.id)
+        assert incident_report.complete</code></pre>
+        </div>
+
+        <h3>Performance and Load Testing</h3>
+        <div class="method-demo">
+          <h4>Load Testing Scenarios</h4>
+          <ul>
+            <li><strong>Peak Booking Period:</strong> Simulate 1000 concurrent bookings during promotion</li>
+            <li><strong>Check-in Rush:</strong> Test system with 2000 passengers checking in within 4 hours</li>
+            <li><strong>Onboard Transactions:</strong> Process 5000+ daily charge transactions per passenger</li>
+            <li><strong>Emergency Drills:</strong> Simultaneous muster station check-ins for 5000+ passengers</li>
+          </ul>
+        </div>
+
+        <p><a href="#top" class="back-top">Back to top ↑</a></p>
+      </div>
+    </section>
+
+    <!-- Pattern Compatibility Section -->
+    <section id="pattern-compatibility" class="blog-post">
+      <div id="title-meta-container">
+        <div id="artefact-header">
+          <h1>Design Pattern Compatibility Analysis</h1>
+          <p class="artefact-meta">Evaluating Pattern Combinations for Complex Systems</p>
+        </div>
+      </div>
+
+      <div class="artefact-description">
+        <h2>Design Pattern Compatibility Assessment</h2>
+        
+        <p><strong>Which design patterns do you consider to be compatible with others, and why?</strong></p>
+
+        <div class="research-section">
+          <h3>Pattern Compatibility Framework</h3>
+          <p>Design patterns can be effectively combined when they address different concerns in a system architecture. Compatibility is determined by:</p>
+          <ul>
+            <li><strong>Separation of Concerns:</strong> Patterns should handle distinct responsibilities</li>
+            <li><strong>Architectural Layer Alignment:</strong> Patterns operating at different layers can complement each other</li>
+            <li><strong>Complexity Management:</strong> Combined patterns should reduce, not increase, system complexity</li>
+            <li><strong>Maintainability:</strong> Pattern combinations should enhance code organization and readability</li>
+          </ul>
+        </div>
+
+        <h3>Highly Compatible Pattern Combinations</h3>
+
+        <div class="pattern-grid">
+          <div class="pattern-card">
+            <h4>1. MVC + Strategy + Observer</h4>
+            <p><strong>Compatibility:</strong> Excellent</p>
+            <p><strong>Rationale:</strong> MVC provides architectural separation, Strategy handles algorithm variation, Observer manages view updates.</p>
+            <p><strong>Use Case:</strong> Cruise ship booking system with multiple payment strategies and real-time availability updates.</p>
+          </div>
+
+          <div class="pattern-card">
+            <h4>2. Factory + Singleton + Decorator</h4>
+            <p><strong>Compatibility:</strong> High</p>
+            <p><strong>Rationale:</strong> Factory creates objects, Singleton ensures single instances where needed, Decorator adds functionality dynamically.</p>
+            <p><strong>Use Case:</strong> Service management system with single service registry and dynamic service enhancements.</p>
+          </div>
+
+          <div class="pattern-card">
+            <h4>3. Command + Memento + Composite</h4>
+            <p><strong>Compatibility:</strong> High</p>
+            <p><strong>Rationale:</strong> Command encapsulates actions, Memento enables undo/redo, Composite handles hierarchical command structures.</p>
+            <p><strong>Use Case:</strong> Complex itinerary planning with undo capabilities and grouped operations.</p>
+          </div>
+        </div>
+
+        <h3>Pattern Compatibility Matrix</h3>
+
+        <table class="comparison-table">
+          <thead>
+            <tr>
+              <th>Pattern 1</th>
+              <th>Pattern 2</th>
+              <th>Compatibility</th>
+              <th>Synergy Benefits</th>
+              <th>Potential Conflicts</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Observer</strong></td>
+              <td><strong>Strategy</strong></td>
+              <td style="color:green;">High</td>
+              <td>Dynamic behavior changes with notification propagation</td>
+              <td>None significant</td>
+            </tr>
+            <tr>
+              <td><strong>Singleton</strong></td>
+              <td><strong>Factory</strong></td>
+              <td style="color:green;">High</td>
+              <td>Centralized object creation with instance control</td>
+              <td>Testing complexity</td>
+            </tr>
+            <tr>
+              <td><strong>Decorator</strong></td>
+              <td><strong>Composite</strong></td>
+              <td style="color:green;">High</td>
+              <td>Flexible component hierarchies with dynamic enhancements</td>
+              <td>Complex object relationships</td>
+            </tr>
+            <tr>
+              <td><strong>Command</strong></td>
+              <td><strong>Memento</strong></td>
+              <td style="color:green;">High</td>
+              <td>Action encapsulation with state preservation</td>
+              <td>Memory usage for state storage</td>
+            </tr>
+            <tr>
+              <td><strong>Facade</strong></td>
+              <td><strong>Adapter</strong></td>
+              <td style="color:orange;">Medium</td>
+              <td>Simplified interfaces with legacy system integration</td>
+              <td>Potential abstraction leakage</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <h3>Pattern Combination Examples in Cruise Systems</h3>
+
+        <div class="code-block">
+<pre><code class="language-python">class CruiseShipPatternCombinations:
+    """
+    Demonstrates effective design pattern combinations for cruise management.
+    """
+    
+    # Strategy + Factory Pattern Combination
+    class PricingStrategyFactory:
+        """Factory creating different pricing strategies."""
+        
+        @staticmethod
+        def create_strategy(season, cabin_type):
+            if season == "PEAK":
+                return PeakSeasonStrategy()
+            elif cabin_type == "SUITE":
+                return SuitePricingStrategy()
+            else:
+                return StandardPricingStrategy()
+    
+    class PricingStrategy(ABC):
+        """Strategy pattern for different pricing algorithms."""
+        
+        @abstractmethod
+        def calculate_price(self, base_price, duration):
+            pass
+    
+    # Observer + Singleton Pattern Combination  
+    class AvailabilityManager(metaclass=Singleton):
+        """Singleton managing cabin availability with observer notifications."""
+        
+        def __init__(self):
+            self._observers = []
+            self._available_cabins = {}
+        
+        def add_observer(self, observer):
+            self._observers.append(observer)
+        
+        def update_availability(self, cabin_id, available):
+            self._available_cabins[cabin_id] = available
+            self._notify_observers(cabin_id, available)
+        
+        def _notify_observers(self, cabin_id, available):
+            for observer in self._observers:
+                observer.on_availability_change(cabin_id, available)
+    
+    # Command + Memento Pattern Combination
+    class BookingCommand(ABC):
+        """Command pattern for booking operations."""
+        
+        @abstractmethod
+        def execute(self):
+            pass
+        
+        @abstractmethod
+        def undo(self):
+            pass
+    
+    class BookingMemento:
+        """Memento pattern for booking state preservation."""
+        
+        def __init__(self, state):
+            self._state = state
+        
+        def get_state(self):
+            return self._state
+    
+    class BookCabinCommand(BookingCommand):
+        """Concrete command for cabin booking with undo capability."""
+        
+        def __init__(self, booking_system, passenger, cabin):
+            self.booking_system = booking_system
+            self.passenger = passenger
+            self.cabin = cabin
+            self._memento = None
+        
+        def execute(self):
+            # Save state before execution for undo
+            self._memento = self.booking_system.create_memento()
+            return self.booking_system.book_cabin(self.passenger, self.cabin)
+        
+        def undo(self):
+            if self._memento:
+                self.booking_system.restore_from_memento(self._memento)</code></pre>
+        </div>
+
+        <h3>Incompatible Pattern Combinations</h3>
+        <div class="method-demo">
+          <h4>Patterns with Potential Conflicts</h4>
+          <ul>
+            <li><strong>Singleton + Prototype:</strong> Singleton's single instance conflicts with Prototype's cloning mechanism</li>
+            <li><strong>Observer + Mediator:</strong> Both handle communication but at different abstraction levels, can create confusion</li>
+            <li><strong>Factory Method + Abstract Factory:</strong> Overlapping responsibilities in object creation can lead to complexity</li>
+          </ul>
+        </div>
+
+        <p><a href="#top" class="back-top">Back to top ↑</a></p>
+      </div>
+    </section>
+
+    <!-- Implementation Section -->
+    <section id="implementation" class="blog-post">
+      <div id="title-meta-container">
+        <div id="artefact-header">
+          <h1>Python Implementation of Pattern Combinations</h1>
+          <p class="artefact-meta">Practical Application of Compatible Design Patterns</p>
+        </div>
+      </div>
+
+      <div class="artefact-description">
+        <h2>Complete Cruise Management System Implementation</h2>
+
+        <div class="code-block">
+<pre><code class="language-python">"""
+Cruise Ship Management System
+Demonstrating compatible design pattern combinations in Python.
+"""
+
+from abc import ABC, abstractmethod
+from enum import Enum
+from typing import List, Dict
+import datetime
+
+
+# Singleton + Factory Pattern Combination
+class ServiceRegistry:
+    """
+    Singleton service registry managing all cruise services.
+    Combines Singleton with Factory for service management.
+    """
+    _instance = None
+    
+    def __new__(cls):
+        if cls._instance is None:
+            cls._instance = super().__new__(cls)
+            cls._instance._services = {}
+        return cls._instance
+    
+    def register_service(self, service_name, service_factory):
+        """Register a service factory."""
+        self._services[service_name] = service_factory
+    
+    def get_service(self, service_name, *args, **kwargs):
+        """Get service instance using factory pattern."""
+        factory = self._services.get(service_name)
+        if factory:
+            return factory(*args, **kwargs)
+        raise ValueError(f"Service {service_name} not registered")
+
+
+# Strategy + Factory Pattern Combination
+class PricingStrategy(ABC):
+    """Strategy pattern for different pricing algorithms."""
+    
+    @abstractmethod
+    def calculate_price(self, base_price: float, duration: int, passengers: int) -> float:
+        pass
+
+
+class PeakSeasonStrategy(PricingStrategy):
+    def calculate_price(self, base_price: float, duration: int, passengers: int) -> float:
+        return base_price * duration * passengers * 1.5  # 50% premium
+
+
+class OffPeakStrategy(PricingStrategy):
+    def calculate_price(self, base_price: float, duration: int, passengers: int) -> float:
+        return base_price * duration * passengers * 0.8  # 20% discount
+
+
+class PricingStrategyFactory:
+    """Factory for creating pricing strategies."""
+    
+    @staticmethod
+    def create_strategy(season: str, cabin_type: str) -> PricingStrategy:
+        if season == "PEAK":
+            return PeakSeasonStrategy()
+        elif cabin_type == "LUXURY":
+            return PeakSeasonStrategy()  # Luxury always premium
+        else:
+            return OffPeakStrategy()
+
+
+# Observer + Decorator Pattern Combination
+class AvailabilityObserver(ABC):
+    """Observer interface for availability changes."""
+    
+    @abstractmethod
+    def on_availability_change(self, cabin_id: str, available: bool):
+        pass
+
+
+class EmailNotificationDecorator(AvailabilityObserver):
+    """Decorator adding email notifications to observers."""
+    
+    def __init__(self, wrapped_observer: AvailabilityObserver):
+        self._wrapped_observer = wrapped_observer
+    
+    def on_availability_change(self, cabin_id: str, available: bool):
+        # Add email notification functionality
+        if available:
+            self._send_availability_email(cabin_id)
+        self._wrapped_observer.on_availability_change(cabin_id, available)
+    
+    def _send_availability_email(self, cabin_id: str):
+        print(f"Email sent: Cabin {cabin_id} is now available!")
+
+
+class CabinAvailabilityManager:
+    """Manages cabin availability with observer pattern."""
+    
+    def __init__(self):
+        self._observers: List[AvailabilityObserver] = []
+        self._availability: Dict[str, bool] = {}
+    
+    def add_observer(self, observer: AvailabilityObserver):
+        """Add observer with optional decorator."""
+        self._observers.append(observer)
+    
+    def set_availability(self, cabin_id: str, available: bool):
+        """Set availability and notify observers."""
+        self._availability[cabin_id] = available
+        self._notify_observers(cabin_id, available)
+    
+    def _notify_observers(self, cabin_id: str, available: bool):
+        for observer in self._observers:
+            observer.on_availability_change(cabin_id, available)
+
+
+# Command + Memento Pattern Combination
+class BookingCommand(ABC):
+    """Command interface for booking operations."""
+    
+    @abstractmethod
+    def execute(self) -> bool:
+        pass
+    
+    @abstractmethod
+    def undo(self):
+        pass
+
+
+class BookingMemento:
+    """Memento for storing booking system state."""
+    
+    def __init__(self, state: dict):
+        self._state = state.copy()
+    
+    def get_state(self) -> dict:
+        return self._state
+
+
+class BookCabinCommand(BookingCommand):
+    """Concrete command for booking a cabin."""
+    
+    def __init__(self, booking_system, passenger_id: str, cabin_id: str, duration: int):
+        self.booking_system = booking_system
+        self.passenger_id = passenger_id
+        self.cabin_id = cabin_id
+        self.duration = duration
+        self._memento: BookingMemento = None
+    
+    def execute(self) -> bool:
+        # Save state before execution
+        self._memento = self.booking_system.create_memento()
+        return self.booking_system.book_cabin(
+            self.passenger_id, self.cabin_id, self.duration
+        )
+    
+    def undo(self):
+        if self._memento:
+            self.booking_system.restore_from_memento(self._memento)
+
+
+class CancelBookingCommand(BookingCommand):
+    """Concrete command for canceling a booking."""
+    
+    def __init__(self, booking_system, booking_id: str):
+        self.booking_system = booking_system
+        self.booking_id = booking_id
+        self._memento: BookingMemento = None
+        self._cancelled_booking = None
+    
+    def execute(self) -> bool:
+        self._memento = self.booking_system.create_memento()
+        self._cancelled_booking = self.booking_system.cancel_booking(self.booking_id)
+        return self._cancelled_booking is not None
+    
+    def undo(self):
+        if self._memento and self._cancelled_booking:
+            self.booking_system.restore_from_memento(self._memento)
+            # Re-book the cancelled booking
+            self.booking_system.book_cabin(
+                self._cancelled_booking.passenger_id,
+                self._cancelled_booking.cabin_id,
+                self._cancelled_booking.duration
+            )
+
+
+# Composite + Visitor Pattern Combination
+class ServiceComponent(ABC):
+    """Component interface for service hierarchy."""
+    
+    @abstractmethod
+    def accept(self, visitor: 'ServiceVisitor'):
+        pass
+    
+    @abstractmethod
+    def get_cost(self) -> float:
+        pass
+
+
+class IndividualService(ServiceComponent):
+    """Leaf node representing individual service."""
+    
+    def __init__(self, name: str, cost: float):
+        self.name = name
+        self.cost = cost
+    
+    def accept(self, visitor: 'ServiceVisitor'):
+        visitor.visit_individual_service(self)
+    
+    def get_cost(self) -> float:
+        return self.cost
+
+
+class ServicePackage(ServiceComponent):
+    """Composite node representing service package."""
+    
+    def __init__(self, name: str):
+        self.name = name
+        self.services: List[ServiceComponent] = []
+    
+    def add_service(self, service: ServiceComponent):
+        self.services.append(service)
+    
+    def accept(self, visitor: 'ServiceVisitor'):
+        visitor.visit_service_package(self)
+        for service in self.services:
+            service.accept(visitor)
+    
+    def get_cost(self) -> float:
+        return sum(service.get_cost() for service in self.services) * 0.9  # 10% discount
+
+
+class ServiceVisitor(ABC):
+    """Visitor for performing operations on service hierarchy."""
+    
+    @abstractmethod
+    def visit_individual_service(self, service: IndividualService):
+        pass
+    
+    @abstractmethod
+    def visit_service_package(self, package: ServicePackage):
+        pass
+
+
+class CostCalculationVisitor(ServiceVisitor):
+    """Visitor for calculating total costs."""
+    
+    def __init__(self):
+        self.total_cost = 0.0
+    
+    def visit_individual_service(self, service: IndividualService):
+        self.total_cost += service.get_cost()
+    
+    def visit_service_package(self, package: ServicePackage):
+        # Package discount already applied in get_cost()
+        self.total_cost += package.get_cost()
+
+
+# Main Cruise Management System
+class CruiseManagementSystem:
+    """
+    Main system integrating all pattern combinations.
+    Demonstrates how compatible patterns work together.
+    """
+    
+    def __init__(self):
+        self.service_registry = ServiceRegistry()
+        self.availability_manager = CabinAvailabilityManager()
+        self._bookings = {}
+        self._booking_history = []
+        
+        # Register services
+        self.service_registry.register_service('pricing', PricingStrategyFactory())
+    
+    def book_cabin(self, passenger_id: str, cabin_id: str, duration: int) -> bool:
+        """Book a cabin using command pattern."""
+        command = BookCabinCommand(self, passenger_id, cabin_id, duration)
+        success = command.execute()
+        if success:
+            self._booking_history.append(command)
+        return success
+    
+    def create_memento(self) -> BookingMemento:
+        """Create memento of current state."""
+        return BookingMemento({
+            'bookings': self._bookings.copy(),
+            'availability': self.availability_manager._availability.copy()
+        })
+    
+    def restore_from_memento(self, memento: BookingMemento):
+        """Restore system state from memento."""
+        state = memento.get_state()
+        self._bookings = state['bookings'].copy()
+        self.availability_manager._availability = state['availability'].copy()
+
+
+# Demonstration and Testing
+def demonstrate_pattern_combinations():
+    """Demonstrate the working of pattern combinations."""
+    print("=== Cruise Ship Management System Demo ===")
+    
+    # Initialize system
+    cruise_system = CruiseManagementSystem()
+    
+    # Test Strategy + Factory combination
+    pricing_factory = cruise_system.service_registry.get_service('pricing')
+    peak_strategy = pricing_factory.create_strategy("PEAK", "STANDARD")
+    price = peak_strategy.calculate_price(100, 7, 2)
+    print(f"Peak season price for 2 passengers, 7 days: ${price}")
+    
+    # Test Observer + Decorator combination
+    class SimpleObserver(AvailabilityObserver):
+        def on_availability_change(self, cabin_id, available):
+            status = "available" if available else "unavailable"
+            print(f"Observer: Cabin {cabin_id} is now {status}")
+    
+    # Add decorated observer
+    simple_observer = SimpleObserver()
+    decorated_observer = EmailNotificationDecorator(simple_observer)
+    cruise_system.availability_manager.add_observer(decorated_observer)
+    
+    # Trigger availability change
+    cruise_system.availability_manager.set_availability("CABIN_101", True)
+    
+    # Test Command + Memento combination
+    success = cruise_system.book_cabin("PASS_001", "CABIN_101", 7)
+    print(f"Booking successful: {success}")
+    
+    # Test Composite + Visitor combination
+    basic_package = ServicePackage("Basic Package")
+    basic_package.add_service(IndividualService("WiFi", 50))
+    basic_package.add_service(IndividualService("Meal Plan", 200))
+    
+    visitor = CostCalculationVisitor()
+    basic_package.accept(visitor)
+    print(f"Total package cost: ${visitor.total_cost}")
+
+
+if __name__ == "__main__":
+    demonstrate_pattern_combinations()
+</code></pre>
+        </div>
+
+        <h3>Pattern Combination Benefits</h3>
+        <table class="comparison-table">
+          <thead>
+            <tr>
+              <th>Pattern Combination</th>
+              <th>Benefits Achieved</th>
+              <th>Complexity Managed</th>
+              <th>Maintainability Impact</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Singleton + Factory</strong></td>
+              <td>Centralized service management with flexible creation</td>
+              <td>Service instantiation and lifecycle</td>
+              <td>High - Single point of service management</td>
+            </tr>
+            <tr>
+              <td><strong>Strategy + Factory</strong></td>
+              <td>Dynamic algorithm selection with encapsulated creation</td>
+              <td>Pricing logic variations</td>
+              <td>High - Easy to add new pricing strategies</td>
+            </tr>
+            <tr>
+              <td><strong>Observer + Decorator</strong></td>
+              <td>Flexible notification system with enhanced features</td>
+              <td>Event handling and cross-cutting concerns</td>
+              <td>Medium - Dynamic observer enhancement</td>
+            </tr>
+            <tr>
+              <td><strong>Command + Memento</strong></td>
+              <td>Action encapsulation with undo/redo capabilities</td>
+              <td>State management and operation history</td>
+              <td>High - Reliable operation tracking</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div class="method-demo">
+          <h4>System Architecture Benefits</h4>
+          <ul>
+            <li><strong>Scalability:</strong> Pattern combinations allow easy addition of new features</li>
+            <li><strong>Maintainability:</strong> Clear separation of concerns through pattern boundaries</li>
+            <li><strong>Testability:</strong> Each pattern can be tested independently and in combination</li>
+            <li><strong>Flexibility:</strong> Easy to modify or extend individual components without affecting others</li>
+          </ul>
+        </div>
+
+        <p><a href="#top" class="back-top">Back to top ↑</a></p>
+      </div>
+    </section>
+  </div>
+</body>
+</html>

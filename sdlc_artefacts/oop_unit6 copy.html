@@ -1,0 +1,602 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Unit 6: Abstract Methods and Interfaces - MelMutaa E-Portfolio</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="shortcut icon" href="../favicon-16x16.png" />
+  <link href="https://fonts.googleapis.com/css?family=Roboto:400,300,600,400italic,700" rel="stylesheet" />
+  <link rel="stylesheet" href="../css/artefact.css" />
+  <link rel="stylesheet" href="../css/style.css" />
+  
+  <style>
+    html{scroll-behavior:smooth;}
+    .blog-post{max-width:1100px;margin:40px auto;background:#fff;border:1px solid #eee;border-radius:14px;padding:36px 40px;box-shadow:0 6px 24px rgba(0,0,0,.06);scroll-margin-top:80px;}
+    #title-meta-container{margin:-12px 0 18px 0;}
+    #artefact-header h1{text-align:center;margin:0 0 6px 0;}
+    #artefact-header .artefact-meta{text-align:center;margin:0 0 14px 0;color:#b35555;}
+    pre{background:#0f172a;color:#e5e7eb;padding:16px;border-radius:10px;overflow:auto;}
+    code{font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,"Liberation Mono","Courier New",monospace;}
+    .back-top{display:inline-block;border:1px solid #e87f7f;padding:8px 14px;border-radius:10px;text-decoration:none}
+    .back-top:hover{background:#fff5f5}
+    .tile{background:#fff;border:1px solid #eee;border-radius:10px;padding:20px;margin:10px;box-shadow:0 4px 12px rgba(0,0,0,.08);transition:transform 0.2s;}
+    .tile:hover{transform:translateY(-2px);box-shadow:0 6px 16px rgba(0,0,0,.12);}
+    .metric-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:20px;margin:20px 0;}
+    .metric-card{background:#f8f9fa;padding:20px;border-radius:8px;border-left:4px solid #b35555;}
+    .comparison-table{width:100%;border-collapse:collapse;margin:20px 0;}
+    .comparison-table th,.comparison-table td{border:1px solid #ddd;padding:12px;text-align:left;}
+    .comparison-table th{background-color:#f5f5f5;font-weight:bold;}
+    .code-comparison{display:flex;gap:20px;margin:20px 0;}
+    .code-comparison>div{flex:1;}
+    @media (max-width:768px){.code-comparison{flex-direction:column;}}
+    .learning-outcomes{display:flex;gap:20px;flex-wrap:wrap;margin:30px 0;}
+    .learning-outcomes>div{flex:1;min-width:280px;}
+    .feature-highlight{background:linear-gradient(135deg,#667eea 0%,#764ba2 100%);color:white;padding:30px;border-radius:10px;margin:25px 0;}
+  </style>
+</head>
+
+<body>
+  <div id="top"></div>
+  <div id="main">
+
+    <!-- Breadcrumbs -->
+    <section id="breadcrumbs">
+      <p><a href="../oop.html">Module Two — OOP</a> > <span>Unit 6: Abstract Methods and Interfaces</span></p>
+    </section>
+
+    <!-- Intro -->
+    <section id="introduction">
+      <h2>Unit 6: Abstract Methods and Interfaces</h2>
+      <p style="text-align:center;max-width:900px;margin:0 auto;">
+        This unit explores abstraction and encapsulation through the use of abstract classes and interfaces in Python. 
+        Students will also evaluate the metrics used to assess the effectiveness of object-oriented programs and reflect 
+        on modelling approaches including agent-based and component-based paradigms.
+      </p>
+    </section>
+
+    <!-- Learning Outcomes -->
+    <section id="learning-outcomes" style="max-width:1100px;margin:30px auto;">
+      <h2>Learning Overview</h2>
+      <div class="learning-outcomes">
+        <div>
+          <strong><p>In this unit we shall:</p></strong>
+          <ul>
+            <li>Implement abstract classes and interfaces in Python</li>
+            <li>Apply encapsulation principles with private attributes</li>
+            <li>Evaluate OOP metrics for software quality</li>
+            <li>Compare agent-based and component-based modelling</li>
+            <li>Design robust banking systems using abstraction</li>
+          </ul>
+        </div>
+        <div>
+          <strong><p>On completion you will be able to:</p></strong>
+          <ul>
+            <li>Create abstract base classes with the abc module</li>
+            <li>Implement proper encapsulation in Python classes</li>
+            <li>Assess code quality using OOP metrics</li>
+            <li>Choose appropriate modelling approaches for systems</li>
+            <li>Design maintainable financial applications</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- Tiles -->
+    <section id="artefact-tiles" style="max-width:1100px;margin:30px auto;display:flex;flex-wrap:wrap;justify-content:center;">
+      <div class="tile" style="flex:1;min-width:300px;">
+        <a href="#practical-activity" style="text-decoration:none;color:inherit;">
+          <div class="tile-content">
+            <h3>Practical Activity — Encapsulation</h3>
+            <p>Abstract Classes and Subclassing</p>
+          </div>
+        </a>
+      </div>
+      <div class="tile" style="flex:1;min-width:300px;">
+        <a href="#oop-metrics" style="text-decoration:none;color:inherit;">
+          <div class="tile-content">
+            <h3>OOP Quality Metrics</h3>
+            <p>Cohesion, Coupling & Design Principles</p>
+          </div>
+        </a>
+      </div>
+      <div class="tile" style="flex:1;min-width:300px;">
+        <a href="#seminar-activity" style="text-decoration:none;color:inherit;">
+          <div class="tile-content">
+            <h3>Seminar Activity</h3>
+            <p>Banking System & Modelling Approaches</p>
+          </div>
+        </a>
+      </div>
+    </section>
+
+    <!-- Feature Highlight -->
+    <div class="feature-highlight" style="max-width:1100px;margin:30px auto;">
+      <h2 style="color:white;text-align:center;">Key Concepts: Abstraction & Encapsulation</h2>
+      <p style="text-align:center;color:white;max-width:800px;margin:0 auto;">
+        Abstract classes define interfaces without implementation, while encapsulation protects internal state. 
+        Together they create robust, maintainable systems that separate concerns and reduce complexity.
+      </p>
+    </div>
+
+    <!-- Practical Activity -->
+    <section id="practical-activity" class="blog-post">
+      <div id="title-meta-container">
+        <div id="artefact-header">
+          <h1>Practical Activity — Encapsulation and Abstract Classes</h1>
+          <p class="artefact-meta">Hands-on encapsulation and abstraction exercise</p>
+        </div>
+      </div>
+
+      <div class="artefact-description">
+        <h2>Exercise Overview</h2>
+        <p>
+          This activity demonstrates encapsulation using private attributes and abstract classes to create a robust banking system. 
+          You'll implement both basic encapsulation and advanced abstraction patterns.
+        </p>
+
+        <div class="code-comparison">
+          <div>
+                <h3>Basic Encapsulation Example</h3>
+<pre><code class="language-python">class BankAccount:
+    def __init__(self, owner, balance=0):
+        self.owner = owner
+        self.__balance = balance  # Private attribute
+
+    def deposit(self, amount):
+        if amount > 0:
+            self.__balance += amount
+            return f"Deposited £{amount}"
+        return "Invalid deposit amount"
+
+    def withdraw(self, amount):
+        if 0 < amount <= self.__balance:
+            self.__balance -= amount
+            return f"Withdrew £{amount}"
+        return "Insufficient funds or invalid amount"
+
+    def get_balance(self):
+        return f"Balance: £{self.__balance}"
+
+    # Property for controlled access
+    @property
+    def balance(self):
+        return self.__balance
+
+# Demonstration
+account = BankAccount("Alice", 100)
+print(account.deposit(50))    # Deposited £50
+print(account.withdraw(20))   # Withdrew £20
+print(account.get_balance())  # Balance: £130
+</code></pre>
+          </div>
+          <div>
+                <h3>Advanced Abstract Class Implementation</h3>
+<pre><code class="language-python">from abc import ABC, abstractmethod
+from datetime import datetime
+
+class AbstractBankAccount(ABC):
+    """Abstract base class for all bank accounts."""
+    
+    def __init__(self, account_holder, initial_balance=0):
+        self.account_holder = account_holder
+        self._balance = initial_balance  # Protected attribute
+        self._transaction_history = []
+        self._account_number = self._generate_account_number()
+    
+    def _generate_account_number(self):
+        """Generate a unique account number."""
+        return f"ACC{datetime.now().strftime('%Y%m%d%H%M%S')}"
+    
+    @abstractmethod
+    def withdraw(self, amount):
+        """Withdraw money from account - to be implemented by subclasses."""
+        pass
+    
+    @abstractmethod
+    def get_account_type(self):
+        """Return account type - to be implemented by subclasses."""
+        pass
+    
+    def deposit(self, amount):
+        """Concrete method for deposits."""
+        if amount > 0:
+            self._balance += amount
+            self._transaction_history.append(
+                f"{datetime.now()}: Deposited £{amount}"
+            )
+            return True
+        return False
+    
+    def get_balance(self):
+        """Get current balance."""
+        return self._balance
+    
+    def get_transaction_history(self):
+        """Get transaction history."""
+        return self._transaction_history.copy()  # Return copy for encapsulation
+    
+    def __str__(self):
+        return f"{self.get_account_type()} - {self.account_holder}"
+
+class SavingsAccount(AbstractBankAccount):
+    """Savings account implementation."""
+    
+    def __init__(self, account_holder, initial_balance=0, interest_rate=0.02):
+        super().__init__(account_holder, initial_balance)
+        self._interest_rate = interest_rate
+    
+    def withdraw(self, amount):
+        if 0 < amount <= self._balance:
+            self._balance -= amount
+            self._transaction_history.append(
+                f"{datetime.now()}: Withdrew £{amount}"
+            )
+            return True
+        return False
+    
+    def get_account_type(self):
+        return "Savings Account"
+    
+    def apply_interest(self):
+        """Apply annual interest to savings."""
+        interest = self._balance * self._interest_rate
+        self._balance += interest
+        self._transaction_history.append(
+            f"{datetime.now()}: Applied interest £{interest:.2f}"
+        )
+        return interest
+
+class CurrentAccount(AbstractBankAccount):
+    """Current account with overdraft facility."""
+    
+    def __init__(self, account_holder, initial_balance=0, overdraft_limit=100):
+        super().__init__(account_holder, initial_balance)
+        self._overdraft_limit = overdraft_limit
+    
+    def withdraw(self, amount):
+        available_balance = self._balance + self._overdraft_limit
+        if 0 < amount <= available_balance:
+            self._balance -= amount
+            self._transaction_history.append(
+                f"{datetime.now()}: Withdrew £{amount}"
+            )
+            return True
+        return False
+    
+    def get_account_type(self):
+        return "Current Account"
+
+# Demonstration
+savings = SavingsAccount("Bob", 1000, 0.03)
+current = CurrentAccount("Charlie", 500, 200)
+
+accounts = [savings, current]
+for account in accounts:
+    print(f"\n{account}")
+    account.deposit(100)
+    account.withdraw(50)
+    print(f"Balance: £{account.get_balance()}")
+    print(f"Transactions: {account.get_transaction_history()[-2:]}")
+</code></pre>
+          </div>
+        </div>
+
+        <h3>Key Learning Points</h3>
+        <ul>
+          <li><strong>Encapsulation:</strong> Private attributes (<code>__balance</code>) protect data integrity</li>
+          <li><strong>Abstraction:</strong> Abstract base class defines interface without full implementation</li>
+          <li><strong>Polymorphism:</strong> Different account types implement withdraw differently</li>
+          <li><strong>Information Hiding:</strong> Internal implementation details are hidden from users</li>
+        </ul>
+
+        <p><a href="#top" class="back-top">Back to top ↑</a></p>
+      </div>
+    </section>
+
+    <!-- OOP Metrics Section -->
+    <section id="oop-metrics" class="blog-post">
+      <div id="title-meta-container">
+        <div id="artefact-header">
+          <h1>OOP Quality Metrics and Design Principles</h1>
+          <p class="artefact-meta">Evaluating software quality through object-oriented metrics</p>
+        </div>
+      </div>
+
+      <div class="artefact-description">
+        <h2>Essential OOP Metrics</h2>
+        <p>These metrics help assess the quality and maintainability of object-oriented programs:</p>
+
+        <div class="metric-grid">
+          <div class="metric-card">
+            <h3>Cohesion</h3>
+            <p><strong>Definition:</strong> How closely related the responsibilities of a class are</p>
+            <p><strong>High Cohesion:</strong> Class has a single, well-defined purpose</p>
+            <p><strong>Low Cohesion:</strong> Class handles multiple unrelated tasks (God object)</p>
+          </div>
+
+          <div class="metric-card">
+            <h3>Coupling</h3>
+            <p><strong>Definition:</strong> Degree of interdependence between classes</p>
+            <p><strong>Low Coupling:</strong> Classes are independent and interact through interfaces</p>
+            <p><strong>High Coupling:</strong> Changes in one class affect many others</p>
+          </div>
+
+          <div class="metric-card">
+            <h3>Encapsulation</h3>
+            <p><strong>Definition:</strong> Bundling data with methods that operate on that data</p>
+            <p><strong>Good Encapsulation:</strong> Private attributes with public accessors</p>
+            <p><strong>Poor Encapsulation:</strong> Public attributes allowing direct modification</p>
+          </div>
+
+          <div class="metric-card">
+            <h3>Inheritance Depth</h3>
+            <p><strong>Definition:</strong> Number of levels in inheritance hierarchy</p>
+            <p><strong>Optimal:</strong> 2-4 levels for maintainability</p>
+            <p><strong>Problematic:</strong> Very deep hierarchies become fragile</p>
+          </div>
+        </div>
+
+        <h3>Applying Metrics to Banking Example</h3>
+        
+        <table class="comparison-table">
+          <thead>
+            <tr>
+              <th>Metric</th>
+              <th>Application in Banking System</th>
+              <th>Quality Assessment</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Cohesion</strong></td>
+              <td>SavingsAccount handles only savings-related operations</td>
+              <td style="color:green;">High - Single responsibility</td>
+            </tr>
+            <tr>
+              <td><strong>Coupling</strong></td>
+              <td>Accounts depend only on abstract base class</td>
+              <td style="color:green;">Low - Interface-based interaction</td>
+            </tr>
+            <tr>
+              <td><strong>Encapsulation</strong></td>
+              <td>Balance and transaction history are protected</td>
+              <td style="color:green;">Good - Controlled access</td>
+            </tr>
+            <tr>
+              <td><strong>Inheritance Depth</strong></td>
+              <td>Two-level hierarchy: Abstract → Concrete</td>
+              <td style="color:green;">Optimal - Maintainable</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <h3>Code Quality Example</h3>
+        
+        <div class="code-comparison">
+          <div>
+            <h4>Poor Design (Low Quality)</h4>
+<pre><code class="language-python"># Low cohesion, high coupling
+class BankManager:
+    def __init__(self):
+        self.accounts = []
+        self.customers = []
+        self.transactions = []
+    
+    def add_account(self, account): ...
+    def remove_customer(self, customer): ...
+    def process_loan(self, amount): ...  # Unrelated responsibility!
+    def print_statements(self): ...
+    def calculate_taxes(self): ...       # Another unrelated task!
+</code></pre>
+          </div>
+          <div>
+            <h4>Good Design (High Quality)</h4>
+<pre><code class="language-python"># High cohesion, low coupling
+class AccountManager:
+    def __init__(self):
+        self.accounts = []
+    
+    def add_account(self, account): ...
+    def find_account(self, account_id): ...
+
+class CustomerManager:
+    def __init__(self):
+        self.customers = []
+    
+    def add_customer(self, customer): ...
+    def remove_customer(self, customer_id): ...
+
+class LoanProcessor:
+    def process_loan(self, customer, amount): ...
+
+# Each class has single responsibility
+</code></pre>
+          </div>
+        </div>
+
+        <p><a href="#top" class="back-top">Back to top ↑</a></p>
+      </div>
+    </section>
+
+    <!-- Seminar Activity -->
+    <section id="seminar-activity" class="blog-post">
+      <div id="title-meta-container">
+        <div id="artefact-header">
+          <h1>Unit 6 Seminar — Abstraction in Object Oriented Programming</h1>
+          <p class="artefact-meta">Discussion and applied programming exercise</p>
+        </div>
+      </div>
+
+      <div class="artefact-description">
+        <h2>Seminar Discussion: OOP Metrics</h2>
+        
+        <div class="metric-grid">
+          <div class="metric-card">
+            <h4>Cohesion in Practice</h4>
+            <p>A class should have a single responsibility. High cohesion makes code easier to understand, test, and maintain.</p>
+          </div>
+          <div class="metric-card">
+            <h4>Coupling Considerations</h4>
+            <p>Low coupling reduces the ripple effect of changes. Use interfaces and dependency injection to minimize coupling.</p>
+          </div>
+          <div class="metric-card">
+            <h4>Encapsulation Benefits</h4>
+            <p>Proper encapsulation prevents invalid state changes and makes APIs more stable during refactoring.</p>
+          </div>
+        </div>
+
+        <h3>Complete Banking System Implementation</h3>
+        
+        <pre><code class="language-python">from abc import ABC, abstractmethod
+from datetime import datetime
+from typing import List
+
+class BankOperation(ABC):
+    """Interface for all bank operations."""
+    
+    @abstractmethod
+    def execute(self) -> bool:
+        """Execute the banking operation."""
+        pass
+    
+    @abstractmethod
+    def get_description(self) -> str:
+        """Get human-readable description."""
+        pass
+
+class DepositOperation(BankOperation):
+    """Concrete operation for deposits."""
+    
+    def __init__(self, account, amount):
+        self.account = account
+        self.amount = amount
+    
+    def execute(self) -> bool:
+        return self.account.deposit(self.amount)
+    
+    def get_description(self) -> str:
+        return f"Deposit £{self.amount} to {self.account.account_holder}"
+
+class WithdrawOperation(BankOperation):
+    """Concrete operation for withdrawals."""
+    
+    def __init__(self, account, amount):
+        self.account = account
+        self.amount = amount
+    
+    def execute(self) -> bool:
+        return self.account.withdraw(self.amount)
+    
+    def get_description(self) -> str:
+        return f"Withdraw £{self.amount} from {self.account.account_holder}"
+
+class BankingSystem:
+    """Main banking system using abstraction and encapsulation."""
+    
+    def __init__(self):
+        self._accounts = {}
+        self._operations = []
+    
+    def add_account(self, account):
+        """Add account to system with encapsulation."""
+        self._accounts[account._account_number] = account
+    
+    def process_operation(self, operation: BankOperation) -> bool:
+        """Process any bank operation polymorphically."""
+        result = operation.execute()
+        if result:
+            self._operations.append({
+                'timestamp': datetime.now(),
+                'operation': operation.get_description(),
+                'success': True
+            })
+        return result
+    
+    def get_operation_history(self):
+        """Get operation history with encapsulation."""
+        return self._operations.copy()
+
+# Demonstration
+system = BankingSystem()
+savings = SavingsAccount("David", 2000)
+system.add_account(savings)
+
+# Polymorphic operation processing
+operations = [
+    DepositOperation(savings, 500),
+    WithdrawOperation(savings, 200),
+    DepositOperation(savings, 1000)
+]
+
+print("Processing banking operations:")
+for op in operations:
+    success = system.process_operation(op)
+    status = "✓" if success else "✗"
+    print(f"{status} {op.get_description()}")
+
+print(f"\nFinal balance: £{savings.get_balance()}")
+print(f"Operation history: {system.get_operation_history()}")
+</code></pre>
+
+        <h3>Article Discussion: Agent-Based vs Component-Based Modelling</h3>
+        
+        <table class="comparison-table">
+          <thead>
+            <tr>
+              <th>Aspect</th>
+              <th>Agent-Based Modelling (ABM)</th>
+              <th>Component-Based Modelling</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Focus</strong></td>
+              <td>Autonomous agents with behaviors and interactions</td>
+              <td>Software components with defined interfaces</td>
+            </tr>
+            <tr>
+              <td><strong>Key Concept</strong></td>
+              <td>Emergent behavior from individual actions</td>
+              <td>Structural decomposition and reuse</td>
+            </tr>
+            <tr>
+              <td><strong>Application in Yu & Hou (2023)</strong></td>
+              <td>Simulates distributed intelligent agents collaborating</td>
+              <td>Not directly addressed in the paper</td>
+            </tr>
+            <tr>
+              <td><strong>Strengths</strong></td>
+              <td>Captures complex system dynamics and adaptation</td>
+              <td>Excellent for software architecture and maintenance</td>
+            </tr>
+            <tr>
+              <td><strong>Relation to OOP</strong></td>
+              <td>Agents as objects with autonomy and decision-making</td>
+              <td>Components as encapsulated, reusable classes</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <h4>Key Insights from Yu & Hou (2023):</h4>
+        <ul>
+          <li>Agent-based modelling enables simulation of complex adaptive systems</li>
+          <li>Intelligent agents can exhibit emergent behaviors not programmed explicitly</li>
+          <li>ABM provides better scalability for distributed systems than rigid component architectures</li>
+          <li>The approach aligns well with object-oriented principles of encapsulation and messaging</li>
+        </ul>
+
+        <h3>Comprehensive Reflection</h3>
+        <div style="background:#f0f8ff;padding:20px;border-radius:8px;">
+          <p><strong>Abstraction in Practice:</strong> This unit demonstrates how abstraction operates at multiple levels - from method abstraction in classes to system abstraction in modelling approaches. The banking system example shows how abstract classes define contracts while allowing flexible implementations.</p>
+          
+          <p><strong>Modelling Insights:</strong> Understanding both component-based and agent-based modelling enhances our ability to choose the right abstraction level for different problems. Component-based thinking helps with software structure, while agent-based thinking helps with system behavior simulation.</p>
+          
+          <p><strong>Quality Metrics:</strong> The OOP metrics discussed provide concrete ways to evaluate and improve our designs. High cohesion, low coupling, and proper encapsulation are not just theoretical concepts but practical guidelines for creating maintainable software.</p>
+        </div>
+
+        <p><a href="#top" class="back-top">Back to top ↑</a></p>
+      </div>
+    </section>
+  </div>
+</body>
+</html>

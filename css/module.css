@@ -211,4 +211,27 @@ section ul li {
 
 
 
+/* --- OOP Unit card thumbnails (no external images needed) --- */
+.unit-thumb{
+  height:180px; display:flex; align-items:center; justify-content:center;
+  color:#fff; font-size:48px; border-radius:10px 10px 0 0;
+}
+.unit-thumb i{opacity:.95}
+
+/* 12 subtle gradient themes */
+.u1 {background:linear-gradient(135deg,#6a11cb,#2575fc)}
+.u2 {background:linear-gradient(135deg,#11998e,#38ef7d)}
+.u3 {background:linear-gradient(135deg,#ff512f,#dd2476)}
+.u4 {background:linear-gradient(135deg,#f7971e,#ffd200)}
+.u5 {background:linear-gradient(135deg,#7F00FF,#E100FF)}
+.u6 {background:linear-gradient(135deg,#00c6ff,#0072ff)}
+.u7 {background:linear-gradient(135deg,#f83600,#f9d423)}
+.u8 {background:linear-gradient(135deg,#00b09b,#96c93d)}
+.u9 {background:linear-gradient(135deg,#834d9b,#d04ed6)}
+.u10{background:linear-gradient(135deg,#1f4037,#99f2c8)}
+.u11{background:linear-gradient(135deg,#232526,#414345)}
+.u12{background:linear-gradient(135deg,#ff416c,#ff4b2b)}
+
+
+
 

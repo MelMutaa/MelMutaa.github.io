@@ -1,0 +1,719 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Unit 8: OO Design for IoT, Recursion and Polymorphism - MelMutaa E-Portfolio</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="shortcut icon" href="../favicon-16x16.png" />
+  <link href="https://fonts.googleapis.com/css?family=Roboto:400,300,600,400italic,700" rel="stylesheet" />
+  <link rel="stylesheet" href="../css/artefact.css" />
+  <link rel="stylesheet" href="../css/style.css" />
+  
+  <style>
+    html{scroll-behavior:smooth;}
+    .blog-post{max-width:1100px;margin:40px auto;background:#fff;border:1px solid #eee;border-radius:14px;padding:36px 40px;box-shadow:0 6px 24px rgba(0,0,0,.06);scroll-margin-top:80px;}
+    #title-meta-container{margin:-12px 0 18px 0;}
+    #artefact-header h1{text-align:center;margin:0 0 6px 0;}
+    #artefact-header .artefact-meta{text-align:center;margin:0 0 14px 0;color:#b35555;}
+    pre{background:#0f172a;color:#e5e7eb;padding:16px;border-radius:10px;overflow-x:auto;max-width:100%;}
+    code{font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,"Liberation Mono","Courier New",monospace;font-size:0.9em;line-height:1.4;}
+    .back-top{display:inline-block;border:1px solid #e87f7f;padding:8px 14px;border-radius:10px;text-decoration:none}
+    .back-top:hover{background:#fff5f5}
+    .tile{background:#fff;border:1px solid #eee;border-radius:10px;padding:20px;margin:10px;box-shadow:0 4px 12px rgba(0,0,0,.08);transition:transform 0.2s;}
+    .tile:hover{transform:translateY(-2px);box-shadow:0 6px 16px rgba(0,0,0,.12);}
+    .learning-outcomes{display:flex;gap:20px;flex-wrap:wrap;margin:30px 0;}
+    .learning-outcomes>div{flex:1;min-width:280px;}
+    .feature-highlight{background:linear-gradient(135deg,#667eea 0%,#764ba2 100%);color:white;padding:25px;border-radius:10px;margin:25px 0;}
+    .code-block{max-height:400px;overflow-y:auto;}
+    .method-demo{background:#e7f3ff;padding:15px;border-radius:8px;margin:15px 0;}
+    .research-section{background:#f8f9fa;padding:25px;border-radius:10px;margin:25px 0;border-left:4px solid #28a745;}
+    .comparison-table{width:100%;border-collapse:collapse;margin:20px 0;font-size:0.9em;}
+    .comparison-table th,.comparison-table td{border:1px solid #ddd;padding:10px;text-align:left;}
+    .comparison-table th{background-color:#f5f5f5;font-weight:bold;}
+    .metamodel-diagram{background:white;padding:20px;border-radius:8px;margin:20px 0;border:2px solid #667eea;}
+  </style>
+</head>
+
+<body>
+  <div id="top"></div>
+  <div id="main">
+
+    <!-- Breadcrumbs -->
+    <section id="breadcrumbs">
+      <p><a href="../oop.html">Module Two — OOP</a> > <span>Unit 8: OO Design for IoT, Recursion and Polymorphism</span></p>
+    </section>
+
+    <!-- Intro -->
+    <section id="introduction">
+      <h2>Unit 8: OO Design for IoT, Recursion and Polymorphism</h2>
+      <p style="text-align:center;max-width:900px;margin:0 auto;">
+        This unit explores object-oriented design for IoT systems, advanced recursion patterns, 
+        and polymorphism through card game implementations and error handling strategies.
+      </p>
+    </section>
+
+    <!-- Learning Outcomes -->
+    <section id="learning-outcomes" style="max-width:1100px;margin:30px auto;">
+      <h2>Learning Overview</h2>
+      <div class="learning-outcomes">
+        <div>
+          <strong><p>In this unit we shall:</p></strong>
+          <ul>
+            <li>Analyze metamodel design for IoT systems using OOP principles</li>
+            <li>Implement recursive algorithms for card game logic</li>
+            <li>Apply polymorphism in complex game scenarios</li>
+            <li>Develop robust error handling mechanisms</li>
+            <li>Utilize set operations for data processing</li>
+          </ul>
+        </div>
+        <div>
+          <strong><p>On completion you will be able to:</p></strong>
+          <ul>
+            <li>Design OO metamodels for complex IoT systems</li>
+            <li>Create recursive algorithms for game logic</li>
+            <li>Implement polymorphic behavior in card games</li>
+            <li>Apply advanced exception handling patterns</li>
+            <li>Use set operations for efficient data analysis</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- Tiles -->
+    <section id="artefact-tiles" style="max-width:1100px;margin:30px auto;display:flex;flex-wrap:wrap;justify-content:center;">
+      <div class="tile" style="flex:1;min-width:300px;">
+        <a href="#collaborative-post" style="text-decoration:none;color:inherit;">
+          <div class="tile-content">
+            <h3>Collaborative Post: OO Design for IoT</h3>
+            <p>Metamodel Design & Humanoid Robot Application</p>
+          </div>
+        </a>
+      </div>
+      <div class="tile" style="flex:1;min-width:300px;">
+        <a href="#practical-activity" style="text-decoration:none;color:inherit;">
+          <div class="tile-content">
+            <h3>Practical Activity</h3>
+            <p>Recursion and Polymorphism in Card Games</p>
+          </div>
+        </a>
+      </div>
+      <div class="tile" style="flex:1;min-width:300px;">
+        <a href="#seminar" style="text-decoration:none;color:inherit;">
+          <div class="tile-content">
+            <h3>Unit 8 Seminar</h3>
+            <p>Errors and Data Structures</p>
+          </div>
+        </a>
+      </div>
+    </section>
+
+    <!-- Collaborative Post: OO Design for IoT -->
+    <section id="collaborative-post" class="blog-post">
+      <div id="title-meta-container">
+        <div id="artefact-header">
+          <h1>Collaborative Post: OO Design for IoT</h1>
+          <p class="artefact-meta">Metamodel Analysis and Humanoid Robot Application</p>
+        </div>
+      </div>
+
+      <div class="artefact-description">
+        <h2>Discussion Topic: OO Design for IoT</h2>
+        <p>Referring to the article by Baskara et al (2024), consider the strengths and weaknesses of designing a metamodel to support object-oriented design of the IoT.</p>
+
+        <div class="research-section">
+          <h3>Analysis of Baskara et al (2024) Metamodel Approach</h3>
+          
+          <h4>Strengths of IoT Metamodel Design</h4>
+          <ul>
+            <li><strong>Abstraction and Standardization:</strong> Provides a unified framework for diverse IoT devices and protocols</li>
+            <li><strong>Interoperability:</strong> Enables communication between heterogeneous IoT systems</li>
+            <li><strong>Scalability:</strong> Supports addition of new device types and protocols</li>
+            <li><strong>Maintainability:</strong> Centralized model management reduces code duplication</li>
+            <li><strong>Reusability:</strong> Common patterns can be applied across different IoT domains</li>
+          </ul>
+
+          <h4>Weaknesses and Challenges</h4>
+          <ul>
+            <li><strong>Complexity Overhead:</strong> Additional abstraction layers can increase system complexity</li>
+            <li><strong>Performance Impact:</strong> Meta-level operations may introduce latency in real-time systems</li>
+            <li><strong>Learning Curve:</strong> Developers need to understand both domain and metamodel concepts</li>
+            <li><strong>Over-engineering Risk:</strong> May create unnecessary abstraction for simple IoT applications</li>
+            <li><strong>Tooling Dependency:</strong> Often requires specialized modeling tools and expertise</li>
+          </ul>
+        </div>
+
+        <h3>Humanoid Robot Metamodel Design</h3>
+        <p>Design a smart model equivalent to Figure 1 or Figure 2 which would instead support operation of a humanoid robot.</p>
+
+        <div class="metamodel-diagram">
+          <h4>Humanoid Robot Metamodel Architecture</h4>
+          <pre>
+┌─────────────────────────────────────────────────────────────┐
+│                   RobotMetaModel                            │
+├─────────────────────────────────────────────────────────────┤
+│ - robotTypes: Dict[str, RobotType]                         │
+│ - capabilityModels: Dict[str, CapabilityModel]             │
+│ - behaviorPatterns: Dict[str, BehaviorPattern]             │
+│ - sensorConfigurations: Dict[str, SensorConfig]            │
+├─────────────────────────────────────────────────────────────┤
+│ + registerRobotType(type: RobotType)                       │
+│ + defineCapability(capability: CapabilityModel)            │
+│ + addBehaviorPattern(pattern: BehaviorPattern)             │
+│ + configureSensor(sensor: SensorConfig)                    │
+│ + generateRobotInstance(spec: RobotSpec): RobotInstance    │
+└─────────────────────────────────────────────────────────────┘
+                                ▲
+                                │
+        ┌───────────────────────┼───────────────────────┐
+        │                       │                       │
+        ▼                       ▼                       ▼
+┌───────────────┐       ┌───────────────┐       ┌───────────────┐
+│  RobotType    │       │ Capability    │       │ Behavior      │
+├───────────────┤       │   Model       │       │  Pattern      │
+│ - name        │       ├───────────────┤       ├───────────────┤
+│ - capabilities│       │ - type        │       │ - name        │
+│ - sensors     │       │ - parameters  │       │ - triggers    │
+│ - actuators   │       │ - constraints │       │ - actions     │
+└───────────────┘       │ - outcomes    │       │ - conditions  │
+                        └───────────────┘       └───────────────┘
+</pre>
+        </div>
+
+        <div class="code-block">
+<pre><code class="language-python">class HumanoidRobotMetaModel:
+    """Metamodel for humanoid robot systems based on Baskara et al approach."""
+    
+    def __init__(self):
+        self.robot_types = {}
+        self.capability_models = {}
+        self.behavior_patterns = {}
+        self.sensor_configs = {}
+    
+    def register_robot_type(self, robot_type):
+        """Register a new robot type in the metamodel."""
+        self.robot_types[robot_type.name] = robot_type
+    
+    def define_capability(self, capability):
+        """Define a capability that robots can implement."""
+        self.capability_models[capability.type] = capability
+    
+    def add_behavior_pattern(self, pattern):
+        """Add a reusable behavior pattern."""
+        self.behavior_patterns[pattern.name] = pattern
+    
+    def configure_sensor(self, sensor_config):
+        """Configure sensor specifications."""
+        self.sensor_configs[sensor_config.sensor_type] = sensor_config
+    
+    def generate_robot_instance(self, robot_spec):
+        """Generate a specific robot instance from specifications."""
+        robot_type = self.robot_types.get(robot_spec.robot_type)
+        if not robot_type:
+            raise ValueError(f"Unknown robot type: {robot_spec.robot_type}")
+        
+        return RobotInstance(robot_type, robot_spec.capabilities)
+
+class RobotType:
+    def __init__(self, name, capabilities, sensors, actuators):
+        self.name = name
+        self.capabilities = capabilities
+        self.sensors = sensors
+        self.actuators = actuators
+
+class CapabilityModel:
+    def __init__(self, capability_type, parameters, constraints, outcomes):
+        self.type = capability_type
+        self.parameters = parameters
+        self.constraints = constraints
+        self.outcomes = outcomes
+
+# Example usage
+metamodel = HumanoidRobotMetaModel()
+
+# Define robot types
+humanoid_type = RobotType(
+    name="AdvancedHumanoid",
+    capabilities=["walking", "object_manipulation", "speech"],
+    sensors=["camera", "lidar", "microphone"],
+    actuators=["servo_motors", "linear_actuators"]
+)
+
+# Register in metamodel
+metamodel.register_robot_type(humanoid_type)</code></pre>
+        </div>
+
+        <p><a href="#top" class="back-top">Back to top ↑</a></p>
+      </div>
+    </section>
+
+    <!-- Practical Activity: Recursion and Polymorphism -->
+    <section id="practical-activity" class="blog-post">
+      <div id="title-meta-container">
+        <div id="artefact-header">
+          <h1>Practical Activity - Recursion and Polymorphism</h1>
+          <p class="artefact-meta">Card Game Implementations with Advanced OOP Patterns</p>
+        </div>
+      </div>
+
+      <div class="artefact-description">
+        <h2>Card Game Foundation Classes</h2>
+        <div class="code-block">
+<pre><code class="language-python">class Card:
+    """Represents a playing card with suit and rank."""
+    
+    SUITS = ['Hearts', 'Diamonds', 'Clubs', 'Spades']
+    RANKS = ['2', '3', '4', '5', '6', '7', '8', '9', '10', 'Jack', 'Queen', 'King', 'Ace']
+    
+    def __init__(self, suit, rank):
+        self.suit = suit
+        self.rank = rank
+    
+    def __str__(self):
+        return f"{self.rank} of {self.suit}"
+    
+    def get_numeric_rank(self):
+        """Convert rank to numeric value for comparison."""
+        return Card.RANKS.index(self.rank) + 2
+
+class Deck:
+    """Represents a deck of cards."""
+    
+    def __init__(self, cards=None):
+        self.cards = cards if cards else []
+    
+    def __str__(self):
+        return '\n'.join(str(card) for card in self.cards)
+
+class Hand(Deck):
+    """Represents a hand of cards held by a player."""
+    pass
+</code></pre>
+        </div>
+
+        <h3>Exercise 1: Trick Winner Finder</h3>
+        <div class="code-block">
+<pre><code class="language-python">class Trick(Deck):
+    """Represents a trick in contract bridge."""
+    
+    def find_winner(self):
+        """Find the index of the winning card in the trick."""
+        if not self.cards:
+            return -1
+        
+        # First card determines the led suit
+        led_suit = self.cards[0].suit
+        winning_index = 0
+        highest_rank = self.cards[0].get_numeric_rank()
+        
+        # Check only cards of the led suit
+        for i in range(1, len(self.cards)):
+            card = self.cards[i]
+            if card.suit == led_suit:
+                card_rank = card.get_numeric_rank()
+                if card_rank > highest_rank:
+                    highest_rank = card_rank
+                    winning_index = i
+        
+        return winning_index
+
+# Test the implementation
+cards = [Card('Diamonds', '3'),
+         Card('Diamonds', '10'),
+         Card('Diamonds', 'Queen'),
+         Card('Hearts', 'King')]
+
+trick = Trick(cards)
+print("Trick cards:")
+for card in trick.cards:
+    print(card)
+
+winner_index = trick.find_winner()
+print(f"\nWinning card index: {winner_index}")
+print(f"Winning card: {trick.cards[winner_index]}")</code></pre>
+        </div>
+
+        <h3>Exercise 2-6: Poker Hand Classification</h3>
+        <div class="code-block">
+<pre><code class="language-python">class PokerHand(Hand):
+    """Represents a poker hand with classification methods."""
+    
+    def get_suit_counts(self):
+        counter = {}
+        for card in self.cards:
+            key = card.suit
+            counter[key] = counter.get(key, 0) + 1
+        return counter
+            
+    def get_rank_counts(self):
+        counter = {}
+        for card in self.cards:
+            key = card.rank
+            counter[key] = counter.get(key, 0) + 1
+        return counter
+    
+    def has_flush(self):
+        """Check if hand has at least five cards of the same suit."""
+        suit_counts = self.get_suit_counts()
+        return any(count >= 5 for count in suit_counts.values())
+    
+    def has_straight(self):
+        """Check if hand contains five cards with consecutive ranks."""
+        numeric_ranks = sorted([card.get_numeric_rank() for card in self.cards])
+        
+        # Handle Ace as both high and low
+        if 14 in numeric_ranks:  # Ace
+            numeric_ranks.append(1)  # Add Ace as low
+        
+        # Remove duplicates and sort
+        unique_ranks = sorted(set(numeric_ranks))
+        
+        # Check for consecutive sequence of 5
+        for i in range(len(unique_ranks) - 4):
+            if unique_ranks[i+4] - unique_ranks[i] == 4:
+                return True
+        
+        return False
+    
+    def has_straight_flush(self):
+        """Check if hand has both straight and flush."""
+        if not self.has_flush():
+            return False
+        
+        # Group cards by suit
+        suit_groups = {}
+        for card in self.cards:
+            if card.suit not in suit_groups:
+                suit_groups[card.suit] = []
+            suit_groups[card.suit].append(card)
+        
+        # Check each suit group for straight
+        for suit, cards in suit_groups.items():
+            if len(cards) >= 5:
+                temp_hand = PokerHand(cards)
+                if temp_hand.has_straight():
+                    return True
+        
+        return False
+    
+    def has_pair(self):
+        """Check if hand contains at least one pair."""
+        rank_counts = self.get_rank_counts()
+        return any(count >= 2 for count in rank_counts.values())
+    
+    def has_full_house(self):
+        """Check if hand has three of one rank and two of another."""
+        rank_counts = self.get_rank_counts()
+        values = sorted(rank_counts.values(), reverse=True)
+        return len(values) >= 2 and values[0] >= 3 and values[1] >= 2
+
+# Test poker hand classifications
+test_hand = PokerHand([
+    Card('Hearts', 'Ace'), Card('Hearts', 'King'), Card('Hearts', 'Queen'),
+    Card('Hearts', 'Jack'), Card('Hearts', '10'), Card('Clubs', '3'), Card('Diamonds', '7')
+])
+
+print("Poker Hand Analysis:")
+print(f"Has flush: {test_hand.has_flush()}")
+print(f"Has straight: {test_hand.has_straight()}")
+print(f"Has straight flush: {test_hand.has_straight_flush()}")
+print(f"Has pair: {test_hand.has_pair()}")
+print(f"Has full house: {test_hand.has_full_house()}")</code></pre>
+        </div>
+
+        <h3>Exercise 7: Kangaroo Class Debugging</h3>
+        <div class="code-block">
+<pre><code class="language-python">class Kangaroo:
+    """A Kangaroo is a marsupial."""
+    
+    def __init__(self, name, contents=None):
+        """Initialize the pouch contents.
+        
+        FIX: Use None as default and create new list instance
+        """
+        self.name = name
+        self.contents = contents if contents is not None else []
+    
+    def __str__(self):
+        """Return a string representation of this Kangaroo."""
+        t = [self.name + ' has pouch contents:']
+        for obj in self.contents:
+            s = '    ' + object.__str__(obj)
+            t.append(s)
+        return '\n'.join(t)
+    
+    def put_in_pouch(self, item):
+        """Adds a new item to the pouch contents."""
+        self.contents.append(item)
+
+# Test the fixed implementation
+kanga = Kangaroo('Kanga')
+roo = Kangaroo('Roo')
+
+kanga.put_in_pouch('wallet')
+kanga.put_in_pouch('car keys')
+kanga.put_in_pouch(roo)
+
+print("Kanga's pouch:")
+print(kanga)
+print("\nRoo's pouch:")
+print(roo)  # Now shows empty pouch as expected</code></pre>
+        </div>
+
+        <div class="method-demo">
+          <h4>Debugging Explanation</h4>
+          <p><strong>Problem:</strong> The original Kangaroo class used a mutable default argument (<code>contents=[]</code>), which creates a single list instance shared across all Kangaroo objects that don't provide explicit contents.</p>
+          <p><strong>Solution:</strong> Use <code>None</code> as the default and create a new list instance inside the method. This ensures each Kangaroo gets its own unique pouch contents.</p>
+        </div>
+
+        <p><a href="#top" class="back-top">Back to top ↑</a></p>
+      </div>
+    </section>
+
+    <!-- Unit 8 Seminar -->
+    <section id="seminar" class="blog-post">
+      <div id="title-meta-container">
+        <div id="artefact-header">
+          <h1>Unit 8 Seminar: Errors and Data Structures</h1>
+          <p class="artefact-meta">Exception Handling and Set Operations</p>
+        </div>
+      </div>
+
+      <div class="artefact-description">
+        <h2>Activity 1: Error Handling with Exceptions</h2>
+        
+        <div class="code-block">
+<pre><code class="language-python">class Calculator:
+    """Calculator with comprehensive error handling."""
+    
+    def safe_divide(self, numerator, denominator):
+        """Divide with exception handling for various error conditions."""
+        try:
+            result = numerator / denominator
+            return result
+            
+        except ValueError:
+            print("Error: Invalid value provided")
+            return None
+            
+        except (TypeError, ZeroDivisionError) as e:
+            if isinstance(e, TypeError):
+                print("Error: Invalid operation types")
+            else:
+                print("Error: Division by zero is not allowed")
+            return None
+            
+        except Exception as e:
+            print(f"Unexpected error: {e}")
+            return None
+            
+        finally:
+            print("Division operation completed")
+    
+    def process_calculation(self, operation, *args):
+        """Process various mathematical operations with error handling."""
+        try:
+            if operation == 'divide':
+                return self.safe_divide(args[0], args[1])
+            elif operation == 'power':
+                return args[0] ** args[1]
+            else:
+                raise ValueError(f"Unknown operation: {operation}")
+                
+        except ValueError as e:
+            print(f"Value error: {e}")
+            return None
+        except Exception as e:
+            print(f"Calculation error: {e}")
+            return None
+
+# Demonstration
+calc = Calculator()
+
+# Test various error conditions
+print("=== Testing Error Handling ===")
+print(f"Normal division: {calc.safe_divide(10, 2)}")
+print(f"Division by zero: {calc.safe_divide(10, 0)}")
+print(f"Invalid operation: {calc.process_calculation('unknown', 5, 2)}")</code></pre>
+        </div>
+
+        <h2>Activity 2: Data Structures</h2>
+        
+        <h3>2.1 Set Operations in Summative Assessment Context</h3>
+        
+        <table class="comparison-table">
+          <thead>
+            <tr>
+              <th>Set Operation</th>
+              <th>Use in Humanoid Robot Assessment</th>
+              <th>Practical Example</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Union</strong></td>
+              <td>Combine multiple sensor data streams</td>
+              <td>Merge obstacle detection from camera and lidar sensors</td>
+            </tr>
+            <tr>
+              <td><strong>Intersection</strong></td>
+              <td>Find common capabilities across robot models</td>
+              <td>Identify shared navigation skills between different robot types</td>
+            </tr>
+            <tr>
+              <td><strong>Difference</strong></td>
+              <td>Identify missing capabilities for task completion</td>
+              <td>Find skills robot lacks for specific mission requirements</td>
+            </tr>
+            <tr>
+              <td><strong>Symmetric Difference</strong></td>
+              <td>Compare robot skill sets for team formation</td>
+              <td>Identify complementary skills when forming robot teams</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div class="code-block">
+<pre><code class="language-python"># Set operations for robot capability management
+class RobotCapabilityManager:
+    """Manages robot capabilities using set operations."""
+    
+    def __init__(self):
+        self.available_capabilities = set()
+        self.robot_skills = {}
+    
+    def analyze_team_capabilities(self, robot_team):
+        """Use set operations to analyze team capabilities."""
+        # Union: Combine all team capabilities
+        team_capabilities = set()
+        for robot in robot_team:
+            team_capabilities = team_capabilities.union(self.robot_skills.get(robot, set()))
+        
+        # Intersection: Find common capabilities
+        common_capabilities = set.intersection(*[self.robot_skills.get(robot, set()) for robot in robot_team])
+        
+        # Difference: Identify missing capabilities
+        required_capabilities = {'navigation', 'object_manipulation', 'communication'}
+        missing_capabilities = required_capabilities.difference(team_capabilities)
+        
+        # Symmetric Difference: Find unique capabilities
+        if len(robot_team) == 2:
+            robot1_skills = self.robot_skills.get(robot_team[0], set())
+            robot2_skills = self.robot_skills.get(robot_team[1], set())
+            unique_capabilities = robot1_skills.symmetric_difference(robot2_skills)
+        
+        return {
+            'team_capabilities': team_capabilities,
+            'common_capabilities': common_capabilities,
+            'missing_capabilities': missing_capabilities,
+            'unique_capabilities': unique_capabilities if len(robot_team) == 2 else set()
+        }
+
+# Example usage
+manager = RobotCapabilityManager()
+manager.robot_skills = {
+    'RobotA': {'navigation', 'object_manipulation', 'sensing'},
+    'RobotB': {'navigation', 'communication', 'data_processing'},
+    'RobotC': {'object_manipulation', 'communication', 'power_management'}
+}
+
+team_analysis = manager.analyze_team_capabilities(['RobotA', 'RobotB'])
+print("Team Capability Analysis:")
+for key, value in team_analysis.items():
+    print(f"{key}: {value}")</code></pre>
+        </div>
+
+        <h3>2.2 Linear Search Implementation</h3>
+        <div class="code-block">
+<pre><code class="language-python">def linear_search(arr, target):
+    """
+    Perform linear search on a list.
+    
+    Args:
+        arr: List to search through
+        target: Element to find
+    
+    Returns:
+        Index of target if found, -1 otherwise
+    """
+    for i in range(len(arr)):
+        if arr[i] == target:
+            return i
+    return -1
+
+def linear_search_with_sentinel(arr, target):
+    """
+    Optimized linear search using sentinel technique.
+    """
+    # Add sentinel at the end
+    arr.append(target)
+    i = 0
+    while arr[i] != target:
+        i += 1
+    # Remove sentinel
+    arr.pop()
+    return i if i < len(arr) else -1
+
+# Test linear search implementations
+test_data = [5, 2, 8, 1, 9, 3, 7, 4, 6]
+targets = [8, 10, 3]
+
+print("=== Linear Search Tests ===")
+for target in targets:
+    index = linear_search(test_data, target)
+    if index != -1:
+        print(f"Target {target} found at index {index}")
+    else:
+        print(f"Target {target} not found")
+
+# Robot application example
+class RobotTaskScheduler:
+    """Uses linear search for task scheduling."""
+    
+    def __init__(self):
+        self.tasks = []
+        self.completed_tasks = []
+    
+    def find_task_by_priority(self, priority):
+        """Find task with specific priority using linear search."""
+        return linear_search([task['priority'] for task in self.tasks], priority)
+    
+    def schedule_task(self, task_name, priority):
+        """Add task to scheduler."""
+        self.tasks.append({'name': task_name, 'priority': priority})
+    
+    def complete_highest_priority(self):
+        """Complete highest priority task using linear search."""
+        if not self.tasks:
+            return None
+        
+        highest_priority = float('inf')
+        task_index = -1
+        
+        for i, task in enumerate(self.tasks):
+            if task['priority'] < highest_priority:
+                highest_priority = task['priority']
+                task_index = i
+        
+        if task_index != -1:
+            completed_task = self.tasks.pop(task_index)
+            self.completed_tasks.append(completed_task)
+            return completed_task
+        return None
+
+# Test robot task scheduler
+scheduler = RobotTaskScheduler()
+scheduler.schedule_task('Navigate to kitchen', 2)
+scheduler.schedule_task('Charge battery', 1)
+scheduler.schedule_task('Clean floor', 3)
+
+print("\n=== Robot Task Scheduling ===")
+completed = scheduler.complete_highest_priority()
+print(f"Completed: {completed['name']} (Priority: {completed['priority']})")</code></pre>
+        </div>
+
+        <p><a href="#top" class="back-top">Back to top ↑</a></p>
+      </div>
+    </section>
+  </div>
+</body>
+</html>

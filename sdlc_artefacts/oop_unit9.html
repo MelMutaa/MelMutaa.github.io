@@ -1,0 +1,672 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Unit 9: Cyclomatic Complexity and Code Quality - MelMutaa E-Portfolio</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="shortcut icon" href="../favicon-16x16.png" />
+  <link href="https://fonts.googleapis.com/css?family=Roboto:400,300,600,400italic,700" rel="stylesheet" />
+  <link rel="stylesheet" href="../css/artefact.css" />
+  <link rel="stylesheet" href="../css/style.css" />
+  
+  <style>
+    html{scroll-behavior:smooth;}
+    .blog-post{max-width:1100px;margin:40px auto;background:#fff;border:1px solid #eee;border-radius:14px;padding:36px 40px;box-shadow:0 6px 24px rgba(0,0,0,.06);scroll-margin-top:80px;}
+    #title-meta-container{margin:-12px 0 18px 0;}
+    #artefact-header h1{text-align:center;margin:0 0 6px 0;}
+    #artefact-header .artefact-meta{text-align:center;margin:0 0 14px 0;color:#b35555;}
+    pre{background:#0f172a;color:#e5e7eb;padding:16px;border-radius:10px;overflow-x:auto;max-width:100%;}
+    code{font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,"Liberation Mono","Courier New",monospace;font-size:0.9em;line-height:1.4;}
+    .back-top{display:inline-block;border:1px solid #e87f7f;padding:8px 14px;border-radius:10px;text-decoration:none}
+    .back-top:hover{background:#fff5f5}
+    .tile{background:#fff;border:1px solid #eee;border-radius:10px;padding:20px;margin:10px;box-shadow:0 4px 12px rgba(0,0,0,.08);transition:transform 0.2s;}
+    .tile:hover{transform:translateY(-2px);box-shadow:0 6px 16px rgba(0,0,0,.12);}
+    .learning-outcomes{display:flex;gap:20px;flex-wrap:wrap;margin:30px 0;}
+    .learning-outcomes>div{flex:1;min-width:280px;}
+    .feature-highlight{background:linear-gradient(135deg,#667eea 0%,#764ba2 100%);color:white;padding:25px;border-radius:10px;margin:25px 0;}
+    .code-block{max-height:400px;overflow-y:auto;}
+    .method-demo{background:#e7f3ff;padding:15px;border-radius:8px;margin:15px 0;}
+    .research-section{background:#f8f9fa;padding:25px;border-radius:10px;margin:25px 0;border-left:4px solid #28a745;}
+    .comparison-table{width:100%;border-collapse:collapse;margin:20px 0;font-size:0.9em;}
+    .comparison-table th,.comparison-table td{border:1px solid #ddd;padding:10px;text-align:left;}
+    .comparison-table th{background-color:#f5f5f5;font-weight:bold;}
+    .complexity-metrics{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:20px;margin:20px 0;}
+    .metric-card{background:#f8f9fa;padding:20px;border-radius:8px;border-left:4px solid #667eea;}
+  </style>
+</head>
+
+<body>
+  <div id="top"></div>
+  <div id="main">
+
+    <!-- Breadcrumbs -->
+    <section id="breadcrumbs">
+      <p><a href="../oop.html">Module Two — OOP</a> > <span>Unit 9: Cyclomatic Complexity and Code Quality</span></p>
+    </section>
+
+    <!-- Intro -->
+    <section id="introduction">
+      <h2>Unit 9: Cyclomatic Complexity and Code Quality</h2>
+      <p style="text-align:center;max-width:900px;margin:0 auto;">
+        This unit explores code quality metrics, focusing on cyclomatic complexity and its relevance 
+        in object-oriented systems, along with practical testing using assertion statements.
+      </p>
+    </section>
+
+    <!-- Learning Outcomes -->
+    <section id="learning-outcomes" style="max-width:1100px;margin:30px auto;">
+      <h2>Learning Overview</h2>
+      <div class="learning-outcomes">
+        <div>
+          <strong><p>In this unit we shall:</p></strong>
+          <ul>
+            <li>Analyze cyclomatic complexity in object-oriented systems</li>
+            <li>Evaluate alternative code complexity metrics</li>
+            <li>Calculate cyclomatic complexity for given code samples</li>
+            <li>Implement assertion-based testing strategies</li>
+            <li>Compare different code quality assessment approaches</li>
+          </ul>
+        </div>
+        <div>
+          <strong><p>On completion you will be able to:</p></strong>
+          <ul>
+            <li>Assess code complexity using multiple metrics</li>
+            <li>Make informed decisions about code refactoring</li>
+            <li>Apply cyclomatic complexity analysis in practice</li>
+            <li>Implement robust testing with assertions</li>
+            <li>Critically evaluate code quality measurement approaches</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- Tiles -->
+    <section id="artefact-tiles" style="max-width:1100px;margin:30px auto;display:flex;flex-wrap:wrap;justify-content:center;">
+      <div class="tile" style="flex:1;min-width:300px;">
+        <a href="#activity-1" style="text-decoration:none;color:inherit;">
+          <div class="tile-content">
+            <h3>Activity 1 & 2: Cyclomatic Complexity</h3>
+            <p>Relevance in OOP Systems & Alternative Metrics</p>
+          </div>
+        </a>
+      </div>
+      <div class="tile" style="flex:1;min-width:300px;">
+        <a href="#activity-3" style="text-decoration:none;color:inherit;">
+          <div class="tile-content">
+            <h3>Activity 3: Complexity Calculation</h3>
+            <p>Practical Cyclomatic Complexity Analysis</p>
+          </div>
+        </a>
+      </div>
+      <div class="tile" style="flex:1;min-width:300px;">
+        <a href="#activity-4" style="text-decoration:none;color:inherit;">
+          <div class="tile-content">
+            <h3>Activity 4: Assertion Testing</h3>
+            <p>String Operations with Assert Statements</p>
+          </div>
+        </a>
+      </div>
+    </section>
+
+    <!-- Activities 1 & 2: Cyclomatic Complexity -->
+    <section id="activity-1" class="blog-post">
+      <div id="title-meta-container">
+        <div id="artefact-header">
+          <h1>Activities 1 & 2: Cyclomatic Complexity in OOP Systems</h1>
+          <p class="artefact-meta">Relevance Analysis and Alternative Metrics Evaluation</p>
+        </div>
+      </div>
+
+      <div class="artefact-description">
+        <h2>Activity 1: Relevance of Cyclomatic Complexity in OOP Systems</h2>
+        
+        <div class="research-section">
+          <h3>Academic Perspective on Cyclomatic Complexity</h3>
+          
+          <p><strong>How relevant is cyclomatic complexity in object-oriented systems?</strong></p>
+          
+          <p>Cyclomatic complexity remains relevant in object-oriented systems but requires careful interpretation when applied to OOP constructs. According to research by McCabe (1976) and subsequent studies:</p>
+          
+          <div class="complexity-metrics">
+            <div class="metric-card">
+              <h4>Traditional Relevance</h4>
+              <p><strong>Control Flow Measurement:</strong> Cyclomatic complexity effectively measures the number of linearly independent paths through a program's source code.</p>
+              <p><strong>Testing Guidance:</strong> Provides a lower bound on the number of test cases needed for branch coverage.</p>
+              <p><strong>Maintainability Indicator:</strong> High complexity often correlates with difficult-to-maintain code.</p>
+            </div>
+
+            <div class="metric-card">
+              <h4>OOP-Specific Considerations</h4>
+              <p><strong>Method-Level Analysis:</strong> Most effective when applied at the method level rather than class level.</p>
+              <p><strong>Polymorphism Impact:</strong> Dynamic dispatch can make path analysis more challenging.</p>
+              <p><strong>Inheritance Complexity:</strong> Does not account for complexity introduced by inheritance hierarchies.</p>
+            </div>
+          </div>
+
+          <h4>Research-Based Limitations in OOP Context</h4>
+          <ul>
+            <li><strong>Chidamber & Kemerer (1994):</strong> Found that cyclomatic complexity alone is insufficient for predicting fault-proneness in OO systems</li>
+            <li><strong>Henderson-Sellers (1996):</strong> Argued that traditional metrics don't adequately capture OO concepts like encapsulation and polymorphism</li>
+            <li><strong>Briand et al. (2000):</strong> Demonstrated that coupling and cohesion metrics often provide better fault prediction in OOP</li>
+          </ul>
+        </div>
+
+        <h2>Activity 2: Alternative Complexity Metrics</h2>
+        
+        <p><strong>Which alternative metrics are more reflective of the complexity of a piece of code, in comparison to the number of independent paths through a program?</strong></p>
+
+        <div class="complexity-metrics">
+          <div class="metric-card">
+            <h4>1. Maintainability Index</h4>
+            <p><strong>Definition:</strong> Composite metric combining cyclomatic complexity, lines of code, and Halstead volume</p>
+            <p><strong>Advantage:</strong> Provides a more balanced view of code maintainability</p>
+            <p><strong>Research Support:</strong> Coleman et al. (1994) demonstrated better correlation with maintenance effort</p>
+          </div>
+
+          <div class="metric-card">
+            <h4>2. Cognitive Complexity</h4>
+            <p><strong>Definition:</strong> Measures how difficult code is to understand for humans</p>
+            <p><strong>Advantage:</strong> Accounts for nested structures and complex boolean conditions</p>
+            <p><strong>Research Support:</strong> Campbell (2018) showed better correlation with developer comprehension time</p>
+          </div>
+
+          <div class="metric-card">
+            <h4>3. Weighted Methods per Class (WMC)</h4>
+            <p><strong>Definition:</strong> Sum of complexities of all methods in a class</p>
+            <p><strong>Advantage:</strong> Specifically designed for OOP, considers class-level complexity</p>
+            <p><strong>Research Support:</strong> Chidamber & Kemerer (1994) established WMC as a key OO metric</p>
+          </div>
+        </div>
+
+        <table class="comparison-table">
+          <thead>
+            <tr>
+              <th>Metric</th>
+              <th>Strengths in OOP Context</th>
+              <th>Limitations</th>
+              <th>Research Evidence</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Cyclomatic Complexity</strong></td>
+              <td>Well-established, tool support, method-level analysis</td>
+              <td>Ignores OOP features, class-level complexity</td>
+              <td>McCabe (1976) - Original formulation</td>
+            </tr>
+            <tr>
+              <td><strong>Maintainability Index</strong></td>
+              <td>Composite measure, practical maintenance prediction</td>
+              <td>Can mask individual problem areas</td>
+              <td>Coleman et al. (1994) - Empirical validation</td>
+            </tr>
+            <tr>
+              <td><strong>Cognitive Complexity</strong></td>
+              <td>Human-centric, accounts for nesting and conditions</td>
+              <td>Newer metric, less tool support</td>
+              <td>Campbell (2018) - Comprehension studies</td>
+            </tr>
+            <tr>
+              <td><strong>WMC</strong></td>
+              <td>OOP-specific, class-level analysis</td>
+              <td>Depends on method complexity calculation</td>
+              <td>Chidamber & Kemerer (1994) - OO metrics suite</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div class="method-demo">
+          <h4>Academic References Summary</h4>
+          <ul>
+            <li><strong>McCabe, T. J. (1976):</strong> "A Complexity Measure" - Introduced cyclomatic complexity</li>
+            <li><strong>Chidamber, S. R., & Kemerer, C. F. (1994):</strong> "A Metrics Suite for Object Oriented Design" - Established WMC and other OO metrics</li>
+            <li><strong>Coleman, D. et al. (1994):</strong> "Using Metrics to Evaluate Software System Maintainability" - Developed Maintainability Index</li>
+            <li><strong>Campbell, G. A. (2018):</strong> "Cognitive Complexity: A new way of measuring understandability" - Introduced cognitive complexity</li>
+          </ul>
+        </div>
+
+        <p><a href="#top" class="back-top">Back to top ↑</a></p>
+      </div>
+    </section>
+
+    <!-- Activity 3: Complexity Calculation -->
+    <section id="activity-3" class="blog-post">
+      <div id="title-meta-container">
+        <div id="artefact-header">
+          <h1>Activity 3: Cyclomatic Complexity Calculation</h1>
+          <p class="artefact-meta">Practical Analysis of Code Complexity</p>
+        </div>
+      </div>
+
+      <div class="artefact-description">
+        <h2>Cyclomatic Complexity Analysis</h2>
+        
+        <p><strong>What is the cyclomatic complexity of the following piece of code?</strong></p>
+
+        <div class="code-block">
+<pre><code class="language-csharp">public static string IntroducePerson(string name, int age)
+{
+    var response = $"Hi! My name is {name} and I'm {age} years old.";
+
+    if (age >= 18)
+        response += " I'm an adult.";
+
+    if (name.Length > 7)
+        response += " I have a long name.";
+
+    return response;
+}</code></pre>
+        </div>
+
+        <h3>Cyclomatic Complexity Calculation</h3>
+        
+        <div class="method-demo">
+          <h4>Calculation Method</h4>
+          <p><strong>Formula:</strong> V(G) = E - N + 2P</p>
+          <ul>
+            <li><strong>E</strong> = Number of edges in the control flow graph</li>
+            <li><strong>N</strong> = Number of nodes in the control flow graph</li>
+            <li><strong>P</strong> = Number of connected components (usually 1)</li>
+          </ul>
+          <p><strong>Simplified Approach:</strong> V(G) = Number of decision points + 1</p>
+        </div>
+
+        <h4>Decision Points Analysis</h4>
+        <ol>
+          <li><strong>First if statement:</strong> <code>if (age >= 18)</code> - 1 decision point</li>
+          <li><strong>Second if statement:</strong> <code>if (name.Length > 7)</code> - 1 decision point</li>
+        </ol>
+
+        <div class="method-demo">
+          <h4>Complexity Calculation</h4>
+          <p><strong>Number of decision points:</strong> 2</p>
+          <p><strong>Cyclomatic Complexity:</strong> V(G) = 2 + 1 = <strong>3</strong></p>
+        </div>
+
+        <h3>Control Flow Graph Representation</h3>
+        <div style="background:#f8f9fa;padding:20px;border-radius:8px;margin:15px 0;">
+          <pre>
+Start
+  │
+  ▼
+Initialize response
+  │
+  ▼
+if (age >= 18) ──True──▶ Append "adult" ───┐
+  │False                                    │
+  ▼                                         │
+if (name.Length > 7) ─True──▶ Append "long name" ─┐
+  │False                                         │
+  ▼                                              │
+Return response ◀────────────────────────────────┘
+          </pre>
+        </div>
+
+        <h3>Complexity Interpretation</h3>
+        <table class="comparison-table">
+          <thead>
+            <tr>
+              <th>Complexity Range</th>
+              <th>Risk Level</th>
+              <th>Recommended Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>1-10</td>
+              <td style="color:green;">Low</td>
+              <td>Simple procedure, low risk</td>
+            </tr>
+            <tr>
+              <td>11-20</td>
+              <td style="color:orange;">Moderate</td>
+              <td>More complex, consider review</td>
+            </tr>
+            <tr>
+              <td>21-50</td>
+              <td style="color:red;">High</td>
+              <td>Complex, high risk - refactor needed</td>
+            </tr>
+            <tr>
+              <td>>50</td>
+              <td style="color:darkred;">Very High</td>
+              <td>Untestable, must refactor</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div class="method-demo">
+          <h4>Assessment Result</h4>
+          <p><strong>Cyclomatic Complexity: 3</strong> - This indicates a <strong style="color:green;">low complexity</strong> method that is easy to test and maintain.</p>
+          <p><strong>Testing Requirements:</strong> Minimum of 3 test cases needed for full branch coverage.</p>
+        </div>
+
+        <h3>Automated Complexity Analysis Tool</h3>
+        <div class="code-block">
+<pre><code class="language-python">class ComplexityAnalyzer:
+    """Tool for analyzing code complexity metrics."""
+    
+    @staticmethod
+    def calculate_cyclomatic_complexity(code_lines):
+        """
+        Calculate cyclomatic complexity from code lines.
+        Simplified implementation for demonstration.
+        """
+        complexity = 1  # Base complexity
+        decision_keywords = ['if', 'while', 'for', 'case', 'catch', '&&', '||', '?']
+        
+        for line in code_lines:
+            line_lower = line.lower().strip()
+            # Count decision points
+            for keyword in decision_keywords:
+                if keyword in line_lower and not line_lower.startswith('//'):
+                    # Simple keyword counting (real implementation would be more sophisticated)
+                    if keyword in ['if', 'while', 'for', 'case', 'catch']:
+                        complexity += 1
+                    elif keyword in ['&&', '||']:
+                        # Each logical operator adds a decision point
+                        complexity += line_lower.count(keyword)
+        
+        return complexity
+    
+    def analyze_method_complexity(self, method_code):
+        """Comprehensive complexity analysis."""
+        lines = method_code.split('\n')
+        cc = self.calculate_cyclomatic_complexity(lines)
+        
+        analysis = {
+            'cyclomatic_complexity': cc,
+            'risk_level': self._get_risk_level(cc),
+            'test_cases_needed': cc,
+            'recommendation': self._get_recommendation(cc)
+        }
+        
+        return analysis
+    
+    def _get_risk_level(self, complexity):
+        if complexity <= 10:
+            return "Low"
+        elif complexity <= 20:
+            return "Moderate"
+        elif complexity <= 50:
+            return "High"
+        else:
+            return "Very High"
+    
+    def _get_recommendation(self, complexity):
+        if complexity <= 10:
+            return "No action needed - well-structured code"
+        elif complexity <= 20:
+            return "Consider code review for potential simplification"
+        else:
+            return "Refactor required - code is too complex"
+
+# Test the analyzer
+analyzer = ComplexityAnalyzer()
+sample_code = """
+public static string IntroducePerson(string name, int age)
+{
+    var response = $"Hi! My name is {name} and I'm {age} years old.";
+    if (age >= 18)
+        response += " I'm an adult.";
+    if (name.Length > 7)
+        response += " I have a long name.";
+    return response;
+}
+"""
+
+result = analyzer.analyze_method_complexity(sample_code)
+print("Complexity Analysis Result:")
+for key, value in result.items():
+    print(f"{key}: {value}")</code></pre>
+        </div>
+
+        <p><a href="#top" class="back-top">Back to top ↑</a></p>
+      </div>
+    </section>
+
+    <!-- Activity 4: Assertion Testing -->
+    <section id="activity-4" class="blog-post">
+      <div id="title-meta-container">
+        <div id="artefact-header">
+          <h1>Activity 4: Assertion-Based Testing</h1>
+          <p class="artefact-meta">Extending Programs with Assert Statements</p>
+        </div>
+      </div>
+
+      <div class="artefact-description">
+        <h2>String Operations with Assertion Testing</h2>
+        
+        <p><strong>Extend the following program to test accuracy of operations using the assert statement.</strong></p>
+
+        <div class="code-block">
+<pre><code class="language-python">class StringOperations:
+    """Enhanced string operations with comprehensive assertion testing."""
+    
+    def __init__(self):
+        self.operations_log = []
+    
+    def concatenate_strings(self, str1, str2):
+        """Concatenate two strings with validation."""
+        # Input validation
+        assert isinstance(str1, str), "First argument must be a string"
+        assert isinstance(str2, str), "Second argument must be a string"
+        
+        result = str1 + str2
+        
+        # Result validation
+        assert len(result) == len(str1) + len(str2), "Concatenation length mismatch"
+        assert result.startswith(str1), "Result should start with first string"
+        assert result.endswith(str2), "Result should end with second string"
+        
+        self.operations_log.append(f"Concatenated '{str1}' + '{str2}' = '{result}'")
+        return result
+    
+    def repeat_string(self, text, times):
+        """Repeat a string specified number of times."""
+        # Input validation
+        assert isinstance(text, str), "Text must be a string"
+        assert isinstance(times, int), "Times must be an integer"
+        assert times >= 0, "Times must be non-negative"
+        
+        result = text * times
+        
+        # Result validation
+        if times == 0:
+            assert result == "", "Zero repetitions should yield empty string"
+        else:
+            expected_length = len(text) * times
+            assert len(result) == expected_length, f"Expected length {expected_length}, got {len(result)}"
+            assert result.count(text) == times, f"Should contain {times} occurrences of '{text}'"
+        
+        self.operations_log.append(f"Repeated '{text}' {times} times = '{result}'")
+        return result
+    
+    def string_length(self, text):
+        """Calculate string length with validation."""
+        assert isinstance(text, str), "Input must be a string"
+        
+        length = len(text)
+        
+        # Result validation
+        assert length >= 0, "Length cannot be negative"
+        assert length == sum(1 for _ in text), "Length calculation mismatch"
+        
+        self.operations_log.append(f"Length of '{text}' = {length}")
+        return length
+    
+    def substring_extraction(self, text, start, end):
+        """Extract substring with bounds checking."""
+        assert isinstance(text, str), "Text must be a string"
+        assert isinstance(start, int), "Start must be an integer"
+        assert isinstance(end, int), "End must be an integer"
+        assert 0 <= start <= len(text), "Start index out of bounds"
+        assert 0 <= end <= len(text), "End index out of bounds"
+        assert start <= end, "Start must be less than or equal to end"
+        
+        result = text[start:end]
+        
+        # Result validation
+        assert len(result) == end - start, "Substring length mismatch"
+        if start < len(text) and end > start:
+            assert result in text, "Substring should be part of original text"
+        
+        self.operations_log.append(f"Substring of '{text}'[{start}:{end}] = '{result}'")
+        return result
+    
+    def run_comprehensive_tests(self):
+        """Run comprehensive test suite using assertions."""
+        print("=== Running Comprehensive String Operation Tests ===")
+        
+        # Test concatenation
+        try:
+            result1 = self.concatenate_strings('Hello', 'World!')
+            assert result1 == 'HelloWorld!', "Concatenation result incorrect"
+            print("✓ Concatenation test passed")
+        except AssertionError as e:
+            print(f"✗ Concatenation test failed: {e}")
+        
+        # Test string repetition
+        try:
+            result2 = self.repeat_string('Hi', 3)
+            assert result2 == 'HiHiHi', "Repetition result incorrect"
+            print("✓ Repetition test passed")
+        except AssertionError as e:
+            print(f"✗ Repetition test failed: {e}")
+        
+        # Test edge cases
+        try:
+            result3 = self.repeat_string('Test', 0)
+            assert result3 == '', "Zero repetition should yield empty string"
+            print("✓ Edge case test passed")
+        except AssertionError as e:
+            print(f"✗ Edge case test failed: {e}")
+        
+        # Test length calculation
+        try:
+            length = self.string_length('Python')
+            assert length == 6, "Length calculation incorrect"
+            print("✓ Length calculation test passed")
+        except AssertionError as e:
+            print(f"✗ Length calculation test failed: {e}")
+        
+        # Test substring extraction
+        try:
+            substring = self.substring_extraction('Programming', 3, 7)
+            assert substring == 'gram', "Substring extraction incorrect"
+            print("✓ Substring extraction test passed")
+        except AssertionError as e:
+            print(f"✗ Substring extraction test failed: {e}")
+        
+        # Test error conditions
+        try:
+            self.concatenate_strings(123, 'text')  # Should raise AssertionError
+            print("✗ Type validation test failed - should have raised error")
+        except AssertionError:
+            print("✓ Type validation test passed")
+        
+        print("\n=== Test Summary ===")
+        print(f"Operations performed: {len(self.operations_log)}")
+        for log_entry in self.operations_log:
+            print(f"  - {log_entry}")
+
+# Enhanced version of the original program with assertions
+def demonstrate_string_operations():
+    """Extended program with assertion testing."""
+    str_ops = StringOperations()
+    
+    # Original operations with assertions
+    str1 = 'Hello'
+    str2 = 'World!'
+    
+    # using +
+    result_concatenate = str_ops.concatenate_strings(str1, str2)
+    print('str1 + str2 = ', result_concatenate)
+    
+    # using *
+    result_repeat = str_ops.repeat_string(str1, 3)
+    print('str1 * 3 =', result_repeat)
+    
+    # Additional operations with assertions
+    length = str_ops.string_length(str1)
+    print(f'Length of str1 = {length}')
+    
+    substring = str_ops.substring_extraction('Programming', 3, 7)
+    print(f'Substring of "Programming"[3:7] = {substring}')
+    
+    # Run comprehensive tests
+    print("\n" + "="*50)
+    str_ops.run_comprehensive_tests()
+
+if __name__ == "__main__":
+    demonstrate_string_operations()</code></pre>
+        </div>
+
+        <h3>Assertion Testing Benefits</h3>
+        
+        <div class="complexity-metrics">
+          <div class="metric-card">
+            <h4>1. Defensive Programming</h4>
+            <p><strong>Input Validation:</strong> Assertions verify preconditions and catch invalid inputs early</p>
+            <p><strong>Contract Enforcement:</strong> Ensures methods adhere to their specified contracts</p>
+          </div>
+
+          <div class="metric-card">
+            <h4>2. Debugging Assistance</h4>
+            <p><strong>Immediate Feedback:</strong> Fail-fast approach identifies issues during development</p>
+            <p><strong>Clear Error Messages:</strong> Descriptive assertions help pinpoint problems</p>
+          </div>
+
+          <div class="metric-card">
+            <h4>3. Documentation</h4>
+            <p><strong>Code Intent:</strong> Assertions document expected behavior and constraints</p>
+            <p><strong>Maintenance Aid:</strong> Help future developers understand code assumptions</p>
+          </div>
+        </div>
+
+        <h3>Best Practices for Assertion Testing</h3>
+        <table class="comparison-table">
+          <thead>
+            <tr>
+              <th>Practice</th>
+              <th>Implementation</th>
+              <th>Benefit</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Validate Inputs</strong></td>
+              <td>Check parameter types and ranges at method entry</td>
+              <td>Prevents invalid data propagation</td>
+            </tr>
+            <tr>
+              <td><strong>Check Postconditions</strong></td>
+              <td>Verify method results before returning</td>
+              <td>Ensures correct output</td>
+            </tr>
+            <tr>
+              <td><strong>Test Invariants</strong></td>
+              <td>Validate conditions that should always hold true</td>
+              <td>Maintains system integrity</td>
+            </tr>
+            <tr>
+              <td><strong>Use Descriptive Messages</strong></td>
+              <td>Provide clear error messages in assertions</td>
+              <td>Faster debugging and understanding</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div class="method-demo">
+          <h4>Production vs Development Assertions</h4>
+          <p><strong>Development:</strong> Use assertions liberally for debugging and validation</p>
+          <p><strong>Production:</strong> Consider performance impact; use exceptions for user-facing error handling</p>
+          <p><strong>Python Note:</strong> Assertions can be disabled with <code>-O</code> flag, so don't rely on them for critical error handling</p>
+        </div>
+
+        <p><a href="#top" class="back-top">Back to top ↑</a></p>
+      </div>
+    </section>
+  </div>
+</body>
+</html>

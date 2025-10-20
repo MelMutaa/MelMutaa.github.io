@@ -1,0 +1,536 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Unit 5: Polymorphism and Python Exercises - MelMutaa E-Portfolio</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="shortcut icon" href="../favicon-16x16.png" />
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Roboto:400,300,600,400italic,700" rel="stylesheet" />
+
+  <!-- Site CSS -->
+  <link rel="stylesheet" href="../css/artefact.css" />
+  <link rel="stylesheet" href="../css/style.css" />
+
+  <!-- Page-scoped helpers (move to artefact.css when ready) -->
+  <style>
+    html{scroll-behavior:smooth;}
+    .blog-post{max-width:1100px;margin:40px auto;background:#fff;border:1px solid #eee;border-radius:14px;padding:36px 40px;box-shadow:0 6px 24px rgba(0,0,0,.06);scroll-margin-top:80px;}
+    #title-meta-container{margin:-12px 0 18px 0;}
+    #artefact-header h1{text-align:center;margin:0 0 6px 0;}
+    #artefact-header .artefact-meta{text-align:center;margin:0 0 14px 0;color:#b35555;}
+    pre{background:#0f172a;color:#e5e7eb;padding:16px;border-radius:10px;overflow:auto;line-height:1.45}
+    code, pre code{font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,"Liberation Mono","Courier New",monospace;}
+    .back-top{display:inline-block;border:1px solid #e87f7f;padding:8px 14px;border-radius:10px;text-decoration:none}
+    .back-top:hover{background:#fff5f5}
+    .exercise-brief{max-width:1100px;margin:40px auto;background:#fff;border:1px solid #eee;border-radius:14px;padding:36px 40px;box-shadow:0 6px 24px rgba(0,0,0,.06);}
+    .exercise-item{margin-bottom:20px;padding-bottom:20px;border-bottom:1px solid #eee;}
+    .exercise-item:last-child{border-bottom:none;margin-bottom:0;padding-bottom:0;}
+    .exercise-title{font-weight:700;color:#b35555;margin-bottom:8px;}
+    .solution-container{background:#f8f9fa;padding:20px;border-radius:8px;margin:15px 0;}
+    .code-comparison{display:flex;gap:20px;margin:20px 0;align-items:flex-start}
+    .code-comparison>div{flex:1}
+    @media (max-width: 900px){.code-comparison{flex-direction:column}}
+    /* quick table polish */
+    table{width:100%;border-collapse:collapse}
+    th,td{border:1px solid #ddd;padding:8px;text-align:left}
+    thead th{background:#fafafa}
+  </style>
+</head>
+<body>
+  <div id="top"></div>
+  <div id="main">
+
+    <!-- Breadcrumbs -->
+    <nav id="breadcrumbs" aria-label="Breadcrumb">
+      <p><a href="../oop.html">Module Two — OOP</a> &gt; <span>Unit 5: Polymorphism and Python Exercises</span></p>
+    </nav>
+
+    <!-- Intro -->
+    <section id="introduction">
+      <h2>Unit 5: Polymorphism and Python Exercises</h2>
+      <p style="text-align:center;max-width:900px;margin:0 auto">
+        Exploring polymorphism and Python techniques including set operations, recursion optimization, and concise functional patterns.
+      </p>
+    </section>
+
+    <!-- Quick TOC Tile -->
+    <section id="artefact-tiles" aria-label="Quick navigation">
+      <div class="tile">
+        <a href="#exercise-brief">
+          <div class="tile-content">
+            <h3>Exercises Overview</h3>
+            <p>All tasks at a glance</p>
+          </div>
+        </a>
+      </div>
+      <div class="tile"><a href="#task-1"><div class="tile-content"><h3>Task 1</h3><p>Polymorphism (Robot)</p></div></a></div>
+      <div class="tile"><a href="#task-2"><div class="tile-content"><h3>Task 2</h3><p>Set ops (uses_none)</p></div></a></div>
+      <div class="tile"><a href="#task-3"><div class="tile-content"><h3>Task 3</h3><p>Scrabble validate</p></div></a></div>
+      <div class="tile"><a href="#task-4"><div class="tile-content"><h3>Task 4</h3><p>defaultdict partition</p></div></a></div>
+      <div class="tile"><a href="#task-5"><div class="tile-content"><h3>Task 5</h3><p>Single-return fib</p></div></a></div>
+      <div class="tile"><a href="#task-6"><div class="tile-content"><h3>Task 6</h3><p>Memoized binomial</p></div></a></div>
+      <div class="tile"><a href="#task-7"><div class="tile-content"><h3>Task 7</h3><p>Concise Deck.__str__</p></div></a></div>
+    </section>
+
+    <!-- Exercise Brief Section -->
+    <section class="exercise-brief" id="exercise-brief">
+      <div id="title-meta-container">
+        <div id="artefact-header">
+          <h1>Unit 5 Exercises — Brief</h1>
+          <p class="artefact-meta">Polymorphism and Python Programming Tasks</p>
+        </div>
+      </div>
+      <div class="artefact-description">
+        <div class="exercise-item">
+          <div class="exercise-title">Task 1: Polymorphism for Humanoid Robot</div>
+          <p>Write a Python program with polymorphism that is usable within the summative assessment for the humanoid robot.</p>
+        </div>
+        <div class="exercise-item">
+          <div class="exercise-title">Task 2: Set Operations for <code>uses_none</code></div>
+          <p>Write a version of <code>uses_none</code> that uses set operations instead of a <code>for</code> loop.</p>
+        </div>
+        <div class="exercise-item">
+          <div class="exercise-title">Task 3: Scrabble Word Validation</div>
+          <p>Write a function that takes a string of letters and a word, and checks whether the letters can spell the word.</p>
+        </div>
+        <div class="exercise-item">
+          <div class="exercise-title">Task 4: <code>defaultdict</code> for Poker Hand Partition</div>
+          <p>Write a simplified version of the partition function using <code>defaultdict</code>.</p>
+        </div>
+        <div class="exercise-item">
+          <div class="exercise-title">Task 5: Single Return Fibonacci</div>
+          <p>Write a version of the <code>fibonacci</code> function with a single return using nested conditionals.</p>
+        </div>
+        <div class="exercise-item">
+          <div class="exercise-title">Task 6: Binomial Coefficient with Memoization</div>
+          <p>Rewrite <code>binomial_coeff</code> using nested conditionals and memoize it.</p>
+        </div>
+        <div class="exercise-item">
+          <div class="exercise-title">Task 7: Concise <code>Deck.__str__</code></div>
+          <p>Write a concise version using a list comprehension / generator / <code>map</code>.</p>
+        </div>
+        <p style="margin-top:20px;"><a href="#top" class="back-top">Back to top ↑</a></p>
+      </div>
+    </section>
+
+    <!-- Task 1 -->
+    <section class="blog-post" id="task-1">
+      <div id="title-meta-container">
+        <div id="artefact-header">
+          <h1>Task 1 — Polymorphism for Humanoid Robot</h1>
+          <p class="artefact-meta">Implementing polymorphic behaviour for robot task management</p>
+        </div>
+      </div>
+      <div class="artefact-description">
+        <h3>Polymorphic Robot Task System</h3>
+        <p>This implementation demonstrates polymorphism with different task types that share a common interface and implement behaviour differently.</p>
+
+<pre><code class="language-python">from abc import ABC, abstractmethod
+from datetime import datetime
+import time
+
+class RobotTask(ABC):
+    """Abstract base class for robot tasks."""
+    def __init__(self, task_name: str, priority: int = 1):
+        self.task_name = task_name
+        self.priority = priority
+        self.status = "Pending"
+        self.start_time = None
+        self.end_time = None
+
+    @abstractmethod
+    def execute(self): ...
+
+    @abstractmethod
+    def get_task_details(self): ...
+
+    def run(self):
+        """Common run pipeline for any task."""
+        self.status = "Running"
+        self.start_time = datetime.now()
+        print(f"Starting task: {self.task_name}")
+        result = self.execute()   # polymorphic call
+        self.end_time = datetime.now()
+        self.status = "Completed"
+        print(f"Completed task: {self.task_name}")
+        return result
+
+    def __str__(self):
+        return f"{self.task_name} (Priority: {self.priority}, Status: {self.status})"
+
+class NavigationTask(RobotTask):
+    def __init__(self, destination: str, route_priority: str = "optimal"):
+        super().__init__(f"Navigate to {destination}", priority=2)
+        self.destination = destination
+        self.route_priority = route_priority
+
+    def execute(self):
+        print(f"Calculating {self.route_priority} route to {self.destination}")
+        print("Activating LIDAR and camera sensors")
+        time.sleep(1)
+        print(f"Arrived at {self.destination}")
+        return f"Navigated to {self.destination}"
+
+    def get_task_details(self):
+        return {"type":"Navigation","destination":self.destination,"route_priority":self.route_priority}
+
+class ManipulationTask(RobotTask):
+    def __init__(self, object_name: str, action: str, grip_force: float = 5.0):
+        super().__init__(f"{action} {object_name}", priority=3)
+        self.object_name = object_name
+        self.action = action
+        self.grip_force = grip_force
+
+    def execute(self):
+        print(f"Adjusting gripper to {self.grip_force} N")
+        time.sleep(0.5)
+        return f"{self.action.title()}ed {self.object_name}"
+
+    def get_task_details(self):
+        return {"type":"Manipulation","object":self.object_name,"action":self.action,"grip_force":self.grip_force}
+
+class CommunicationTask(RobotTask):
+    def __init__(self, message: str, recipient: str = "Operator"):
+        super().__init__(f"Communicate with {recipient}", priority=1)
+        self.message = message
+        self.recipient = recipient
+
+    def execute(self):
+        print(f"Sending to {self.recipient}: {self.message}")
+        time.sleep(0.2)
+        return f"Message sent to {self.recipient}"
+
+    def get_task_details(self):
+        return {"type":"Communication","recipient":self.recipient,"message":self.message}
+
+class HumanoidRobot:
+    def __init__(self, name: str):
+        self.name = name
+        self.task_queue = []
+        self.completed = []
+
+    def add_task(self, task: RobotTask):
+        self.task_queue.append(task)
+        self.task_queue.sort(key=lambda t: t.priority, reverse=True)
+
+    def execute_all(self):
+        print(f"\n=== {self.name}: Starting Tasks ===")
+        while self.task_queue:
+            task = self.task_queue.pop(0)
+            result = task.run()
+            self.completed.append((task, result))
+        print(f"=== {self.name}: All Tasks Complete ===")
+
+    def report(self):
+        print(f"\n=== Report for {self.name} ===")
+        for task, result in self.completed:
+            print(f"- {task}: {result}")
+
+# Demo
+if __name__ == "__main__":
+    robot = HumanoidRobot("Atlas-MK2")
+    robot.add_task(NavigationTask("Kitchen", "fastest"))
+    robot.add_task(ManipulationTask("coffee cup", "lift", 3.5))
+    robot.add_task(CommunicationTask("Task completed", "Control Center"))
+    robot.execute_all()
+    robot.report()</code></pre>
+
+        <h3>Polymorphism Benefits</h3>
+        <ul>
+          <li><strong>Common interface:</strong> all tasks implement the same abstract API.</li>
+          <li><strong>Different behaviours:</strong> each subclass customises <code>execute</code> and <code>get_task_details</code>.</li>
+          <li><strong>Extensibility:</strong> new tasks drop in without changing <code>HumanoidRobot</code>.</li>
+        </ul>
+
+        <p style="margin-top:12px;"><a href="#top" class="back-top">Back to top ↑</a></p>
+      </div>
+    </section>
+
+    <!-- Task 2 -->
+    <section class="blog-post" id="task-2">
+      <div id="title-meta-container">
+        <div id="artefact-header">
+          <h1>Task 2 — Set Operations for <code>uses_none</code></h1>
+          <p class="artefact-meta">Using set intersection for efficient checks</p>
+        </div>
+      </div>
+      <div class="artefact-description">
+        <div class="code-comparison" aria-label="Code comparison">
+          <div>
+            <h4>Original (loop)</h4>
+<pre><code class="language-python">def uses_none(word, forbidden):
+    for letter in word.lower():
+        if letter in forbidden.lower():
+            return False
+    return True</code></pre>
+          </div>
+          <div>
+            <h4>Set operations</h4>
+<pre><code class="language-python">def uses_none(word, forbidden):
+    letters = set(word.lower())
+    bad = set(forbidden.lower())
+    return not (letters &amp; bad)
+
+# one-liner:
+# return not (set(word.lower()) &amp; set(forbidden.lower()))</code></pre>
+          </div>
+        </div>
+
+        <div class="solution-container">
+          <h4>Quick test</h4>
+<pre><code class="language-python">for w, f in [("hello","xyz"),("hello","aeiou"),("world","abc")]:
+    print(w, f, "->", uses_none(w, f))</code></pre>
+        </div>
+
+        <p><a href="#top" class="back-top">Back to top ↑</a></p>
+      </div>
+    </section>
+
+    <!-- Task 3 -->
+    <section class="blog-post" id="task-3">
+      <div id="title-meta-container">
+        <div id="artefact-header">
+          <h1>Task 3 — Scrabble Word Validation</h1>
+          <p class="artefact-meta">Frequency counting with <code>collections.Counter</code></p>
+        </div>
+      </div>
+      <div class="artefact-description">
+<pre><code class="language-python">from collections import Counter
+
+def can_spell(letters, word):
+    available, needed = Counter(letters.lower()), Counter(word.lower())
+    return not (needed - available)
+
+# tests
+print(can_spell("TABLE","BELT"))  # True
+print(can_spell("TABLE","BEET"))  # False</code></pre>
+
+        <ul>
+          <li><strong>Counter</strong> tracks letter frequencies.</li>
+          <li><code>needed - available</code> leaves unmet letters; empty means success.</li>
+        </ul>
+
+        <p><a href="#top" class="back-top">Back to top ↑</a></p>
+      </div>
+    </section>
+
+    <!-- Task 4 -->
+    <section class="blog-post" id="task-4">
+      <div id="title-meta-container">
+        <div id="artefact-header">
+          <h1>Task 4 — <code>defaultdict</code> for Poker Hand Partition</h1>
+          <p class="artefact-meta">Cleaner grouping by suit</p>
+        </div>
+      </div>
+      <div class="artefact-description">
+        <div class="code-comparison">
+          <div>
+            <h4>Original</h4>
+<pre><code class="language-python">def partition(self):
+    hands = []
+    for _ in range(4):
+        hands.append(PokerHand())
+    for card in self.cards:
+        hands[card.suit].add_card(card)
+    return hands</code></pre>
+          </div>
+          <div>
+            <h4><code>defaultdict</code> version</h4>
+<pre><code class="language-python">from collections import defaultdict
+
+def partition_defaultdict(self):
+    hands = defaultdict(PokerHand)
+    for card in self.cards:
+        hands[card.suit].add_card(card)
+    return list(hands.values())</code></pre>
+          </div>
+        </div>
+
+        <div class="solution-container">
+          <h4>Minimal working example</h4>
+<pre><code class="language-python">from collections import defaultdict
+
+class Card:
+    def __init__(self, suit, rank):
+        self.suit, self.rank = suit, rank
+    def __str__(self): return f"{self.rank} of {self.suit}"
+
+class PokerHand:
+    def __init__(self): self.cards=[]
+    def add_card(self, c): self.cards.append(c)
+    def __str__(self): return f"{len(self.cards)} cards"
+
+class Deck:
+    def __init__(self):
+        suits = ['Hearts','Diamonds','Clubs','Spades']
+        ranks = ['2','3','4','5','6','7','8','9','10','J','Q','K','A']
+        self.cards = [Card(s,r) for s in suits for r in ranks]
+
+    def partition_defaultdict(self):
+        hands = defaultdict(PokerHand)
+        for card in self.cards:
+            hands[card.suit].add_card(card)
+        return list(hands.values())</code></pre>
+        </div>
+
+        <ul>
+          <li>No pre-initialisation needed; suits become keys on demand.</li>
+          <li>Cleaner and easier to extend for jokers/custom suits.</li>
+        </ul>
+
+        <p><a href="#top" class="back-top">Back to top ↑</a></p>
+      </div>
+    </section>
+
+    <!-- Task 5 -->
+    <section class="blog-post" id="task-5">
+      <div id="title-meta-container">
+        <div id="artefact-header">
+          <h1>Task 5 — Single Return Fibonacci</h1>
+          <p class="artefact-meta">Nested conditional expressions</p>
+        </div>
+      </div>
+      <div class="artefact-description">
+        <div class="code-comparison">
+          <div>
+            <h4>Original</h4>
+<pre><code class="language-python">def fibonacci(n):
+    if n == 0: return 0
+    if n == 1: return 1
+    return fibonacci(n-1) + fibonacci(n-2)</code></pre>
+          </div>
+          <div>
+            <h4>Single-return</h4>
+<pre><code class="language-python">def fibonacci_single(n):
+    return (0 if n == 0 else
+            1 if n == 1 else
+            fibonacci_single(n-1) + fibonacci_single(n-2))</code></pre>
+          </div>
+        </div>
+
+        <div class="solution-container">
+          <h4>Tests</h4>
+<pre><code class="language-python">exp = [0,1,1,2,3,5,8,13,21]
+print([fibonacci(i) for i in range(9)])
+print([fibonacci_single(i) for i in range(9)])</code></pre>
+        </div>
+
+        <p><a href="#top" class="back-top">Back to top ↑</a></p>
+      </div>
+    </section>
+
+    <!-- Task 6 -->
+    <section class="blog-post" id="task-6">
+      <div id="title-meta-container">
+        <div id="artefact-header">
+          <h1>Task 6 — Binomial Coefficient with Memoization</h1>
+          <p class="artefact-meta">From exponential to linear-time via caching</p>
+        </div>
+      </div>
+      <div class="artefact-description">
+        <div class="code-comparison">
+          <div>
+            <h4>Original</h4>
+<pre><code class="language-python">def binomial_coeff(n, k):
+    if k == 0: return 1
+    if n == 0: return 0
+    return binomial_coeff(n-1, k) + binomial_coeff(n-1, k-1)</code></pre>
+          </div>
+          <div>
+            <h4>Memoized / conditional</h4>
+<pre><code class="language-python">from functools import lru_cache
+
+def binomial_cond(n, k):
+    return (1 if k == 0 else
+            0 if n == 0 else
+            binomial_cond(n-1, k) + binomial_cond(n-1, k-1))
+
+@lru_cache(maxsize=None)
+def binomial_memo(n, k):
+    if k == 0: return 1
+    if n == 0: return 0
+    return binomial_memo(n-1, k) + binomial_memo(n-1, k-1)</code></pre>
+          </div>
+        </div>
+
+        <div class="solution-container">
+          <h4>Quick check</h4>
+<pre><code class="language-python">print(binomial_memo(10, 4))  # 210</code></pre>
+        </div>
+
+        <p><a href="#top" class="back-top">Back to top ↑</a></p>
+      </div>
+    </section>
+
+    <!-- Task 7 -->
+    <section class="blog-post" id="task-7">
+      <div id="title-meta-container">
+        <div id="artefact-header">
+          <h1>Task 7 — Concise <code>Deck.__str__</code></h1>
+          <p class="artefact-meta">Comprehensions, generators, and <code>map</code></p>
+        </div>
+      </div>
+      <div class="artefact-description">
+        <div class="code-comparison">
+          <div>
+            <h4>Original</h4>
+<pre><code class="language-python">def __str__(self):
+    res = []
+    for card in self.cards:
+        res.append(str(card))
+    return '\n'.join(res)</code></pre>
+          </div>
+          <div>
+            <h4>Concise versions</h4>
+<pre><code class="language-python">def __str__(self):  # generator expression
+    return '\n'.join(str(card) for card in self.cards)
+
+def __str__(self):  # list comprehension
+    return '\n'.join([str(card) for card in self.cards])
+
+def __str__(self):  # map
+    return '\n'.join(map(str, self.cards))</code></pre>
+          </div>
+        </div>
+
+        <div class="solution-container">
+          <h4>Minimal example</h4>
+<pre><code class="language-python">class Card:
+    def __init__(self, suit, rank):
+        self.suit, self.rank = suit, rank
+    def __str__(self): return f"{self.rank} of {self.suit}"
+
+class Deck:
+    def __init__(self):
+        suits = ['Hearts','Diamonds','Clubs','Spades']
+        ranks = ['2','3','4','5','6','7','8','9','10','J','Q','K','A']
+        self.cards = [Card(s,r) for s in suits for r in ranks]
+
+    def __str__(self):  # generator: memory-friendly
+        return '\n'.join(str(c) for c in self.cards)</code></pre>
+        </div>
+
+        <h3>Approach comparison</h3>
+        <table>
+          <thead>
+            <tr>
+              <th>Method</th><th>Memory</th><th>Speed</th><th>Readability</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>Original loop</td><td>High</td><td>Good</td><td>Best for beginners</td></tr>
+            <tr><td>List comprehension</td><td>High</td><td>Better</td><td>Good</td></tr>
+            <tr><td>Generator</td><td>Low</td><td>Best</td><td>Good</td></tr>
+            <tr><td>map</td><td>Low</td><td>Best</td><td>Fair</td></tr>
+          </tbody>
+        </table>
+
+        <p><a href="#top" class="back-top">Back to top ↑</a></p>
+      </div>
+    </section>
+  </div>
+</body>
+</html>
+
